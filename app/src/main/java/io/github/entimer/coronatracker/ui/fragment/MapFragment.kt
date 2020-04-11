@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import io.github.entimer.coronatracker.R
 
-class SearchFragment: Fragment() {
+class MapFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_search, container, false)
+        return inflater!!.inflate(R.layout.fragment_map, container, false)
     }
 }

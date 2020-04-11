@@ -3,12 +3,14 @@
     <string name="app_name">코로나 트래커</string>
 
     <!-- Tool bar -->
+    <string name="refresh">초기화</string>
+    <string name="search">검색</string>
     <string name="setting">설정</string>
 
     <!-- Bottom Navigation -->
     <string name="dashboard">대시보드</string>
-    <string name="search">검색</string>
-    <string name="advice">도움말</string>
+    <string name="map">지도</string>
+    <string name="chart">차트</string>
 
     <!-- Numbers -->
     <string name="total">총합</string>
@@ -19,6 +21,5 @@
 
     <!-- Dashboard -->
     <string name="worldwide">전세계</string>
-    <string name="chart">차트</string>
     <string name="chart_center_text">전세계 확진자 현황</string>
 </resources>
