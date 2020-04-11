@@ -9,4 +9,12 @@
     <string name="dashboard">대시보드</string>
     <string name="search">검색</string>
     <string name="advice">도움말</string>
+
+    <!-- Numbers -->
+    <string name="confirmed">확진자</string>
+    <string name="recovered">완치자</string>
+    <string name="death">사망자</string>
+
+    <!-- Dashboard -->
+    <string name="worldwide">전세계</string>
 </resources>
