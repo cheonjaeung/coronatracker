@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_setting.*
 class SearchActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_setting)
+        setContentView(R.layout.activity_search)
 
         setting_toolbar.setNavigationOnClickListener {
             finish()
