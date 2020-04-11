@@ -20,6 +20,10 @@
 
 ## Usage
 
+## Open Source Libraries
+- [Material Components](https://github.com/material-components/material-components-android) by Google, Apache 2.0 License
+- [MP Android Chart](https://github.com/PhilJay/MPAndroidChart) by PhilJay, Apache 2.0 License
+
 ## License
 © 2020 Jaewoong Cheon licensed under the MIT License.
 

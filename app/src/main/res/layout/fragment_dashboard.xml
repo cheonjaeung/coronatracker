@@ -16,6 +16,8 @@
 
             <include layout="@layout/layout_card_worldwide"/>
 
+            <include layout="@layout/layout_card_chart"/>
+
         </LinearLayout>
 
     </ScrollView>
