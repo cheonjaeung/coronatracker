@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import io.github.entimer.coronatracker.R
 import kotlinx.android.synthetic.main.layout_card_worldwide.view.*
+import java.text.DecimalFormat
 
 class DashboardFragment: Fragment() {
     private var confirmed = 1696139
@@ -16,9 +17,10 @@ class DashboardFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_dashboard, container, false)
 
-        view.dashboard_worldwide_confirmed.text = confirmed.toString()
-        view.dashboard_worldwide_recovered.text = recovered.toString()
-        view.dashboard_worldwide_death.text = death.toString()
+        val decimalFormat = DecimalFormat("###,###")
+        view.dashboard_worldwide_confirmed.text = decimalFormat.format(confirmed)
+        view.dashboard_worldwide_recovered.text = decimalFormat.format(recovered)
+        view.dashboard_worldwide_death.text = decimalFormat.format(death)
 
         return view
     }
