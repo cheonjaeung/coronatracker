@@ -11,6 +11,7 @@
     <string name="advice">도움말</string>
 
     <!-- Numbers -->
+    <string name="total">총합</string>
     <string name="confirmed">확진자</string>
     <string name="active">양성</string>
     <string name="recovered">완치자</string>

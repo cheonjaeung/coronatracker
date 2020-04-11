@@ -15,35 +15,34 @@ import kotlinx.android.synthetic.main.layout_card_worldwide.view.*
 import java.text.DecimalFormat
 
 class DashboardFragment: Fragment() {
-    private var confirmed = 1696139
-    private var recovered = 376200
-    private var death = 102669
+    private var sampleConfirmed = 1696139
+    private var sampleRecovered = 376200
+    private var sampleDeath = 102669
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_dashboard, container, false)
 
-        initWorldwideCard(view)
-        initChartCart(view)
+        setWorldwideCard(view, sampleConfirmed, sampleRecovered, sampleDeath)
+        initChartCart(view, sampleConfirmed, sampleRecovered, sampleDeath)
 
         return view
     }
 
-    private fun initWorldwideCard(view: View) {
+    /**
+     * Set worldwide card data.
+     */
+    private fun setWorldwideCard(view: View, confirmed: Int, recovered: Int, death: Int) {
         val decimalFormat = DecimalFormat("###,###")
         view.dashboard_worldwide_confirmed.text = decimalFormat.format(confirmed)
+        view.dashboard_worldwide_active.text = decimalFormat.format(confirmed - recovered - death)
         view.dashboard_worldwide_recovered.text = decimalFormat.format(recovered)
         view.dashboard_worldwide_death.text = decimalFormat.format(death)
     }
 
-    private fun initChartCart(view: View) {
-        //Data values
-        val confirmedF = confirmed.toFloat()
-        val recoveredF = recovered.toFloat()
-        val deathF = death.toFloat()
-        var percentActive = (confirmedF - recoveredF - deathF) / confirmedF * 100f
-        var percentRecovered = recoveredF / confirmedF * 100f
-        var percentDeath = deathF / confirmedF * 100f
-
+    /**
+     * Initialize chart card.
+     */
+    private fun initChartCart(view: View, confirmed: Int, recovered: Int, death: Int) {
         //Init pie chart view
         view.dashboard_chart.setUsePercentValues(true)
         view.dashboard_chart.description.isEnabled = false
@@ -57,6 +56,21 @@ class DashboardFragment: Fragment() {
         view.dashboard_chart.rotationAngle = 0.0f
 
         view.dashboard_chart.isHighlightPerTapEnabled = true
+
+        setChartCard(view, confirmed, recovered, death)
+    }
+
+    /**
+     * Set chart card data.
+     */
+    private fun setChartCard(view: View, confirmed: Int, recovered: Int, death: Int) {
+        //Data values
+        val confirmedF = confirmed.toFloat()
+        val recoveredF = recovered.toFloat()
+        val deathF = death.toFloat()
+        var percentActive = (confirmedF - recoveredF - deathF) / confirmedF * 100f
+        var percentRecovered = recoveredF / confirmedF * 100f
+        var percentDeath = deathF / confirmedF * 100f
 
         //Make data entries
         var entries = ArrayList<PieEntry>()
@@ -84,5 +98,13 @@ class DashboardFragment: Fragment() {
 
         view.dashboard_chart.data = data
         view.dashboard_chart.invalidate()
+    }
+
+    /**
+     * Set all card data. Worldwide card and chart card.
+     */
+    fun setAllCardData(view: View, confirmed: Int, recovered: Int, death: Int) {
+        setWorldwideCard(view, confirmed, recovered, death)
+        setChartCard(view, confirmed, recovered, death)
     }
 }
