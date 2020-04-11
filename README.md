@@ -14,6 +14,7 @@
 - [ ] **Each Countries Data**: Shows data of selected country.
 - [ ] **Widget**: You can check data with widget.
 - [ ] **Theme Change**: Supports dark theme and light theme.
+- [ ] **Language**: Supports Korean and English.
 
 ## Download
 

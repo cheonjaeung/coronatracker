@@ -1,3 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CoronaTracker</string>
+    <string name="app_name">코로나 트래커</string>
+
+    <!-- Tool bar -->
+    <string name="setting">설정</string>
+
+    <!-- Bottom Navigation -->
+    <string name="dashboard">대시보드</string>
+    <string name="search">검색</string>
+    <string name="advice">도움말</string>
 </resources>
