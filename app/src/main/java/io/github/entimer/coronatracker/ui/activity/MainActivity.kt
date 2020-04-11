@@ -21,6 +21,7 @@ class MainActivity: AppCompatActivity() {
 
         val transaction: FragmentTransaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.main_frame, dashboard).commitAllowingStateLoss()
+        main_toolbar.title = getString(R.string.dashboard)
 
         main_toolbar.setOnMenuItemClickListener {
             when(it.itemId) {
@@ -38,12 +39,15 @@ class MainActivity: AppCompatActivity() {
             when(it.itemId) {
                 R.id.dashboard -> {
                     transaction.replace(R.id.main_frame, dashboard).commitAllowingStateLoss()
+                    main_toolbar.title = getString(R.string.dashboard)
                 }
                 R.id.search -> {
                     transaction.replace(R.id.main_frame, search).commitAllowingStateLoss()
+                    main_toolbar.title = getString(R.string.search)
                 }
                 R.id.advice -> {
                     transaction.replace(R.id.main_frame, advice).commitAllowingStateLoss()
+                    main_toolbar.title = getString(R.string.advice)
                 }
             }
             true

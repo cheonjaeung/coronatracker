@@ -9,4 +9,16 @@
     <string name="dashboard">대시보드</string>
     <string name="search">검색</string>
     <string name="advice">도움말</string>
+
+    <!-- Numbers -->
+    <string name="total">총합</string>
+    <string name="confirmed">확진자</string>
+    <string name="active">양성</string>
+    <string name="recovered">완치자</string>
+    <string name="death">사망자</string>
+
+    <!-- Dashboard -->
+    <string name="worldwide">전세계</string>
+    <string name="chart">차트</string>
+    <string name="chart_center_text">전세계 확진자 현황</string>
 </resources>
