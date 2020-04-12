@@ -11,11 +11,29 @@ interface CountryDao {
     @Query("SELECT * FROM country")
     fun selectAll(): List<Country>
 
-    @Query("SELECT country_name FROM country WHERE country_name = (:country)")
-    fun selectByCountry(country: String): String
+    @Query("SELECT name FROM country WHERE name = (:name)")
+    fun selectByName(name: String): String
 
-    @Query("SELECT country_name FROM country WHERE country_name IN (:countries)")
-    fun selectByCountries(countries: List<String>): List<String>
+    @Query("SELECT name FROM country WHERE name IN (:names)")
+    fun selectByNames(vararg names: String): List<String>
+
+    @Query("SELECT name FROM country WHERE code = (:code)")
+    fun selectByCode(code: String): String
+
+    @Query("SELECT name FROM country WHERE code IN (:codes)")
+    fun selectByCodes(vararg codes: String): List<String>
+
+    @Query("SELECT code FROM country WHERE name = (:name)")
+    fun selectCodeByName(name: String): String
+
+    @Query("SELECT code FROM country WHERE name IN (:names)")
+    fun selectCodeByNames(vararg names: String): List<String>
+
+    @Query("SELECT code FROM country WHERE code = (:code)")
+    fun selectCodeByCode(code: String): String
+
+    @Query("SELECT code FROM country WHERE code IN (:codes)")
+    fun selectCodeByCodes(vararg codes: String): List<String>
 
     @Insert
     fun insert(country: Country)

@@ -7,7 +7,7 @@ import androidx.room.ForeignKey.CASCADE
     foreignKeys = [
         ForeignKey(
             entity = Country::class,
-            parentColumns = ["country_name"],
+            parentColumns = ["name"],
             childColumns = ["country"],
             onDelete = CASCADE
         )
