@@ -27,6 +27,15 @@ interface CaseDao {
     @Query("SELECT confirmed, recovered, death FROM `case` WHERE date IN (:dates)")
     fun selectByDates(vararg dates: String): List<CaseNumber>
 
+    @Query("SELECT confirmed FROM `case` WHERE date = (:date)")
+    fun selectAllConfirmedByDate(date: String): List<Int>
+
+    @Query("SELECT recovered FROM `case` WHERE date = (:date)")
+    fun selectAllRecoveredByDate(date: String): List<Int>
+
+    @Query("SELECT death FROM `case` WHERE date = (:date)")
+    fun selectAllDeathByDate(date: String): List<Int>
+
     @Insert
     fun insert(case: Case)
 
