@@ -1,16 +1,22 @@
-package io.github.entimer.coronatracker.ui.activity
+package io.github.entimer.coronatracker.ui.main
 
 import android.app.FragmentTransaction
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import io.github.entimer.coronatracker.R
-import io.github.entimer.coronatracker.ui.fragment.ChartFragment
-import io.github.entimer.coronatracker.ui.fragment.DashboardFragment
-import io.github.entimer.coronatracker.ui.fragment.MapFragment
+import io.github.entimer.coronatracker.ui.IMVP
+import io.github.entimer.coronatracker.ui.IView
+import io.github.entimer.coronatracker.ui.search.SearchActivity
+import io.github.entimer.coronatracker.ui.setting.SettingActivity
+import io.github.entimer.coronatracker.ui.main.chart.ChartFragment
+import io.github.entimer.coronatracker.ui.main.dashboard.DashboardFragment
+import io.github.entimer.coronatracker.ui.main.map.MapFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity: AppCompatActivity() {
+class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMVP.View {
+    private lateinit var presenter: MainPresenter
+
     private val dashboard = DashboardFragment()
     private val search = MapFragment()
     private val advice = ChartFragment()
@@ -19,10 +25,19 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val transaction: FragmentTransaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.main_frame, dashboard).commitAllowingStateLoss()
-        main_toolbar.title = getString(R.string.dashboard)
+        presenter = MainPresenter(this)
 
+        initFragment()
+        initListener()
+    }
+
+    override fun initPresenter() {
+        presenter = MainPresenter(this)
+    }
+
+    override fun initView() {}
+
+    override fun initListener() {
         main_toolbar.setOnMenuItemClickListener {
             when(it.itemId) {
                 R.id.refresh -> {
@@ -59,5 +74,15 @@ class MainActivity: AppCompatActivity() {
             }
             true
         }
+    }
+
+    override fun initFragment() {
+        val transaction: FragmentTransaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.main_frame, dashboard).commitAllowingStateLoss()
+        main_toolbar.title = getString(R.string.dashboard)
+    }
+
+    override fun updateView() {
+
     }
 }
