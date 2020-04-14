@@ -30,7 +30,7 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMVP.View 
         initFragment()
         initListener()
 
-        presenter.saveCountriesInDatabase(applicationContext)
+        presenter.initDatabase(applicationContext)
     }
 
     override fun initPresenter() {

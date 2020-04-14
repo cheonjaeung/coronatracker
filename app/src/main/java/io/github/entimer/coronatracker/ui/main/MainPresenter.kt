@@ -7,7 +7,7 @@ class MainPresenter(view: IMVP.View): IMVP.Presenter {
     private val view: IMVP.View = view
     private val model: MainModel = MainModel(this)
 
-    fun saveCountriesInDatabase(context: Context) {
-        model.getCountriesFromWeb(context)
+    fun initDatabase(context: Context) {
+        model.initCountriesDatabase(context)
     }
 }
