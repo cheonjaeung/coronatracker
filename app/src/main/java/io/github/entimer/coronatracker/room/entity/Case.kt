@@ -3,7 +3,8 @@ package io.github.entimer.coronatracker.room.entity
 import androidx.room.*
 import androidx.room.ForeignKey.CASCADE
 
-@Entity(tableName = "case",
+@Entity(tableName = "cases",
+    primaryKeys = ["country", "date"],
     foreignKeys = [
         ForeignKey(
             entity = Country::class,
@@ -13,13 +14,13 @@ import androidx.room.ForeignKey.CASCADE
         )
     ])
 data class Case (
-    @PrimaryKey
-    val id: Int,
-
     val country: String,
 
     val date: String,
 
-    @Embedded
-    val number: CaseNumber
+    val confirmed: Int?,
+
+    val recovered: Int?,
+
+    val death: Int?
 )

@@ -8,5 +8,5 @@ data class Country (
     @PrimaryKey
     val name: String,
 
-    val code: String
+    val code: String?
 )

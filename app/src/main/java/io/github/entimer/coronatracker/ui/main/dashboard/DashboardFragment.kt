@@ -1,4 +1,4 @@
-package io.github.entimer.coronatracker.ui.fragment
+package io.github.entimer.coronatracker.ui.main.dashboard
 
 import android.app.Fragment
 import android.os.Bundle
@@ -10,11 +10,12 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import io.github.entimer.coronatracker.R
+import io.github.entimer.coronatracker.ui.IView
 import kotlinx.android.synthetic.main.layout_card_chart.view.*
 import kotlinx.android.synthetic.main.layout_card_worldwide.view.*
 import java.text.DecimalFormat
 
-class DashboardFragment: Fragment() {
+class DashboardFragment: Fragment(), IView.Fragment {
     private var sampleConfirmed = 1696139
     private var sampleRecovered = 376200
     private var sampleDeath = 102669
@@ -22,28 +23,20 @@ class DashboardFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_dashboard, container, false)
 
-        setWorldwideCard(view, sampleConfirmed, sampleRecovered, sampleDeath)
-        initChartCart(view, sampleConfirmed, sampleRecovered, sampleDeath)
+        initPresenter()
+        initView(view)
+        initListener(view)
 
         return view
     }
 
-    /**
-     * Set worldwide card data.
-     */
-    private fun setWorldwideCard(view: View, confirmed: Int, recovered: Int, death: Int) {
-        val decimalFormat = DecimalFormat("###,###")
-        view.dashboard_worldwide_confirmed.text = decimalFormat.format(confirmed)
-        view.dashboard_worldwide_active.text = decimalFormat.format(confirmed - recovered - death)
-        view.dashboard_worldwide_recovered.text = decimalFormat.format(recovered)
-        view.dashboard_worldwide_death.text = decimalFormat.format(death)
+    override fun initPresenter() {
+
     }
 
-    /**
-     * Initialize chart card.
-     */
-    private fun initChartCart(view: View, confirmed: Int, recovered: Int, death: Int) {
-        //Init pie chart view
+    override fun initView(view: View) {
+        setWorldwideCard(view, sampleConfirmed, sampleRecovered, sampleDeath)
+
         view.dashboard_chart.setUsePercentValues(true)
         view.dashboard_chart.description.isEnabled = false
         view.dashboard_chart.holeRadius = 55.0f
@@ -57,12 +50,21 @@ class DashboardFragment: Fragment() {
 
         view.dashboard_chart.isHighlightPerTapEnabled = true
 
-        setChartCard(view, confirmed, recovered, death)
+        setChartCard(view, sampleConfirmed, sampleRecovered, sampleDeath)
     }
 
-    /**
-     * Set chart card data.
-     */
+    override fun initListener(view: View) {
+
+    }
+
+    private fun setWorldwideCard(view: View, confirmed: Int, recovered: Int, death: Int) {
+        val decimalFormat = DecimalFormat("###,###")
+        view.dashboard_worldwide_confirmed.text = decimalFormat.format(confirmed)
+        view.dashboard_worldwide_active.text = decimalFormat.format(confirmed - recovered - death)
+        view.dashboard_worldwide_recovered.text = decimalFormat.format(recovered)
+        view.dashboard_worldwide_death.text = decimalFormat.format(death)
+    }
+
     private fun setChartCard(view: View, confirmed: Int, recovered: Int, death: Int) {
         //Data values
         val confirmedF = confirmed.toFloat()
@@ -98,13 +100,5 @@ class DashboardFragment: Fragment() {
 
         view.dashboard_chart.data = data
         view.dashboard_chart.invalidate()
-    }
-
-    /**
-     * Set all card data. Worldwide card and chart card.
-     */
-    fun setAllCardData(view: View, confirmed: Int, recovered: Int, death: Int) {
-        setWorldwideCard(view, confirmed, recovered, death)
-        setChartCard(view, confirmed, recovered, death)
     }
 }

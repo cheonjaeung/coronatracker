@@ -1,4 +1,4 @@
-package io.github.entimer.coronatracker.ui.activity
+package io.github.entimer.coronatracker.ui.setting
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

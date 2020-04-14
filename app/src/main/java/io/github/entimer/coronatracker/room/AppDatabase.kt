@@ -6,9 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import io.github.entimer.coronatracker.room.dao.CaseDao
 import io.github.entimer.coronatracker.room.dao.CountryDao
+import io.github.entimer.coronatracker.room.entity.Case
 import io.github.entimer.coronatracker.room.entity.Country
 
-@Database(entities = [Country::class], version = 1)
+@Database(entities = [Case::class, Country::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun countryDao(): CountryDao
     abstract fun caseDao(): CaseDao
@@ -21,7 +22,8 @@ abstract class AppDatabase: RoomDatabase() {
             if(!IS_USED) {
                 IS_USED = true
 
-                INSTANCE = Room.databaseBuilder(context, AppDatabase::class.java, "corona_tracker_database").build()
+                INSTANCE = Room.databaseBuilder(context, AppDatabase::class.java, "corona_tracker_database")
+                    .build()
             }
             return INSTANCE
         }
