@@ -5,7 +5,7 @@ import io.github.entimer.coronatracker.ui.IMVP
 
 class MainPresenter(view: IMVP.View): IMVP.Presenter {
     private val view: IMVP.View = view
-    private val model: MainModel = MainModel(this)
+    private val model = MainModel(this)
 
     fun initDatabase(context: Context) {
         model.initCountriesDatabase(context)

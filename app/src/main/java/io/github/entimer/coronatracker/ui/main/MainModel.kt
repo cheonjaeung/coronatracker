@@ -6,7 +6,7 @@ import android.util.Log
 import io.github.entimer.coronatracker.api.DatasetAPIService
 import io.github.entimer.coronatracker.api.country.Countries
 import io.github.entimer.coronatracker.room.AppDatabase
-import io.github.entimer.coronatracker.room.entity.Country
+import io.github.entimer.coronatracker.room.entity.CountryEntity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,11 +24,7 @@ class MainModel(presenter: MainPresenter) {
         service.getData().enqueue( object: Callback<Countries> {
                 override fun onResponse(call: Call<Countries>, response: Response<Countries>) {
                     if(response.isSuccessful) {
-                        val body = response.body()
-                        Log.d("MainModel", "Countries API onResponse is successful: $body")
-                        for(temp in body!!.countries) {
-                            Log.d("MainModel", "Country(Code: ${temp.code}, Name: ${temp.name})")
-                        }
+                        val body = response.body()!!
                         setCountriesInDatabase(context, body)
                     }
                     else {
@@ -44,19 +40,19 @@ class MainModel(presenter: MainPresenter) {
     }
 
     private fun setCountriesInDatabase(context: Context, countries: Countries) {
-        AsyncTask.execute {
-            val db = AppDatabase.getDatabase(context)
+        Thread (
+            Runnable {
+                val db = AppDatabase.getDatabase(context)
 
-            for(country in countries.countries) {
-                if(db.countryDao().selectByName(country.name) != country.name) {
-                    val entry = Country(country.name, country.code)
-                    db.countryDao().insert(entry)
+                for(country in countries.countries) {
+                    if(db.countryDao().selectByName(country.name) != country.name) {
+                        val entry = CountryEntity(country.name, country.code)
+                        db.countryDao().insert(entry)
+                    }
                 }
+
+                db.close()
             }
-
-            Log.d("MainModel", "Saved in database: ${db.countryDao().selectAll()}")
-
-            db.close()
-        }
+        )
     }
 }

@@ -22,4 +22,9 @@
     <!-- Dashboard -->
     <string name="worldwide">전세계</string>
     <string name="chart_center_text">전세계 확진자 현황</string>
+
+    <!-- Search -->
+    <string name="searchbar_placeholder">국가를 검색하세요</string>
+    <string name="searchlist_item_title_placeholder">국가명</string>
+    <string name="searchlist_item_code_placeholder">국가 코드</string>
 </resources>

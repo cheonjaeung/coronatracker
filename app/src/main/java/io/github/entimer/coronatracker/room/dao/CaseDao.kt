@@ -4,24 +4,24 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import io.github.entimer.coronatracker.room.entity.Case
+import io.github.entimer.coronatracker.room.entity.CaseEntity
 
 @Dao
 interface CaseDao {
     @Query("SELECT * FROM cases")
-    fun selectAll(): List<Case>
+    fun selectAll(): List<CaseEntity>
 
     @Query("SELECT * FROM cases WHERE country = (:country)")
-    fun selectByCountry(country: String): List<Case>
+    fun selectByCountry(country: String): List<CaseEntity>
 
     @Query("SELECT * FROM cases WHERE country IN (:countries)")
-    fun selectByCountries(vararg countries: String): List<Case>
+    fun selectByCountries(vararg countries: String): List<CaseEntity>
 
     @Query("SELECT * FROM cases WHERE date = (:date)")
-    fun selectByDate(date: String): List<Case>
+    fun selectByDate(date: String): List<CaseEntity>
 
     @Query("SELECT * FROM cases WHERE date IN (:dates)")
-    fun selectByDates(vararg dates: String): List<Case>
+    fun selectByDates(vararg dates: String): List<CaseEntity>
 
     @Query("SELECT confirmed FROM cases WHERE date = (:date)")
     fun selectAllConfirmedByDate(date: String): List<Int>
@@ -33,14 +33,14 @@ interface CaseDao {
     fun selectAllDeathByDate(date: String): List<Int>
 
     @Insert
-    fun insert(case: Case)
+    fun insert(case: CaseEntity)
 
     @Insert
-    fun insertAll(vararg cases: Case)
+    fun insertAll(vararg cases: CaseEntity)
 
     @Delete
-    fun delete(case: Case)
+    fun delete(case: CaseEntity)
 
     @Delete
-    fun deleteAll(vararg cases: Case)
+    fun deleteAll(vararg cases: CaseEntity)
 }

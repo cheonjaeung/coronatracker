@@ -25,8 +25,8 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMVP.View 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter = MainPresenter(this)
-
+        initPresenter()
+        initView()
         initFragment()
         initListener()
 

@@ -7,13 +7,13 @@ import androidx.room.ForeignKey.CASCADE
     primaryKeys = ["country", "date"],
     foreignKeys = [
         ForeignKey(
-            entity = Country::class,
+            entity = CountryEntity::class,
             parentColumns = ["name"],
             childColumns = ["country"],
             onDelete = CASCADE
         )
     ])
-data class Case (
+data class CaseEntity (
     val country: String,
 
     val date: String,
