@@ -20,14 +20,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginRight="16dp"
-            android:text="@string/searchlist_item_title_placeholder"
+            android:text="@string/country_name"
             android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/search_list_item_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/searchlist_item_code_placeholder"
+            android:text="@string/country_code"
             android:textSize="20sp"
             android:textColor="@color/colorGray"
             android:textAlignment="viewEnd"/>

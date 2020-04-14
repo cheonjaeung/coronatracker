@@ -3,7 +3,6 @@ package io.github.entimer.coronatracker.ui.search
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import io.github.entimer.coronatracker.R
 import io.github.entimer.coronatracker.api.country.Country
 import io.github.entimer.coronatracker.ui.IView
@@ -29,8 +28,8 @@ class SearchActivity: AppCompatActivity(), IView.Activity, ISearchMVP.View {
 
     override fun initView() {
         adapter = SearchListAdapter(
-                arrayListOf(Country(getString(R.string.searchlist_item_code_placeholder),
-                    getString(R.string.searchlist_item_title_placeholder)
+                arrayListOf(Country(getString(R.string.country_code),
+                    getString(R.string.country_name)
                 )
             )
         )

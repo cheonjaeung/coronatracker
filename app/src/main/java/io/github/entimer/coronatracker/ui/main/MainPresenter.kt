@@ -7,6 +7,6 @@ class MainPresenter(view: IMainMVP.View): IMainMVP.Presenter {
     private val model = MainModel(this)
 
     override fun getData(context: Context) {
-        model.initCountriesDatabase(context)
+        model.getData(context)
     }
 }

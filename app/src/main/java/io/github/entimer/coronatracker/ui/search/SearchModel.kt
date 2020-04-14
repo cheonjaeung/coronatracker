@@ -24,7 +24,6 @@ class SearchModel(presenter: SearchPresenter) {
             }
 
             db.close()
-
             return "Success"
         }
 
