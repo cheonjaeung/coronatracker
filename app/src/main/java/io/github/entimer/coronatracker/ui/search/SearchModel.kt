@@ -2,7 +2,6 @@ package io.github.entimer.coronatracker.ui.search
 
 import android.content.Context
 import android.os.AsyncTask
-import android.os.Handler
 import io.github.entimer.coronatracker.api.country.Country
 import io.github.entimer.coronatracker.room.AppDatabase
 
