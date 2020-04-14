@@ -29,6 +29,8 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMVP.View 
 
         initFragment()
         initListener()
+
+        presenter.saveCountriesInDatabase(applicationContext)
     }
 
     override fun initPresenter() {
@@ -38,8 +40,8 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMVP.View 
     override fun initView() {}
 
     override fun initListener() {
-        main_toolbar.setOnMenuItemClickListener {
-            when(it.itemId) {
+        main_toolbar.setOnMenuItemClickListener { item ->
+            when(item.itemId) {
                 R.id.refresh -> {
 
                 }
@@ -55,10 +57,10 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMVP.View 
             true
         }
 
-        main_bottomNav.setOnNavigationItemSelectedListener {
+        main_bottomNav.setOnNavigationItemSelectedListener { item ->
             val transaction: FragmentTransaction = fragmentManager.beginTransaction()
 
-            when(it.itemId) {
+            when(item.itemId) {
                 R.id.dashboard -> {
                     transaction.replace(R.id.main_frame, dashboard).commitAllowingStateLoss()
                     main_toolbar.title = getString(R.string.dashboard)

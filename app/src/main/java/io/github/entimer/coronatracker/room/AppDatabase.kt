@@ -22,7 +22,8 @@ abstract class AppDatabase: RoomDatabase() {
             if(!IS_USED) {
                 IS_USED = true
 
-                INSTANCE = Room.databaseBuilder(context, AppDatabase::class.java, "corona_tracker_database").build()
+                INSTANCE = Room.databaseBuilder(context, AppDatabase::class.java, "corona_tracker_database")
+                    .build()
             }
             return INSTANCE
         }

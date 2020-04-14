@@ -1,13 +1,13 @@
 package io.github.entimer.coronatracker.ui.main
 
+import android.content.Context
 import io.github.entimer.coronatracker.ui.IMVP
 
-class MainPresenter: IMVP.Presenter {
-    private val view: IMVP.View
-    private val model: MainModel
+class MainPresenter(view: IMVP.View): IMVP.Presenter {
+    private val view: IMVP.View = view
+    private val model: MainModel = MainModel(this)
 
-    constructor(view: IMVP.View) {
-        this.view = view
-        model = MainModel(this)
+    fun saveCountriesInDatabase(context: Context) {
+        model.getCountriesFromWeb(context)
     }
 }
