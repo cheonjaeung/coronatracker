@@ -33,7 +33,8 @@
             android:layout_marginLeft="16dp"
             android:hint="@string/searchbar_hint"
             android:inputType="text"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:imeOptions="actionSearch"/>
 
         <ImageButton
             android:id="@+id/search_search_button"

@@ -4,7 +4,6 @@ import android.content.Context
 
 interface IMainMVP {
     interface View {
-
     }
 
     interface Presenter {

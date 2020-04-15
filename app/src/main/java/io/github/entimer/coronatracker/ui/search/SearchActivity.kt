@@ -1,6 +1,7 @@
 package io.github.entimer.coronatracker.ui.search
 
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.entimer.coronatracker.R
@@ -43,12 +44,26 @@ class SearchActivity: AppCompatActivity(), IView.Activity, ISearchMVP.View {
         }
 
         search_search_button.setOnClickListener {
-            val keyword = search_search_input.text.toString()
-            presenter.getData(applicationContext, keyword)
+            search()
+        }
+
+        search_search_input.setOnEditorActionListener { view, actionId, event ->
+            if(EditorInfo.IME_ACTION_SEARCH == actionId) {
+                search()
+            }
+            else {
+                false
+            }
+            true
         }
     }
 
     override fun updateView(countries: ArrayList<Country>) {
         adapter.updateList(countries)
+    }
+
+    private fun search() {
+        val keyword = search_search_input.text.toString()
+        presenter.getData(applicationContext, keyword)
     }
 }

@@ -14,18 +14,39 @@ import retrofit2.Response
 class MainModel(presenter: MainPresenter) {
     private val presenter = presenter
 
-    class BackgroundTask(context: Context, presenter: MainPresenter): AsyncTask<String, String, String>() {
+    class BackgroundTask(context: Context, presenter: MainPresenter, data: Countries): AsyncTask<String, String, String>() {
         private val context = context
         private val presenter = presenter
-        private lateinit var body: Countries
+        private val data = data
 
         override fun doInBackground(vararg params: String?): String {
-            val service = DatasetAPIService.getService()
+            val db = AppDatabase.getDatabase(context)
 
-            service.getData().enqueue( object: Callback<Countries> {
+            for(country in data.countries) {
+                if(db.countryDao().selectByName(country.name) != country.name) {
+                    val entry = CountryEntity(country.name, country.code)
+                    db.countryDao().insert(entry)
+                }
+            }
+
+            db.close()
+            return "Success"
+        }
+
+        override fun onPostExecute(result: String?) {
+
+        }
+    }
+
+    fun getData(context: Context) {
+        val service = DatasetAPIService.getService()
+
+        service.getData().enqueue( object: Callback<Countries> {
                 override fun onResponse(call: Call<Countries>, response: Response<Countries>) {
                     if(response.isSuccessful) {
-                        body = response.body()!!
+                        val body = response.body()!!
+                        val task = BackgroundTask(context, presenter, body)
+                        task.execute()
                     }
                     else {
                         Log.d("MainModel", "Countries API onResponse is failure: $response")
@@ -36,24 +57,6 @@ class MainModel(presenter: MainPresenter) {
                     Log.d("MainModel", "Countries API onFailure: $t")
                 }
             }
-            )
-
-            val db = AppDatabase.getDatabase(context)
-
-            for(country in body.countries) {
-                if(db.countryDao().selectByName(country.name) != country.name) {
-                    val entry = CountryEntity(country.name, country.code)
-                    db.countryDao().insert(entry)
-                }
-            }
-
-            db.close()
-            return "Success"
-        }
-    }
-
-    fun getData(context: Context) {
-        val task = BackgroundTask(context, presenter)
-        task.execute()
+        )
     }
 }
