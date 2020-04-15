@@ -1,4 +1,3 @@
-<p align="center"><img alt="Logo" src="https://github.com/entimer/CoronaTracker/blob/master/logo.png"></img></p>
 <h1 align="center">CoronaTracker</h1>
 <p align="center">:microbe: Coronavirus (COVID-19) tracker application for Android.</p>
 <p align="center">
@@ -10,15 +9,27 @@
 ![](https://github.com/entimer/CoronaTracker/blob/master/preview.png)
 
 ## Features
-- [ ] **Worldwide Data**: Shows the most recent data. The number of comfirmed, recovered and deaths.
-- [ ] **Each Countries Data**: Shows data of selected country.
-- [ ] **Widget**: You can check data with widget.
-- [ ] **Theme Change**: Supports dark theme and light theme.
-- [ ] **Language**: Supports Korean and English.
+- [ ] **Dashboard**: Main view. Shows cards like worldwide confirmed, recovered and death numbers, chart or selected county infomation.
+- [ ] **Map**: Coronavirus map. Shows world map with markers. Can check current status of the world.
+- [ ] **Chart**: Shows charts 
+- [ ] **Search**: Can search countries. Shows data of selected country.
 
 ## Download
+You can download from releases tab.
+
+[Latest Release](https://github.com/entimer/CoronaTracker/releases/tag/latest-version)
+/
+[All Releases](https://github.com/entimer/CoronaTracker/tags)
 
 ## Usage
+0. Star this repository.
+1. Download apk.
+2. Run apk on your device.
+3. Run this application.
+4. Check coronavirus when you want.
+
+## Question & Issue
+Please make an issue. You can use existing issue templates (But Report, Feature Request, Question).
 
 ## Open Source Libraries
 - [Gson](https://github.com/google/gson) by Google, Apache 2.0 License.
