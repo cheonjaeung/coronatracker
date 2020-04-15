@@ -15,5 +15,5 @@
     <color name="colorConfirmed">#ffa000</color>
     <color name="colorRecovered">#4caf50</color>
     <color name="colorDeath">#f44336</color>
-    <color name="colorUpdated">#909090</color>
+    <color name="colorGray">#909090</color>
 </resources>

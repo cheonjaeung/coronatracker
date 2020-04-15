@@ -4,46 +4,31 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import io.github.entimer.coronatracker.room.entity.Country
+import io.github.entimer.coronatracker.room.entity.CountryEntity
 
 @Dao
 interface CountryDao {
     @Query("SELECT * FROM country")
-    fun selectAll(): List<Country>
+    fun selectAll(): List<CountryEntity>
+
+    @Query("SELECT * FROM country WHERE name LIKE (:keyword) OR code LIKE (:keyword)")
+    fun selectByKeyword(keyword: String): List<CountryEntity>
 
     @Query("SELECT name FROM country WHERE name = (:name)")
     fun selectByName(name: String): String
 
-    @Query("SELECT name FROM country WHERE name IN (:names)")
-    fun selectByNames(vararg names: String): List<String>
-
     @Query("SELECT name FROM country WHERE code = (:code)")
     fun selectByCode(code: String): String
 
-    @Query("SELECT name FROM country WHERE code IN (:codes)")
-    fun selectByCodes(vararg codes: String): List<String>
-
-    @Query("SELECT code FROM country WHERE name = (:name)")
-    fun selectCodeByName(name: String): String
-
-    @Query("SELECT code FROM country WHERE name IN (:names)")
-    fun selectCodeByNames(vararg names: String): List<String>
-
-    @Query("SELECT code FROM country WHERE code = (:code)")
-    fun selectCodeByCode(code: String): String
-
-    @Query("SELECT code FROM country WHERE code IN (:codes)")
-    fun selectCodeByCodes(vararg codes: String): List<String>
+    @Insert
+    fun insert(country: CountryEntity)
 
     @Insert
-    fun insert(country: Country)
-
-    @Insert
-    fun insertAll(vararg countries: Country)
+    fun insertAll(vararg countries: CountryEntity)
 
     @Delete
-    fun delete(country: Country)
+    fun delete(country: CountryEntity)
 
     @Delete
-    fun deleteAll(vararg country: Country)
+    fun deleteAll(vararg country: CountryEntity)
 }
