@@ -6,12 +6,12 @@
         android:title="@string/dashboard"/>
 
     <item
-        android:id="@+id/search"
-        android:icon="@drawable/ic_search_24dp"
-        android:title="@string/search"/>
+        android:id="@+id/map"
+        android:icon="@drawable/ic_map_24dp"
+        android:title="@string/map"/>
 
     <item
-        android:id="@+id/advice"
-        android:icon="@drawable/ic_info_outline_24dp"
-        android:title="@string/advice"/>
+        android:id="@+id/chart"
+        android:icon="@drawable/ic_chart_24dp"
+        android:title="@string/chart"/>
 </menu>

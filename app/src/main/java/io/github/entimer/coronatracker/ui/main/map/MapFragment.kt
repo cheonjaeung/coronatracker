@@ -1,4 +1,4 @@
-package io.github.entimer.coronatracker.ui.fragment
+package io.github.entimer.coronatracker.ui.main.map
 
 import android.app.Fragment
 import android.os.Bundle
@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import io.github.entimer.coronatracker.R
-import kotlin.math.log
 
-class DashboardFragment: Fragment() {
+class MapFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_dashboard, container, false)
+        return inflater!!.inflate(R.layout.fragment_map, container, false)
     }
 }

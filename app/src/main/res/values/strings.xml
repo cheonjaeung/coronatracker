@@ -3,10 +3,32 @@
     <string name="app_name">코로나 트래커</string>
 
     <!-- Tool bar -->
+    <string name="refresh">초기화</string>
+    <string name="search">검색</string>
     <string name="setting">설정</string>
 
     <!-- Bottom Navigation -->
     <string name="dashboard">대시보드</string>
-    <string name="search">검색</string>
-    <string name="advice">도움말</string>
+    <string name="map">지도</string>
+    <string name="chart">차트</string>
+
+    <!-- Numbers -->
+    <string name="total">총합</string>
+    <string name="confirmed">확진자</string>
+    <string name="active">양성</string>
+    <string name="recovered">완치자</string>
+    <string name="death">사망자</string>
+
+    <!-- Dashboard -->
+    <string name="worldwide">전세계</string>
+    <string name="chart_center_text">전세계 확진자 현황</string>
+
+    <!-- Search -->
+    <string name="searchbar_hint">국가를 검색하세요</string>
+    <string name="country_name">국가명</string>
+    <string name="country_code">국가 코드</string>
+
+    <!-- Dialog -->
+    <string name="initializing_data">초기 데이터 구성 중...</string>
+    <string name="searching">검색 중...</string>
 </resources>
