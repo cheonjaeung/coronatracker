@@ -88,15 +88,15 @@ class DashboardFragment: Fragment(), IView.Fragment {
 
         //Chart colors
         val colorSet = ArrayList<Int>()
-        colorSet.add(activity.resources.getColor(R.color.colorConfirmed))
-        colorSet.add(activity.resources.getColor(R.color.colorRecovered))
-        colorSet.add(activity.resources.getColor(R.color.colorDeath))
+        colorSet.add(activity.resources.getColor(R.color.colorConfirmedOld))
+        colorSet.add(activity.resources.getColor(R.color.colorRecoveredOld))
+        colorSet.add(activity.resources.getColor(R.color.colorDeathOld))
         dataSet.colors = colorSet
 
         val data = PieData(dataSet)
         data.setValueFormatter(PercentFormatter(view.dashboard_chart))
         data.setValueTextSize(11f)
-        data.setValueTextColor(activity.resources.getColor(R.color.colorOnPrimary))
+        data.setValueTextColor(activity.resources.getColor(R.color.colorOnPrimaryOld))
 
         view.dashboard_chart.data = data
         view.dashboard_chart.invalidate()

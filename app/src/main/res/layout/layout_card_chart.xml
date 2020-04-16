@@ -7,7 +7,7 @@
     android:layout_margin="8dp"
     android:padding="16dp"
     android:background="@drawable/bg_round_border"
-    android:backgroundTint="@color/colorPrimaryLight">
+    android:backgroundTint="@color/colorPrimaryLightOld">
 
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="2020/04/11"
-        android:textColor="@color/colorGray"
+        android:textColor="@color/colorGrayOld"
         android:textAlignment="viewEnd"/>
 
 </LinearLayout>

@@ -7,7 +7,7 @@
     android:layout_margin="8dp"
     android:padding="16dp"
     android:background="@drawable/bg_round_border"
-    android:backgroundTint="@color/colorPrimaryLight">
+    android:backgroundTint="@color/colorPrimaryLightOld">
 
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="8dp"
             android:text="@string/total"
-            android:textColor="@color/colorConfirmed"
+            android:textColor="@color/colorConfirmedOld"
             android:textAlignment="center"/>
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="16dp"
             android:textSize="24sp"
-            android:textColor="@color/colorConfirmed"
+            android:textColor="@color/colorConfirmedOld"
             android:textAlignment="center"/>
 
     </LinearLayout>
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/active"
-                android:textColor="@color/colorConfirmed"
+                android:textColor="@color/colorConfirmedOld"
                 android:textAlignment="center"/>
 
             <TextView
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/recovered"
-                android:textColor="@color/colorRecovered"
+                android:textColor="@color/colorRecoveredOld"
                 android:textAlignment="center"/>
 
             <TextView
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/death"
-                android:textColor="@color/colorDeath"
+                android:textColor="@color/colorDeathOld"
                 android:textAlignment="center"/>
 
         </LinearLayout>
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="20sp"
-                android:textColor="@color/colorConfirmed"
+                android:textColor="@color/colorConfirmedOld"
                 android:textAlignment="center"/>
 
             <TextView
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="20sp"
-                android:textColor="@color/colorRecovered"
+                android:textColor="@color/colorRecoveredOld"
                 android:textAlignment="center"/>
 
             <TextView
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="20sp"
-                android:textColor="@color/colorDeath"
+                android:textColor="@color/colorDeathOld"
                 android:textAlignment="center"/>
 
         </LinearLayout>
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="2020/04/11"
-        android:textColor="@color/colorGray"
+        android:textColor="@color/colorGrayOld"
         android:textAlignment="viewEnd"/>
 
 </LinearLayout>

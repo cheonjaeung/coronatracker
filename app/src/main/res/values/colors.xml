@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#90caf9</color>
-    <color name="colorPrimaryLight">#c3fdff</color>
-    <color name="colorPrimaryDark">#5d99c6</color>
-    <color name="colorOnPrimary">#000000</color>
-
-    <color name="colorSecondary">#b39ddb</color>
-    <color name="colorSecondaryLight">#e6ceff</color>
-    <color name="colorSecondaryDark">#836fa9</color>
-    <color name="colorOnSecondary">#000000</color>
-
-    <color name="colorAccent">#f48fb1</color>
+    <color name="colorPrimary">#2196f3</color>
+    <color name="colorPrimaryDark">#0069c0</color>
+    <color name="colorAccent">#ffeb3b</color>
+    <color name="colorBackground">#fafafa</color>
+    <color name="colorElevation">#c7c7c7</color>
+    <color name="colorText">#000000</color>
 
     <color name="colorConfirmed">#ffa000</color>
+    <color name="colorActive">#f44336</color>
     <color name="colorRecovered">#4caf50</color>
-    <color name="colorDeath">#f44336</color>
-    <color name="colorGray">#909090</color>
+    <color name="colorDeath">#757575</color>
+
+    <!-- Old colors (will be removed) -->
+    <color name="colorPrimaryOld">#90caf9</color>
+    <color name="colorPrimaryLightOld">#c3fdff</color>
+    <color name="colorPrimaryDarkOld">#5d99c6</color>
+    <color name="colorOnPrimaryOld">#000000</color>
+
+    <color name="colorSecondaryOld">#b39ddb</color>
+    <color name="colorSecondaryLightOld">#e6ceff</color>
+    <color name="colorSecondaryDarkOld">#836fa9</color>
+    <color name="colorOnSecondaryOld">#000000</color>
+
+    <color name="colorAccentOld">#f48fb1</color>
+
+    <color name="colorConfirmedOld">#ffa000</color>
+    <color name="colorRecoveredOld">#4caf50</color>
+    <color name="colorDeathOld">#f44336</color>
+    <color name="colorGrayOld">#909090</color>
 </resources>
