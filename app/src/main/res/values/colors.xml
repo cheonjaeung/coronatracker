@@ -6,6 +6,7 @@
     <color name="colorBackground">#fafafa</color>
     <color name="colorElevation">#c7c7c7</color>
     <color name="colorText">#000000</color>
+    <color name="colorTextLight">#707070</color>
 
     <color name="colorConfirmed">#ffa000</color>
     <color name="colorActive">#f44336</color>

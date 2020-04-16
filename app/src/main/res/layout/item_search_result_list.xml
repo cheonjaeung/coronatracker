@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="8dp"
+    android:layout_marginBottom="8dp"
     android:padding="16dp"
-    android:background="@drawable/bg_round_border"
-    android:backgroundTint="@color/colorPrimaryLightOld">
+    android:background="?android:attr/windowBackground"
+    android:elevation="12dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,22 +15,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/search_list_item_name"
+            android:id="@+id/item_search_resultList_countryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginRight="16dp"
             android:text="@string/country_name"
+            android:textColor="@color/colorText"
             android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/search_list_item_code"
+            android:id="@+id/item_search_resultList_countryCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/country_code"
-            android:textSize="20sp"
-            android:textColor="@color/colorGrayOld"
-            android:textAlignment="viewEnd"/>
+            android:textColor="@color/colorTextLight"
+            android:textSize="20sp"/>
 
     </LinearLayout>
 

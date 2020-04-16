@@ -28,12 +28,7 @@ class SearchActivity: AppCompatActivity(), IView.Activity, ISearchMVP.View {
     }
 
     override fun initView() {
-        adapter = SearchListAdapter(
-                arrayListOf(Country(getString(R.string.country_code),
-                    getString(R.string.country_name)
-                )
-            )
-        )
+        adapter = SearchListAdapter(arrayListOf())
         search_resultList.layoutManager = LinearLayoutManager(applicationContext)
         search_resultList.adapter = adapter
     }
