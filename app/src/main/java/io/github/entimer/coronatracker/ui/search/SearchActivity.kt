@@ -34,8 +34,8 @@ class SearchActivity: AppCompatActivity(), IView.Activity, ISearchMVP.View {
                 )
             )
         )
-        search_list.layoutManager = LinearLayoutManager(applicationContext)
-        search_list.adapter = adapter
+        search_resultList.layoutManager = LinearLayoutManager(applicationContext)
+        search_resultList.adapter = adapter
     }
 
     override fun initListener() {
@@ -43,11 +43,7 @@ class SearchActivity: AppCompatActivity(), IView.Activity, ISearchMVP.View {
             finish()
         }
 
-        search_search_button.setOnClickListener {
-            search()
-        }
-
-        search_search_input.setOnEditorActionListener { view, actionId, event ->
+        search_searchBar.setOnEditorActionListener { view, actionId, event ->
             if(EditorInfo.IME_ACTION_SEARCH == actionId) {
                 search()
             }
@@ -63,7 +59,7 @@ class SearchActivity: AppCompatActivity(), IView.Activity, ISearchMVP.View {
     }
 
     private fun search() {
-        val keyword = search_search_input.text.toString()
+        val keyword = search_searchBar.text.toString()
         presenter.getData(applicationContext, keyword)
     }
 }

@@ -11,46 +11,34 @@
         android:id="@+id/search_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Toolbar"
+        android:background="?android:attr/windowBackground"
+        android:elevation="12dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_arrow_left_24dp"
-        app:title="@string/search" />
-
-    <LinearLayout
-        android:id="@+id/search_searchbar"
+        app:title="@string/search"
+        app:navigationIcon="@drawable/ic_arrow_left_24dp"/>
+    
+    <EditText
+        android:id="@+id/search_searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        style="@style/Toolbar"
-        app:layout_constraintTop_toBottomOf="@+id/search_toolbar">
-
-        <EditText
-            android:id="@+id/search_search_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="16dp"
-            android:hint="@string/searchbar_hint"
-            android:inputType="text"
-            android:maxLines="1"
-            android:imeOptions="actionSearch"/>
-
-        <ImageButton
-            android:id="@+id/search_search_button"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_search_24dp"
-            android:background="@android:color/transparent"/>
-
-    </LinearLayout>
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:background="@drawable/background_search_bar"
+        android:backgroundTint="@color/colorElevation"
+        android:elevation="12dp"
+        android:drawableStart="@drawable/ic_search_24dp"
+        android:hint="@string/searchbar_hint"
+        android:inputType="text"
+        android:maxLines="1"
+        android:imeOptions="actionSearch"
+        app:layout_constraintTop_toBottomOf="@+id/search_toolbar"/>
     
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/search_list"
+        android:id="@+id/search_resultList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/search_searchbar"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/search_searchBar"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

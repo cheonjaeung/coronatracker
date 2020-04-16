@@ -28,8 +28,6 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMainMVP.V
         initView()
         initFragment()
         initListener()
-
-        presenter.getData(applicationContext)
     }
 
     override fun initPresenter() {
@@ -41,9 +39,6 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMainMVP.V
     override fun initListener() {
         main_toolbar.setOnMenuItemClickListener { item ->
             when(item.itemId) {
-                R.id.refresh -> {
-
-                }
                 R.id.search -> {
                     val intent = Intent(applicationContext, SearchActivity::class.java)
                     startActivity(intent)
