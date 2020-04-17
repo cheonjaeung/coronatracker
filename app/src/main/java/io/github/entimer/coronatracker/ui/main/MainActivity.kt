@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import io.github.entimer.coronatracker.R
-import io.github.entimer.coronatracker.ui.IView
 import io.github.entimer.coronatracker.ui.search.SearchActivity
 import io.github.entimer.coronatracker.ui.setting.SettingActivity
 import io.github.entimer.coronatracker.ui.main.chart.ChartFragment
@@ -13,7 +12,7 @@ import io.github.entimer.coronatracker.ui.main.dashboard.DashboardFragment
 import io.github.entimer.coronatracker.ui.main.map.MapFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame {
+class MainActivity: AppCompatActivity() {
 
     private val dashboard = DashboardFragment()
     private val search = MapFragment()
@@ -23,14 +22,17 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        initView()
-        initFragment()
-        initListener()
+        initViews()
+        initListeners()
     }
 
-    override fun initView() {}
+    private fun initViews() {
+        val transaction: FragmentTransaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.main_frame, dashboard).commitAllowingStateLoss()
+        main_toolbar.title = getString(R.string.dashboard)
+    }
 
-    override fun initListener() {
+    private fun initListeners() {
         main_toolbar.setOnMenuItemClickListener { item ->
             when(item.itemId) {
                 R.id.search -> {
@@ -66,9 +68,7 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame {
         }
     }
 
-    override fun initFragment() {
-        val transaction: FragmentTransaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.main_frame, dashboard).commitAllowingStateLoss()
-        main_toolbar.title = getString(R.string.dashboard)
+    override fun onBackPressed() {
+        finishAffinity()
     }
 }

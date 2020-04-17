@@ -1,14 +1,11 @@
 package io.github.entimer.coronatracker.ui.main.dashboard
 
 import android.content.Context
+import io.github.entimer.coronatracker.ui.base.IMvp
 
-class DashboardPresenter(view: IDashboardMVP.View): IDashboardMVP.Presenter {
+class DashboardPresenter(view: IMvp.View): IMvp.Presenter {
     private val view = view
     private val model = DashboardModel(this)
-
-    fun updateView() {
-        view.updateView()
-    }
 
     override fun getData(context: Context) {
 

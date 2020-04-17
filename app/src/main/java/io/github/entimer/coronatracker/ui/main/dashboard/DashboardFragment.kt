@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import io.github.entimer.coronatracker.R
-import io.github.entimer.coronatracker.ui.IView
+import io.github.entimer.coronatracker.ui.base.IMvp
 
-class DashboardFragment: Fragment(), IView.Fragment, IDashboardMVP.View {
+class DashboardFragment: Fragment(), IMvp.View {
     private lateinit var presenter: DashboardPresenter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -16,21 +16,30 @@ class DashboardFragment: Fragment(), IView.Fragment, IDashboardMVP.View {
 
         presenter = DashboardPresenter(this)
 
-        initView(view)
-        initListener(view)
-
         return view
     }
 
-    override fun initView(view: View) {
+    override fun initViews() {
 
     }
 
-    override fun initListener(view: View) {
+    override fun initListeners() {
 
     }
 
-    override fun updateView() {
+    override fun onSuccessGetData() {
+
+    }
+
+    override fun onFailureGetData() {
+
+    }
+
+    override fun startUpdatingView() {
+
+    }
+
+    override fun stopUpdatingView() {
 
     }
 }
