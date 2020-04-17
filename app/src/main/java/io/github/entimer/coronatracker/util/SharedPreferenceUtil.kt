@@ -1,4 +1,4 @@
-package io.github.entimer.coronatracker.sharedpreference
+package io.github.entimer.coronatracker.util
 
 import android.content.Context
 

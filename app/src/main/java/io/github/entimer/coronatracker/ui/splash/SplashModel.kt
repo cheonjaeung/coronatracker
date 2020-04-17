@@ -3,7 +3,7 @@ package io.github.entimer.coronatracker.ui.splash
 import android.content.Context
 import android.util.Log
 import io.github.entimer.coronatracker.api.covid.CovidApiService
-import io.github.entimer.coronatracker.sharedpreference.SharedPreferenceUtil
+import io.github.entimer.coronatracker.util.SharedPreferenceUtil
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback

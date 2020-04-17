@@ -25,6 +25,7 @@
             android:textColor="@color/colorTextLight"/>
 
         <TextView
+            android:id="@+id/card_global_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -89,7 +90,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2,000,000"
                 android:textColor="@color/colorConfirmed"
                 android:textAlignment="center"/>
 
@@ -98,7 +98,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1,500,000"
                 android:textColor="@color/colorActive"
                 android:textAlignment="center"/>
 
@@ -107,7 +106,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="400,000"
                 android:textColor="@color/colorRecovered"
                 android:textAlignment="center"/>
 
@@ -116,7 +114,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="100,000"
                 android:textColor="@color/colorDeath"
                 android:textAlignment="center"/>
 
@@ -132,7 +129,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="+40,000"
                 android:textColor="@color/colorConfirmed"
                 android:textAlignment="center"/>
 
@@ -141,7 +137,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="+35,000"
                 android:textColor="@color/colorActive"
                 android:textAlignment="center"/>
 
@@ -150,7 +145,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="+4,000"
                 android:textColor="@color/colorRecovered"
                 android:textAlignment="center"/>
 
@@ -159,7 +153,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="+1,000"
                 android:textColor="@color/colorDeath"
                 android:textAlignment="center"/>
 
@@ -175,7 +168,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="+6.0%"
                 android:textColor="@color/colorConfirmed"
                 android:textAlignment="center"/>
 
@@ -184,7 +176,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="+4.0%"
                 android:textColor="@color/colorActive"
                 android:textAlignment="center"/>
 
@@ -193,7 +184,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="+1.5%"
                 android:textColor="@color/colorRecovered"
                 android:textAlignment="center"/>
 
@@ -202,7 +192,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="+0.5%"
                 android:textColor="@color/colorDeath"
                 android:textAlignment="center"/>
 
