@@ -12,22 +12,4 @@
     <color name="colorActive">#f44336</color>
     <color name="colorRecovered">#4caf50</color>
     <color name="colorDeath">#757575</color>
-
-    <!-- Old colors (will be removed) -->
-    <color name="colorPrimaryOld">#90caf9</color>
-    <color name="colorPrimaryLightOld">#c3fdff</color>
-    <color name="colorPrimaryDarkOld">#5d99c6</color>
-    <color name="colorOnPrimaryOld">#000000</color>
-
-    <color name="colorSecondaryOld">#b39ddb</color>
-    <color name="colorSecondaryLightOld">#e6ceff</color>
-    <color name="colorSecondaryDarkOld">#836fa9</color>
-    <color name="colorOnSecondaryOld">#000000</color>
-
-    <color name="colorAccentOld">#f48fb1</color>
-
-    <color name="colorConfirmedOld">#ffa000</color>
-    <color name="colorRecoveredOld">#4caf50</color>
-    <color name="colorDeathOld">#f44336</color>
-    <color name="colorGrayOld">#909090</color>
 </resources>

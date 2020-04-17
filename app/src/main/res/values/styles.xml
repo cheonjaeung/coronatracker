@@ -8,24 +8,4 @@
         <item name="android:textColor">@color/colorText</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
     </style>
-
-    <!-- Old Themes (will be removed) -->
-    <style name="OldTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimaryOld</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkOld</item>
-        <item name="colorAccent">@color/colorAccentOld</item>
-        <item name="android:textColor">@color/colorOnPrimaryOld</item>
-    </style>
-
-    <style name="Toolbar">
-        <item name="android:background">@color/colorPrimaryOld</item>
-        <item name="android:elevation">8dp</item>
-    </style>
-
-    <style name="BottomNavigation">
-        <item name="android:background">?android:attr/colorBackground</item>
-        <item name="android:elevation">8dp</item>
-        <item name="itemTextColor">@color/colorOnPrimaryOld</item>
-    </style>
 </resources>
