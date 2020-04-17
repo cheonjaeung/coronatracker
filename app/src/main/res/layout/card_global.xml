@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginRight="16dp"
-            android:text="global"
+            android:text="@string/global"
             android:textSize="20sp"
             android:textColor="@color/colorTextLight"/>
 
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="confirmed"
+                android:text="@string/confirmed"
                 android:textColor="@color/colorConfirmed"
                 android:textAlignment="center"/>
 
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Active"
+                android:text="@string/active"
                 android:textColor="@color/colorActive"
                 android:textAlignment="center"/>
 
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Recovered"
+                android:text="@string/recovered"
                 android:textColor="@color/colorRecovered"
                 android:textAlignment="center"/>
 
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="death"
+                android:text="@string/death"
                 android:textColor="@color/colorDeath"
                 android:textAlignment="center"/>
 

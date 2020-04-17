@@ -27,7 +27,7 @@
         android:backgroundTint="@color/colorElevation"
         android:elevation="12dp"
         android:drawableStart="@drawable/ic_search_24dp"
-        android:hint="@string/searchbar_hint"
+        android:hint="@string/searchBarHint"
         android:inputType="text"
         android:maxLines="1"
         android:imeOptions="actionSearch"
