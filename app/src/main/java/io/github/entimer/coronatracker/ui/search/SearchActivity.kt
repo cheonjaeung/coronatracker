@@ -5,28 +5,20 @@ import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.entimer.coronatracker.R
-import io.github.entimer.coronatracker.api.country.Country
 import io.github.entimer.coronatracker.ui.IView
 import io.github.entimer.coronatracker.ui.adapter.SearchListAdapter
 import kotlinx.android.synthetic.main.activity_search.*
 
-class SearchActivity: AppCompatActivity(), IView.Activity, ISearchMVP.View {
-    private lateinit var presenter: SearchPresenter
+class SearchActivity: AppCompatActivity(), IView.Activity {
     private lateinit var adapter: SearchListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        initPresenter()
         initView()
         initListener()
     }
-
-    override fun initPresenter() {
-        presenter = SearchPresenter(this)
-    }
-
     override fun initView() {
         adapter = SearchListAdapter(arrayListOf())
         search_resultList.layoutManager = LinearLayoutManager(applicationContext)
@@ -49,12 +41,7 @@ class SearchActivity: AppCompatActivity(), IView.Activity, ISearchMVP.View {
         }
     }
 
-    override fun updateView(countries: ArrayList<Country>) {
-        adapter.updateList(countries)
-    }
-
     private fun search() {
         val keyword = search_searchBar.text.toString()
-        presenter.getData(applicationContext, keyword)
     }
 }

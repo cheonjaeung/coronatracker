@@ -4,7 +4,6 @@ import android.view.View
 
 interface IView {
     interface Activity {
-        fun initPresenter()
         fun initView()
         fun initListener()
     }
@@ -14,7 +13,6 @@ interface IView {
     }
 
     interface Fragment {
-        fun initPresenter()
         fun initView(view: View)
         fun initListener(view: View)
     }
