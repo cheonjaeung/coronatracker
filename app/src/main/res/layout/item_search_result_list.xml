@@ -21,7 +21,6 @@
             android:layout_weight="1"
             android:layout_marginRight="16dp"
             android:text="@string/country_name"
-            android:textColor="@color/colorText"
             android:textSize="20sp"/>
 
         <TextView
