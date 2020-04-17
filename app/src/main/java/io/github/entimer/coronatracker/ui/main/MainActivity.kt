@@ -13,8 +13,7 @@ import io.github.entimer.coronatracker.ui.main.dashboard.DashboardFragment
 import io.github.entimer.coronatracker.ui.main.map.MapFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMainMVP.View {
-    private lateinit var presenter: MainPresenter
+class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame {
 
     private val dashboard = DashboardFragment()
     private val search = MapFragment()
@@ -24,14 +23,9 @@ class MainActivity: AppCompatActivity(), IView.Activity, IView.Frame, IMainMVP.V
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        initPresenter()
         initView()
         initFragment()
         initListener()
-    }
-
-    override fun initPresenter() {
-        presenter = MainPresenter(this)
     }
 
     override fun initView() {}

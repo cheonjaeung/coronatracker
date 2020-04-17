@@ -1,9 +1,10 @@
-package io.github.entimer.coronatracker.ui.main
+package io.github.entimer.coronatracker.ui.main.dashboard
 
 import android.content.Context
 
-interface IMainMVP {
+interface IDashboardMVP {
     interface View {
+        fun updateView()
     }
 
     interface Presenter {
