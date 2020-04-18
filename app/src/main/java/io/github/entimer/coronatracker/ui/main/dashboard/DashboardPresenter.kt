@@ -18,8 +18,8 @@ class DashboardPresenter(view: IMvp.View.Dashboard, fragmentView: View): IMvp.Pr
         view.updateCount(fragmentView, caseList)
     }
 
-    override fun updatePieChart() {
-
+    override fun updatePieChart(caseData: CaseData) {
+        view.updatePieChart(fragmentView, caseData)
     }
 
     override fun updateLineChart() {

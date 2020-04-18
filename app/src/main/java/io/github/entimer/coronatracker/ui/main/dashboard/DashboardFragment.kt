@@ -1,11 +1,17 @@
 package io.github.entimer.coronatracker.ui.main.dashboard
 
 import android.app.Fragment
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
 import io.github.entimer.coronatracker.R
 import io.github.entimer.coronatracker.ui.base.IMvp
 import io.github.entimer.coronatracker.util.dataclass.CaseData
@@ -28,7 +34,31 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
 
     override fun initViews(view: View) {
         startLoading(view)
+        initPieChart(view)
         presenter.getData(view.context)
+    }
+
+    private fun initPieChart(view: View) {
+        val chart = view.card_global_pieChart
+        chart.setUsePercentValues(true)
+        chart.description.isEnabled = false
+        chart.dragDecelerationFrictionCoef = 0.5f
+        chart.holeRadius = 55f
+        chart.transparentCircleRadius = 60f
+        chart.rotationAngle = 0f
+        chart.isRotationEnabled = true
+        chart.isHighlightPerTapEnabled = true
+        chart.centerText = view.context.getString(R.string.globalPieChartLabel)
+        chart.setCenterTextColor(view.context.resources.getColor(R.color.colorText))
+        chart.setHoleColor(view.context.resources.getColor(R.color.colorBackground))
+        chart.setTransparentCircleColor(view.context.resources.getColor(R.color.colorBackground))
+
+        val legend = chart.legend
+        legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
+        legend.verticalAlignment = Legend.LegendVerticalAlignment.TOP
+        legend.orientation = Legend.LegendOrientation.HORIZONTAL
+        legend.xEntrySpace = 6f
+        legend.textColor = view.context.resources.getColor(R.color.colorText)
     }
 
     override fun initListeners(view: View) {
@@ -73,8 +103,33 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
         stopLoading(view)
     }
 
-    override fun updatePieChart(view: View) {
+    override fun updatePieChart(view: View, caseData: CaseData) {
+        val confirmed = caseData.confirmed
+        val recovered = caseData.recovered
+        val death = caseData.death
+        val active = confirmed - recovered - death
 
+        val entries = ArrayList<PieEntry>()
+        entries.add(PieEntry(active.toFloat(), view.context.getString(R.string.active)))
+        entries.add(PieEntry(recovered.toFloat(), view.context.getString(R.string.recovered)))
+        entries.add(PieEntry(death.toFloat(), view.context.getString(R.string.death)))
+
+        val dataSet = PieDataSet(entries, "")
+        dataSet.sliceSpace = 3f
+        dataSet.selectionShift = 6f
+        val colors = ArrayList<Int>()
+        colors.add(view.context.resources.getColor(R.color.colorActive))
+        colors.add(view.context.resources.getColor(R.color.colorRecovered))
+        colors.add(view.context.resources.getColor(R.color.colorDeath))
+        dataSet.colors = colors
+
+        val data = PieData(dataSet)
+        data.setValueFormatter(PercentFormatter(view.card_global_pieChart))
+        data.setValueTextSize(16f)
+        data.setValueTextColor(Color.WHITE)
+        view.card_global_pieChart.data = data
+
+        view.card_global_pieChart.invalidate()
     }
 
     override fun updateLineChart(view: View) {

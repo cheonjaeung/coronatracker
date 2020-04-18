@@ -14,7 +14,7 @@
     <string name="dashboard">대시보드</string>
     <string name="map">지도</string>
     <string name="chart">차트</string>
-
+    <string name="globalPieChartLabel">양성, 회복, 사망 비율</string>
 
     <!-- Search activity -->
     <string name="search">검색</string>

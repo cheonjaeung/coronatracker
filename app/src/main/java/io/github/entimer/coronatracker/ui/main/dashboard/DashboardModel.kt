@@ -47,6 +47,7 @@ class DashboardModel(presenter: DashboardPresenter) {
                     latestList.add(caseList[caseList.size - 2])
                     latestList.add(caseList[caseList.size - 1])
                     presenter.updateCount(latestList)
+                    presenter.updatePieChart(caseList[caseList.size - 1])
                 }
                 else {
                     Log.e(logTag, "API response is not successful: ${response.errorBody()}")
