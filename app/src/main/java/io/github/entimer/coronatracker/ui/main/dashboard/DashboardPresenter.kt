@@ -3,7 +3,7 @@ package io.github.entimer.coronatracker.ui.main.dashboard
 import android.content.Context
 import android.view.View
 import io.github.entimer.coronatracker.ui.base.IMvp
-import io.github.entimer.coronatracker.util.dataclass.CaseData
+import io.github.entimer.coronatracker.api.covid.CaseData
 
 class DashboardPresenter(view: IMvp.View.Dashboard, fragmentView: View): IMvp.Presenter.Dashboard {
     private val view = view

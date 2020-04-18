@@ -30,7 +30,6 @@ class SplashActivity: AppCompatActivity(), IMvp.View.Splash {
     override fun initListeners() {}
 
     override fun onSuccessGetData() {
-        stopLoading()
         val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
     }
@@ -41,9 +40,5 @@ class SplashActivity: AppCompatActivity(), IMvp.View.Splash {
 
     override fun startLoading() {
         splash_loading.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.anim_updating))
-    }
-
-    override fun stopLoading() {
-        splash_loading.clearAnimation()
     }
 }

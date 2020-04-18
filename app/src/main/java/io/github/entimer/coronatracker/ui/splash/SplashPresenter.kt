@@ -8,7 +8,7 @@ class SplashPresenter(view: IMvp.View.Splash): IMvp.Presenter.Splash {
     private val model = SplashModel(this)
 
     override fun getData(context: Context) {
-        model.getLatestDate(context)
+        model.getIso3166Codes(context)
     }
 
     fun onSuccess() {

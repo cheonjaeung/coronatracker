@@ -1,4 +1,4 @@
-package io.github.entimer.coronatracker.util.dataclass
+package io.github.entimer.coronatracker.api.covid
 
 data class CaseData(
     val date: String,

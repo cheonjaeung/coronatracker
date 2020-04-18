@@ -1,7 +1,7 @@
 package io.github.entimer.coronatracker.ui.base
 
 import android.content.Context
-import io.github.entimer.coronatracker.util.dataclass.CaseData
+import io.github.entimer.coronatracker.api.covid.CaseData
 
 interface IMvp {
     interface View {
@@ -11,7 +11,6 @@ interface IMvp {
             fun onSuccessGetData()
             fun onFailureGetData()
             fun startLoading()
-            fun stopLoading()
         }
 
         interface Dashboard {

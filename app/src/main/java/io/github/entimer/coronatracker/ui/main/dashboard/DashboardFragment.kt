@@ -15,7 +15,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import io.github.entimer.coronatracker.R
 import io.github.entimer.coronatracker.ui.base.IMvp
 import io.github.entimer.coronatracker.util.DateValueFormatter
-import io.github.entimer.coronatracker.util.dataclass.CaseData
+import io.github.entimer.coronatracker.api.covid.CaseData
 import kotlinx.android.synthetic.main.card_global.view.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import java.text.DecimalFormat
@@ -110,7 +110,32 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
     }
 
     private fun initBarChart(view: View) {
+        val chart = view.card_global_barChart
+        chart.setExtraOffsets(0f, 10f, 0f, 0f)
+        chart.description.isEnabled = false
+        chart.setTouchEnabled(true)
+        chart.isDragEnabled = true
+        chart.setScaleEnabled(false)
+        chart.isDoubleTapToZoomEnabled = false
 
+        val legend = chart.legend
+        legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
+        legend.verticalAlignment = Legend.LegendVerticalAlignment.TOP
+        legend.orientation = Legend.LegendOrientation.HORIZONTAL
+        legend.xEntrySpace = 12f
+        legend.textColor = view.context.resources.getColor(R.color.colorText)
+
+        val axisX = chart.xAxis
+        axisX.position = XAxis.XAxisPosition.BOTTOM
+        axisX.textColor = view.context.resources.getColor(R.color.colorText)
+
+        val axisLeft = chart.axisLeft
+        axisLeft.axisMinimum = 0f
+        axisLeft.textColor = view.context.resources.getColor(R.color.colorText)
+        axisLeft.valueFormatter = LargeValueFormatter()
+
+        val axisRight = chart.axisRight
+        axisRight.isEnabled = false
     }
 
     override fun initListeners(view: View) {
@@ -239,14 +264,6 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
 
         isLineFinished = true
         stopLoading(view)
-    }
-
-    private fun dateToFloat(date: String): Float {
-        val splited = date.split("-")
-        val year = splited[0]
-        val month = splited[1]
-        val dayOfMonth = splited[2]
-        return "$year$month$dayOfMonth".toFloat()
     }
 
     override fun updateBarChart(view: View) {

@@ -6,7 +6,7 @@ import com.google.gson.JsonParser
 import io.github.entimer.coronatracker.R
 import io.github.entimer.coronatracker.api.covid.CovidApiService
 import io.github.entimer.coronatracker.util.DateUtil
-import io.github.entimer.coronatracker.util.dataclass.CaseData
+import io.github.entimer.coronatracker.api.covid.CaseData
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,13 +16,13 @@ import kotlin.collections.ArrayList
 class DashboardModel(presenter: DashboardPresenter) {
     private val presenter = presenter
     private val logTag: String = "DashboardModel"
+    val parser = JsonParser()
 
     fun getEverydayCount(context: Context) {
         CovidApiService.getService().getGlobalEveryDay().enqueue(object: Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if(response.isSuccessful) {
                     val body = response.body()!!.string()
-                    val parser = JsonParser()
                     val fullData = parser.parse(body).asJsonObject
                     val resultData = fullData["result"].asJsonObject
                     val itemCount = fullData["count"].asInt
@@ -58,6 +58,27 @@ class DashboardModel(presenter: DashboardPresenter) {
     }
 
     fun getEveryCountriesCount(context: Context) {
-        presenter.updateBarChart()
+        CovidApiService.getService().getGlobalEveryCountries().enqueue(object: Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if(response.isSuccessful) {
+                    val body = response.body()!!.string()
+                    val fullData = parser.parse(body).asJsonObject
+                    val resultData = fullData["result"].asJsonArray
+                    val itemCount = fullData["count"].asInt
+
+                    for(data in resultData) {
+                        Log.d(logTag, "$data")
+                    }
+                    presenter.updateBarChart()
+                }
+                else {
+                    Log.e(logTag, "API response is not successful: ${response.errorBody()}")
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e(logTag, "API failure: ${t.stackTrace}")
+            }
+        })
     }
 }
