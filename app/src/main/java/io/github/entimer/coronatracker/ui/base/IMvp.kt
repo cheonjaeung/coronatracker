@@ -19,7 +19,7 @@ interface IMvp {
             fun initListeners(view: android.view.View)
             fun updateCount(view: android.view.View, caseList: ArrayList<CaseData>)
             fun updatePieChart(view: android.view.View, caseData: CaseData)
-            fun updateLineChart(view: android.view.View)
+            fun updateLineChart(view: android.view.View, caseList: ArrayList<CaseData>)
             fun updateBarChart(view: android.view.View)
             fun startLoading(view: android.view.View)
             fun stopLoading(view: android.view.View)
@@ -35,7 +35,7 @@ interface IMvp {
             fun getData(context: Context)
             fun updateCount(caseList: ArrayList<CaseData>)
             fun updatePieChart(caseData: CaseData)
-            fun updateLineChart()
+            fun updateLineChart(caseList: ArrayList<CaseData>)
             fun updateBarChart()
         }
     }

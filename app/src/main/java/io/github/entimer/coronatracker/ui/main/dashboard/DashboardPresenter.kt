@@ -11,7 +11,8 @@ class DashboardPresenter(view: IMvp.View.Dashboard, fragmentView: View): IMvp.Pr
     private val model = DashboardModel(this)
 
     override fun getData(context: Context) {
-        model.getData(context)
+        model.getEverydayCount(context)
+        model.getEveryCountriesCount(context)
     }
 
     override fun updateCount(caseList: ArrayList<CaseData>) {
@@ -22,11 +23,11 @@ class DashboardPresenter(view: IMvp.View.Dashboard, fragmentView: View): IMvp.Pr
         view.updatePieChart(fragmentView, caseData)
     }
 
-    override fun updateLineChart() {
-
+    override fun updateLineChart(caseList: ArrayList<CaseData>) {
+        view.updateLineChart(fragmentView, caseList)
     }
 
     override fun updateBarChart() {
-
+        view.updateBarChart(fragmentView)
     }
 }
