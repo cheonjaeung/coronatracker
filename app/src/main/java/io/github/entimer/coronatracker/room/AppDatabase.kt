@@ -4,15 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import io.github.entimer.coronatracker.room.dao.CaseDao
-import io.github.entimer.coronatracker.room.dao.CountryDao
-import io.github.entimer.coronatracker.room.entity.CaseEntity
-import io.github.entimer.coronatracker.room.entity.CountryEntity
+import io.github.entimer.coronatracker.room.dao.Iso3166Dao
+import io.github.entimer.coronatracker.room.entity.Iso3166Entity
 
-@Database(entities = [CaseEntity::class, CountryEntity::class], version = 1)
+@Database(entities = [Iso3166Entity::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {
-    abstract fun countryDao(): CountryDao
-    abstract fun caseDao(): CaseDao
+    abstract fun iso3166Dao(): Iso3166Dao
 
     companion object {
         private lateinit var INSTANCE: AppDatabase

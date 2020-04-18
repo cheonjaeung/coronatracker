@@ -52,7 +52,8 @@ class DashboardModel(presenter: DashboardPresenter) {
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.e(logTag, "API failure: ${t.stackTrace}")
+                Log.e(logTag, "API failure:")
+                t.printStackTrace()
             }
         })
     }
@@ -77,7 +78,8 @@ class DashboardModel(presenter: DashboardPresenter) {
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.e(logTag, "API failure: ${t.stackTrace}")
+                Log.e(logTag, "API failure:")
+                t.printStackTrace()
             }
         })
     }
