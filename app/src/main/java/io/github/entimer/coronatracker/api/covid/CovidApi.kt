@@ -13,7 +13,7 @@ interface CovidApi {
     fun getGlobal(@Path("date")date: String): Call<ResponseBody>
 
     @GET("global/count")
-    fun getGlobalEveryDates(): Call<ResponseBody>
+    fun getGlobalEveryDay(): Call<ResponseBody>
 
     @GET("global/latest")
     fun getGlobalEveryCountries(): Call<ResponseBody>

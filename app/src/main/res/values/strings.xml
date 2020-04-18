@@ -8,6 +8,7 @@
     <string name="active">양성</string>
     <string name="recovered">회복</string>
     <string name="death">사망</string>
+    <string name="apiStartDate">2020-01-22</string>
 
     <!-- Main activity -->
     <string name="dashboard">대시보드</string>

@@ -35,20 +35,40 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
 
     }
 
-    override fun updateCount(view: View, data: CaseData) {
-        val format = DecimalFormat("###,###")
+    override fun updateCount(view: View, caseList: ArrayList<CaseData>) {
+        val numFormat = DecimalFormat("###,###")
+        val floatFormat = DecimalFormat(".##")
 
-        val date = data.date
-        val confirmed = data.confirmed
-        val recovered = data.recovered
-        val death = data.death
+        val confirmed = caseList[1].confirmed
+        val recovered = caseList[1].recovered
+        val death = caseList[1].death
         val active = confirmed - recovered - death
 
-        view.card_global_date.text = date
-        view.card_global_confirmedNumber.text = format.format(confirmed)
-        view.card_global_activeNumber.text = format.format(active)
-        view.card_global_recoveredNumber.text = format.format(recovered)
-        view.card_global_deathNumber.text = format.format(death)
+        val confirmedIncrease = confirmed - caseList[0].confirmed
+        val yesterdayActive = caseList[0].confirmed - caseList[0].recovered - caseList[0].death
+        val activeIncrease = active - yesterdayActive
+        val recoveredIncrease = recovered - caseList[0].recovered
+        val deathIncrease = death - caseList[0].death
+
+        val confirmedRate = (confirmedIncrease.toFloat() / caseList[0].confirmed.toFloat()) * 100f
+        val activeRate = (activeIncrease.toFloat() / yesterdayActive.toFloat()) * 100f
+        val recoveredRate = (recoveredIncrease.toFloat() / caseList[0].recovered.toFloat()) * 100f
+        val deathRate = (deathIncrease.toFloat() / caseList[0].death.toFloat()) * 100f
+
+        view.card_global_confirmedNumber.text = numFormat.format(confirmed)
+        view.card_global_activeNumber.text = numFormat.format(active)
+        view.card_global_recoveredNumber.text = numFormat.format(recovered)
+        view.card_global_deathNumber.text = numFormat.format(death)
+
+        view.card_global_confirmedIncrease.text = "+${numFormat.format(confirmedIncrease)}"
+        view.card_global_activeIncrease.text = "+${numFormat.format(activeIncrease)}"
+        view.card_global_recoveredIncrease.text = "+${numFormat.format(recoveredIncrease)}"
+        view.card_global_deathIncrease.text = "+${numFormat.format(deathIncrease)}"
+
+        view.card_global_confirmedIncreaseRate.text = "+${floatFormat.format(confirmedRate)}%"
+        view.card_global_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
+        view.card_global_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
+        view.card_global_deathIncreaseRate.text = "+${floatFormat.format(deathRate)}%"
 
         stopLoading(view)
     }

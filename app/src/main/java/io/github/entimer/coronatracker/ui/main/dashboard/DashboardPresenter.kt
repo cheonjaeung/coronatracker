@@ -11,11 +11,11 @@ class DashboardPresenter(view: IMvp.View.Dashboard, fragmentView: View): IMvp.Pr
     private val model = DashboardModel(this)
 
     override fun getData(context: Context) {
-        model.getGlobalCount(context)
+        model.getData(context)
     }
 
-    override fun updateCount(data: CaseData) {
-        view.updateCount(fragmentView, data)
+    override fun updateCount(caseList: ArrayList<CaseData>) {
+        view.updateCount(fragmentView, caseList)
     }
 
     override fun updatePieChart() {

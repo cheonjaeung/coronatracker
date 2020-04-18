@@ -1,7 +1,6 @@
 package io.github.entimer.coronatracker.ui.base
 
 import android.content.Context
-import android.view.View
 import io.github.entimer.coronatracker.util.dataclass.CaseData
 
 interface IMvp {
@@ -18,7 +17,7 @@ interface IMvp {
         interface Dashboard {
             fun initViews(view: android.view.View)
             fun initListeners(view: android.view.View)
-            fun updateCount(view: android.view.View, data: CaseData)
+            fun updateCount(view: android.view.View, caseList: ArrayList<CaseData>)
             fun updatePieChart(view: android.view.View)
             fun updateLineChart(view: android.view.View)
             fun updateBarChart(view: android.view.View)
@@ -34,7 +33,7 @@ interface IMvp {
 
         interface Dashboard {
             fun getData(context: Context)
-            fun updateCount(data: CaseData)
+            fun updateCount(caseList: ArrayList<CaseData>)
             fun updatePieChart()
             fun updateLineChart()
             fun updateBarChart()
