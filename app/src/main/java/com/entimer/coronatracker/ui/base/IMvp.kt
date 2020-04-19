@@ -22,6 +22,13 @@ interface IMvp {
             fun startLoading(view: android.view.View)
             fun stopLoading(view: android.view.View)
         }
+
+        interface Search {
+            fun initViews(view: android.view.View)
+            fun initListeners(view: android.view.View)
+            fun startLoading(view: android.view.View)
+            fun stopLoading(view: android.view.View)
+        }
     }
 
     interface Presenter {
@@ -34,6 +41,10 @@ interface IMvp {
             fun updateCount(caseList: ArrayList<CaseData>)
             fun updatePieChart(caseData: CaseData)
             fun updateLineChart(caseList: ArrayList<CaseData>)
+        }
+
+        interface Search {
+            fun getData(context: Context)
         }
     }
 }
