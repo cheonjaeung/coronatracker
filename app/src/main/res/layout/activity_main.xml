@@ -14,7 +14,7 @@
         android:background="?android:attr/windowBackground"
         android:elevation="12dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/dashboard"
+        app:title="@string/global"
         app:menu="@menu/menu_toolbar_main"/>
 
     <FrameLayout

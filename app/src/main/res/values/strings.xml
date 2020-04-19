@@ -2,22 +2,36 @@
 <resources>
     <string name="app_name">코로나 트래커</string>
 
-    <!-- Corona virus -->
-    <string name="global">전세계</string>
+    <!-- General -->
     <string name="confirmed">확진</string>
     <string name="active">양성</string>
     <string name="recovered">회복</string>
     <string name="death">사망</string>
+    <string name="apiStartDate">2020-01-22</string>
+    <string-array name="month">
+        <item>1월</item>
+        <item>2월</item>
+        <item>3월</item>
+        <item>4월</item>
+        <item>5월</item>
+        <item>6월</item>
+        <item>7월</item>
+        <item>8월</item>
+        <item>9월</item>
+        <item>10월</item>
+        <item>11월</item>
+        <item>12월</item>
+    </string-array>
 
     <!-- Main activity -->
-    <string name="dashboard">대시보드</string>
-    <string name="map">지도</string>
-    <string name="chart">차트</string>
-
-
-    <!-- Search activity -->
+    <!-- Global fragment -->
+    <string name="global">전세계</string>
+    <string name="globalPieChartLabel">양성, 회복, 사망 비율</string>
+    <!-- Search fragment -->
     <string name="search">검색</string>
     <string name="searchBarHint">국가를 검색하세요. (e.g. Korea)</string>
+    <!-- Map fragment -->
+    <string name="map">지도</string>
 
     <!-- Setting activity -->
     <string name="setting">설정</string>

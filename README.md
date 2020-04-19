@@ -37,6 +37,9 @@ Please make an issue. You can use existing issue templates (But Report, Feature 
 - [MP Android Chart](https://github.com/PhilJay/MPAndroidChart) by PhilJay, Apache 2.0 License.
 - [Retrofit](https://github.com/square/retrofit) by Square, Apache 2.0 License.
 
+## Icons
+- Global icon on bottom navigation made by Vitaly Gorbachev from [www.flaticon.com](https://www.flaticon.com/free-icon/globe_2301129?term=globe&page=1&position=2)
+
 ## License
 © 2020 Jaewoong Cheon licensed under the MIT License.
 
