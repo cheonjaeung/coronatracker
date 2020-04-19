@@ -57,30 +57,4 @@ class DashboardModel(presenter: DashboardPresenter) {
             }
         })
     }
-
-    fun getEveryCountriesCount(context: Context) {
-        CovidApiService.getService().getGlobalEveryCountries().enqueue(object: Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                if(response.isSuccessful) {
-                    val body = response.body()!!.string()
-                    val fullData = parser.parse(body).asJsonObject
-                    val resultData = fullData["result"].asJsonArray
-                    val itemCount = fullData["count"].asInt
-
-                    for(data in resultData) {
-                        Log.d(logTag, "$data")
-                    }
-                    presenter.updateBarChart()
-                }
-                else {
-                    Log.e(logTag, "API response is not successful: ${response.errorBody()}")
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.e(logTag, "API failure:")
-                t.printStackTrace()
-            }
-        })
-    }
 }

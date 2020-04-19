@@ -26,7 +26,6 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
     private var isCountFinished = false
     private var isPieFinished = false
     private var isLineFinished = false
-    private var isBarFinished = false
 
     private var confirmedColor = 0
     private var activeColor = 0
@@ -51,7 +50,6 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
         deathColor = view.context.resources.getColor(R.color.colorDeath)
         initPieChart(view)
         initLineChart(view)
-        initBarChart(view)
         presenter.getData(view.context)
     }
 
@@ -99,35 +97,6 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
         axisX.position = XAxis.XAxisPosition.BOTTOM
         axisX.textColor = view.context.resources.getColor(R.color.colorText)
         axisX.valueFormatter = DateValueFormatter(view.context)
-
-        val axisLeft = chart.axisLeft
-        axisLeft.axisMinimum = 0f
-        axisLeft.textColor = view.context.resources.getColor(R.color.colorText)
-        axisLeft.valueFormatter = LargeValueFormatter()
-
-        val axisRight = chart.axisRight
-        axisRight.isEnabled = false
-    }
-
-    private fun initBarChart(view: View) {
-        val chart = view.card_global_barChart
-        chart.setExtraOffsets(0f, 10f, 0f, 0f)
-        chart.description.isEnabled = false
-        chart.setTouchEnabled(true)
-        chart.isDragEnabled = true
-        chart.setScaleEnabled(false)
-        chart.isDoubleTapToZoomEnabled = false
-
-        val legend = chart.legend
-        legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
-        legend.verticalAlignment = Legend.LegendVerticalAlignment.TOP
-        legend.orientation = Legend.LegendOrientation.HORIZONTAL
-        legend.xEntrySpace = 12f
-        legend.textColor = view.context.resources.getColor(R.color.colorText)
-
-        val axisX = chart.xAxis
-        axisX.position = XAxis.XAxisPosition.BOTTOM
-        axisX.textColor = view.context.resources.getColor(R.color.colorText)
 
         val axisLeft = chart.axisLeft
         axisLeft.axisMinimum = 0f
@@ -221,8 +190,7 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
         val activeEntries = ArrayList<Entry>()
         val recoveredEntries = ArrayList<Entry>()
         val deathEntries = ArrayList<Entry>()
-        for(index in 0 until caseList.size) {
-            val case = caseList[index]
+        for((index, case) in caseList.withIndex()) {
             val confirmed = case.confirmed.toFloat()
             val recovered = case.recovered.toFloat()
             val death = case.death.toFloat()
@@ -260,14 +228,9 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
 
         view.card_global_lineChart.invalidate()
         view.card_global_lineChart.zoom(3f, 1f, Float.MAX_VALUE, Float.MAX_VALUE)
-        view.card_global_lineChart.animateX(1000)
+        view.card_global_lineChart.animateY(1000)
 
         isLineFinished = true
-        stopLoading(view)
-    }
-
-    override fun updateBarChart(view: View) {
-        isBarFinished = true
         stopLoading(view)
     }
 
@@ -275,14 +238,13 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
         isCountFinished = false
         isPieFinished = false
         isLineFinished = false
-        isBarFinished = false
 
         view.dashboard_loading.startAnimation(AnimationUtils.loadAnimation(view.context, R.anim.anim_updating))
         view.dashboard_loadingLayout.visibility = View.VISIBLE
     }
 
     override fun stopLoading(view: View) {
-        if(isCountFinished && isPieFinished && isLineFinished && isBarFinished) {
+        if(isCountFinished && isPieFinished && isLineFinished) {
             view.dashboard_loading.clearAnimation()
             view.dashboard_loadingLayout.visibility = View.GONE
         }
