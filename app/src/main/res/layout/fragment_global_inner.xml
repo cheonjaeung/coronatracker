@@ -9,30 +9,14 @@
     android:background="?android:attr/windowBackground"
     android:elevation="12dp">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/global_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="16dp"
-            android:text="@string/global"
-            android:textSize="20sp"
-            android:textColor="@color/colorTextLight"/>
-
-        <TextView
-            android:id="@+id/card_global_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="2020-xx-xx"
-            android:textColor="@color/colorTextLight"/>
-
-    </LinearLayout>
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center_vertical"
+        android:text="2020-xx-xx"
+        android:textColor="@color/colorTextLight"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,7 +70,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/card_global_confirmedNumber"
+                android:id="@+id/global_confirmedNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -94,7 +78,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/card_global_activeNumber"
+                android:id="@+id/global_activeNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -102,7 +86,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/card_global_recoveredNumber"
+                android:id="@+id/global_recoveredNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -110,7 +94,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/card_global_deathNumber"
+                android:id="@+id/global_deathNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -125,7 +109,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/card_global_confirmedIncrease"
+                android:id="@+id/global_confirmedIncrease"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -133,7 +117,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/card_global_activeIncrease"
+                android:id="@+id/global_activeIncrease"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -141,7 +125,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/card_global_recoveredIncrease"
+                android:id="@+id/global_recoveredIncrease"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -149,7 +133,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/card_global_deathIncrease"
+                android:id="@+id/global_deathIncrease"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -164,7 +148,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/card_global_confirmedIncreaseRate"
+                android:id="@+id/global_confirmedIncreaseRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -172,7 +156,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/card_global_activeIncreaseRate"
+                android:id="@+id/global_activeIncreaseRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -180,7 +164,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/card_global_recoveredIncreaseRate"
+                android:id="@+id/global_recoveredIncreaseRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -188,7 +172,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/card_global_deathIncreaseRate"
+                android:id="@+id/global_deathIncreaseRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -200,13 +184,13 @@
     </LinearLayout>
     
     <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/card_global_pieChart"
+        android:id="@+id/global_pieChart"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_marginBottom="32dp"/>
 
     <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/card_global_lineChart"
+        android:id="@+id/global_lineChart"
         android:layout_width="match_parent"
         android:layout_height="350dp"/>
 

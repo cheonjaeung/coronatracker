@@ -1,4 +1,4 @@
-package io.github.entimer.coronatracker.ui.main.dashboard
+package io.github.entimer.coronatracker.ui.main.global
 
 import android.content.Context
 import android.util.Log
@@ -13,7 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import kotlin.collections.ArrayList
 
-class DashboardModel(presenter: DashboardPresenter) {
+class GlobalModel(presenter: GlobalPresenter) {
     private val presenter = presenter
     private val logTag: String = "DashboardModel"
     val parser = JsonParser()

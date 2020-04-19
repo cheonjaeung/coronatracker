@@ -1,14 +1,14 @@
-package io.github.entimer.coronatracker.ui.main.dashboard
+package io.github.entimer.coronatracker.ui.main.global
 
 import android.content.Context
 import android.view.View
 import io.github.entimer.coronatracker.ui.base.IMvp
 import io.github.entimer.coronatracker.api.covid.CaseData
 
-class DashboardPresenter(view: IMvp.View.Dashboard, fragmentView: View): IMvp.Presenter.Dashboard {
+class GlobalPresenter(view: IMvp.View.Global, fragmentView: View): IMvp.Presenter.Global {
     private val view = view
     private val fragmentView = fragmentView
-    private val model = DashboardModel(this)
+    private val model = GlobalModel(this)
 
     override fun getData(context: Context) {
         model.getEverydayCount(context)

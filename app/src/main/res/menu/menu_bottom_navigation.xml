@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/dashboard"
-        android:icon="@drawable/ic_dashboard_24dp"
-        android:title="@string/dashboard"/>
+        android:id="@+id/global"
+        android:icon="@drawable/ic_global_24dp"
+        android:title="@string/global"/>
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search_24dp"
+        android:title="@string/search"/>
 
     <item
         android:id="@+id/map"
         android:icon="@drawable/ic_map_24dp"
         android:title="@string/map"/>
-
-    <item
-        android:id="@+id/chart"
-        android:icon="@drawable/ic_chart_24dp"
-        android:title="@string/chart"/>
 </menu>

@@ -13,7 +13,7 @@ interface IMvp {
             fun startLoading()
         }
 
-        interface Dashboard {
+        interface Global {
             fun initViews(view: android.view.View)
             fun initListeners(view: android.view.View)
             fun updateCount(view: android.view.View, caseList: ArrayList<CaseData>)
@@ -29,7 +29,7 @@ interface IMvp {
             fun getData(context: Context)
         }
 
-        interface Dashboard {
+        interface Global {
             fun getData(context: Context)
             fun updateCount(caseList: ArrayList<CaseData>)
             fun updatePieChart(caseData: CaseData)

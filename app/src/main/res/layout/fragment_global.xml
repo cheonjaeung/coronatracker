@@ -18,14 +18,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/card_global"/>
+            <include layout="@layout/fragment_global_inner"/>
 
         </LinearLayout>
 
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/dashboard_loadingLayout"
+        android:id="@+id/global_loadingLayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,7 +34,7 @@
         android:visibility="gone">
 
         <ImageView
-            android:id="@+id/dashboard_loading"
+            android:id="@+id/global_loading"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/ic_updating_24dp"/>

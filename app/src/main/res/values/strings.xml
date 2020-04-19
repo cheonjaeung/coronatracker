@@ -3,7 +3,6 @@
     <string name="app_name">코로나 트래커</string>
 
     <!-- General -->
-    <string name="global">전세계</string>
     <string name="confirmed">확진</string>
     <string name="active">양성</string>
     <string name="recovered">회복</string>
@@ -25,14 +24,14 @@
     </string-array>
 
     <!-- Main activity -->
-    <string name="dashboard">대시보드</string>
-    <string name="map">지도</string>
-    <string name="chart">차트</string>
+    <!-- Global fragment -->
+    <string name="global">전세계</string>
     <string name="globalPieChartLabel">양성, 회복, 사망 비율</string>
-
-    <!-- Search activity -->
+    <!-- Search fragment -->
     <string name="search">검색</string>
     <string name="searchBarHint">국가를 검색하세요. (e.g. Korea)</string>
+    <!-- Map fragment -->
+    <string name="map">지도</string>
 
     <!-- Setting activity -->
     <string name="setting">설정</string>

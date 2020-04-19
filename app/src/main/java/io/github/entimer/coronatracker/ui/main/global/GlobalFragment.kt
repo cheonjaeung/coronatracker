@@ -1,4 +1,4 @@
-package io.github.entimer.coronatracker.ui.main.dashboard
+package io.github.entimer.coronatracker.ui.main.global
 
 import android.app.Fragment
 import android.graphics.Color
@@ -16,12 +16,12 @@ import io.github.entimer.coronatracker.R
 import io.github.entimer.coronatracker.ui.base.IMvp
 import io.github.entimer.coronatracker.util.DateValueFormatter
 import io.github.entimer.coronatracker.api.covid.CaseData
-import kotlinx.android.synthetic.main.card_global.view.*
-import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+import kotlinx.android.synthetic.main.fragment_global_inner.view.*
+import kotlinx.android.synthetic.main.fragment_global.view.*
 import java.text.DecimalFormat
 
-class DashboardFragment: Fragment(), IMvp.View.Dashboard {
-    private lateinit var presenter: DashboardPresenter
+class GlobalFragment: Fragment(), IMvp.View.Global {
+    private lateinit var presenter: GlobalPresenter
 
     private var isCountFinished = false
     private var isPieFinished = false
@@ -33,9 +33,9 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
     private var deathColor = 0
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_dashboard, container, false)
+        val view = inflater!!.inflate(R.layout.fragment_global, container, false)
 
-        presenter = DashboardPresenter(this, view)
+        presenter = GlobalPresenter(this, view)
 
         initViews(view)
 
@@ -54,7 +54,7 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
     }
 
     private fun initPieChart(view: View) {
-        val chart = view.card_global_pieChart
+        val chart = view.global_pieChart
         chart.setUsePercentValues(true)
         chart.description.isEnabled = false
         chart.dragDecelerationFrictionCoef = 0.5f
@@ -77,7 +77,7 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
     }
 
     private fun initLineChart(view: View) {
-        val chart = view.card_global_lineChart
+        val chart = view.global_lineChart
         chart.setExtraOffsets(0f, 10f, 0f, 0f)
         chart.description.isEnabled = false
         chart.setTouchEnabled(true)
@@ -131,22 +131,22 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
         val recoveredRate = (recoveredIncrease.toFloat() / caseList[0].recovered.toFloat()) * 100f
         val deathRate = (deathIncrease.toFloat() / caseList[0].death.toFloat()) * 100f
 
-        view.card_global_date.text = caseList[1].date
+        view.global_date.text = caseList[1].date
 
-        view.card_global_confirmedNumber.text = numFormat.format(confirmed)
-        view.card_global_activeNumber.text = numFormat.format(active)
-        view.card_global_recoveredNumber.text = numFormat.format(recovered)
-        view.card_global_deathNumber.text = numFormat.format(death)
+        view.global_confirmedNumber.text = numFormat.format(confirmed)
+        view.global_activeNumber.text = numFormat.format(active)
+        view.global_recoveredNumber.text = numFormat.format(recovered)
+        view.global_deathNumber.text = numFormat.format(death)
 
-        view.card_global_confirmedIncrease.text = "+${numFormat.format(confirmedIncrease)}"
-        view.card_global_activeIncrease.text = "+${numFormat.format(activeIncrease)}"
-        view.card_global_recoveredIncrease.text = "+${numFormat.format(recoveredIncrease)}"
-        view.card_global_deathIncrease.text = "+${numFormat.format(deathIncrease)}"
+        view.global_confirmedIncrease.text = "+${numFormat.format(confirmedIncrease)}"
+        view.global_activeIncrease.text = "+${numFormat.format(activeIncrease)}"
+        view.global_recoveredIncrease.text = "+${numFormat.format(recoveredIncrease)}"
+        view.global_deathIncrease.text = "+${numFormat.format(deathIncrease)}"
 
-        view.card_global_confirmedIncreaseRate.text = "+${floatFormat.format(confirmedRate)}%"
-        view.card_global_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
-        view.card_global_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
-        view.card_global_deathIncreaseRate.text = "+${floatFormat.format(deathRate)}%"
+        view.global_confirmedIncreaseRate.text = "+${floatFormat.format(confirmedRate)}%"
+        view.global_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
+        view.global_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
+        view.global_deathIncreaseRate.text = "+${floatFormat.format(deathRate)}%"
 
         isCountFinished = true
         stopLoading(view)
@@ -173,13 +173,13 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
         dataSet.colors = colors
 
         val data = PieData(dataSet)
-        data.setValueFormatter(PercentFormatter(view.card_global_pieChart))
+        data.setValueFormatter(PercentFormatter(view.global_pieChart))
         data.setValueTextSize(16f)
         data.setValueTextColor(Color.WHITE)
-        view.card_global_pieChart.data = data
+        view.global_pieChart.data = data
 
-        view.card_global_pieChart.invalidate()
-        view.card_global_pieChart.animateY(1000)
+        view.global_pieChart.invalidate()
+        view.global_pieChart.animateY(1000)
 
         isPieFinished = true
         stopLoading(view)
@@ -224,11 +224,11 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
         deathDataSet.setCircleColor(deathColor)
 
         val data = LineData(confirmedDataSet, activeDataSet, recoveredDataSet, deathDataSet)
-        view.card_global_lineChart.data = data
+        view.global_lineChart.data = data
 
-        view.card_global_lineChart.invalidate()
-        view.card_global_lineChart.zoom(3f, 1f, Float.MAX_VALUE, Float.MAX_VALUE)
-        view.card_global_lineChart.animateY(1000)
+        view.global_lineChart.invalidate()
+        view.global_lineChart.zoom(3f, 1f, Float.MAX_VALUE, Float.MAX_VALUE)
+        view.global_lineChart.animateY(1000)
 
         isLineFinished = true
         stopLoading(view)
@@ -239,14 +239,14 @@ class DashboardFragment: Fragment(), IMvp.View.Dashboard {
         isPieFinished = false
         isLineFinished = false
 
-        view.dashboard_loading.startAnimation(AnimationUtils.loadAnimation(view.context, R.anim.anim_updating))
-        view.dashboard_loadingLayout.visibility = View.VISIBLE
+        view.global_loading.startAnimation(AnimationUtils.loadAnimation(view.context, R.anim.anim_updating))
+        view.global_loadingLayout.visibility = View.VISIBLE
     }
 
     override fun stopLoading(view: View) {
         if(isCountFinished && isPieFinished && isLineFinished) {
-            view.dashboard_loading.clearAnimation()
-            view.dashboard_loadingLayout.visibility = View.GONE
+            view.global_loading.clearAnimation()
+            view.global_loadingLayout.visibility = View.GONE
         }
     }
 }
