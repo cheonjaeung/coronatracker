@@ -2,33 +2,37 @@
 <resources>
     <string name="app_name">코로나 트래커</string>
 
-    <!-- Tool bar -->
-    <string name="refresh">초기화</string>
-    <string name="search">검색</string>
-    <string name="setting">설정</string>
-
-    <!-- Bottom Navigation -->
-    <string name="dashboard">대시보드</string>
-    <string name="map">지도</string>
-    <string name="chart">차트</string>
-
-    <!-- Numbers -->
-    <string name="total">총합</string>
-    <string name="confirmed">확진자</string>
+    <!-- General -->
+    <string name="confirmed">확진</string>
     <string name="active">양성</string>
-    <string name="recovered">완치자</string>
-    <string name="death">사망자</string>
+    <string name="recovered">회복</string>
+    <string name="death">사망</string>
+    <string name="apiStartDate">2020-01-22</string>
+    <string-array name="month">
+        <item>1월</item>
+        <item>2월</item>
+        <item>3월</item>
+        <item>4월</item>
+        <item>5월</item>
+        <item>6월</item>
+        <item>7월</item>
+        <item>8월</item>
+        <item>9월</item>
+        <item>10월</item>
+        <item>11월</item>
+        <item>12월</item>
+    </string-array>
 
-    <!-- Dashboard -->
-    <string name="worldwide">전세계</string>
-    <string name="chart_center_text">전세계 확진자 현황</string>
+    <!-- Main activity -->
+    <!-- Global fragment -->
+    <string name="global">전세계</string>
+    <string name="globalPieChartLabel">양성, 회복, 사망 비율</string>
+    <!-- Search fragment -->
+    <string name="search">검색</string>
+    <string name="searchBarHint">국가를 검색하세요. (e.g. Korea)</string>
+    <!-- Map fragment -->
+    <string name="map">지도</string>
 
-    <!-- Search -->
-    <string name="searchbar_hint">국가를 검색하세요</string>
-    <string name="country_name">국가명</string>
-    <string name="country_code">국가 코드</string>
-
-    <!-- Dialog -->
-    <string name="initializing_data">초기 데이터 구성 중...</string>
-    <string name="searching">검색 중...</string>
+    <!-- Setting activity -->
+    <string name="setting">설정</string>
 </resources>

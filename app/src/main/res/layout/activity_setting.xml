@@ -11,9 +11,10 @@
         android:id="@+id/setting_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Toolbar"
+        android:background="?android:attr/windowBackground"
+        android:elevation="12dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_arrow_left_24dp"
-        app:title="@string/setting" />
+        app:title="@string/setting"
+        app:navigationIcon="@drawable/ic_arrow_left_24dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

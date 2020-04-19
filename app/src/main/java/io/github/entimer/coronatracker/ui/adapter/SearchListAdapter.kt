@@ -13,14 +13,14 @@ class SearchListAdapter(items: ArrayList<Country>): RecyclerView.Adapter<SearchL
     private var items = items
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val nameView: TextView = view.findViewById(R.id.search_list_item_name)
-        val codeView: TextView = view.findViewById(R.id.search_list_item_code)
+        val nameView: TextView = view.findViewById(R.id.item_search_resultList_countryName)
+        val codeView: TextView = view.findViewById(R.id.item_search_resultList_countryCode)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val view = inflater.inflate(R.layout.layout_item_search_list, parent, false)
+        val view = inflater.inflate(R.layout.item_search_result_list, parent, false)
         return ViewHolder(view)
     }
 
