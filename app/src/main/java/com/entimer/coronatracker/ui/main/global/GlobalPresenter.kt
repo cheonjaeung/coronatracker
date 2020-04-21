@@ -2,27 +2,26 @@ package com.entimer.coronatracker.ui.main.global
 
 import android.content.Context
 import android.view.View
-import com.entimer.coronatracker.ui.base.IMvp
 import com.entimer.coronatracker.api.covid.CaseData
 
-class GlobalPresenter(view: IMvp.View.Global, fragmentView: View): IMvp.Presenter.Global {
+class GlobalPresenter(view: GlobalFragment, fragmentView: View) {
     private val view = view
     private val fragmentView = fragmentView
     private val model = GlobalModel(this)
 
-    override fun getData(context: Context) {
+    fun getData(context: Context) {
         model.getEverydayCount(context)
     }
 
-    override fun updateCount(caseList: ArrayList<CaseData>) {
+    fun updateCount(caseList: ArrayList<CaseData>) {
         view.updateCount(fragmentView, caseList)
     }
 
-    override fun updatePieChart(caseData: CaseData) {
+    fun updatePieChart(caseData: CaseData) {
         view.updatePieChart(fragmentView, caseData)
     }
 
-    override fun updateLineChart(caseList: ArrayList<CaseData>) {
+    fun updateLineChart(caseList: ArrayList<CaseData>) {
         view.updateLineChart(fragmentView, caseList)
     }
 }

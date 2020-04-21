@@ -2,14 +2,18 @@ package com.entimer.coronatracker.ui.main.search
 
 import android.content.Context
 import android.view.View
-import com.entimer.coronatracker.ui.base.IMvp
+import com.entimer.coronatracker.api.iso3166.Iso3166Data
 
-class SearchPresenter(view: IMvp.View.Search, fragmentView: View): IMvp.Presenter.Search {
+class SearchPresenter(view: SearchFragment, fragmentView: View) {
     private val view = view
     private val fragmentView = fragmentView
     private val model = SearchModel(this)
 
-    override fun getData(context: Context) {
+    fun getData(context: Context) {
+        model.getCountries(context)
+    }
 
+    fun updateSearchList(list: ArrayList<Iso3166Data>) {
+        view.updateSearchList(fragmentView, list)
     }
 }

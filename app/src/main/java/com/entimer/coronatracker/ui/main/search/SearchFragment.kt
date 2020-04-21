@@ -10,10 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.entimer.coronatracker.R
 import com.entimer.coronatracker.api.iso3166.Iso3166Data
 import com.entimer.coronatracker.ui.adapter.SearchListAdapter
-import com.entimer.coronatracker.ui.base.IMvp
 import kotlinx.android.synthetic.main.fragment_search.view.*
 
-class SearchFragment: Fragment(), IMvp.View.Search {
+class SearchFragment: Fragment() {
     private lateinit var presenter: SearchPresenter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -22,11 +21,12 @@ class SearchFragment: Fragment(), IMvp.View.Search {
         presenter = SearchPresenter(this, view)
 
         initViews(view)
+        presenter.getData(view.context)
 
         return view
     }
 
-    override fun initViews(view: View) {
+    private fun initViews(view: View) {
         startLoading(view)
         initSearchList(view)
         stopLoading(view)
@@ -43,15 +43,19 @@ class SearchFragment: Fragment(), IMvp.View.Search {
             Iso3166Data("Name2", "NM", "NME", "002")))
     }
 
-    override fun initListeners(view: View) {
+    fun initListeners(view: View) {
     }
 
-    override fun startLoading(view: View) {
+    fun updateSearchList(view: View, list: ArrayList<Iso3166Data>) {
+
+    }
+
+    fun startLoading(view: View) {
         view.search_loading.startAnimation(AnimationUtils.loadAnimation(view.context, R.anim.anim_updating))
         view.search_loadingLayout.visibility = View.VISIBLE
     }
 
-    override fun stopLoading(view: View) {
+    fun stopLoading(view: View) {
         view.search_loading.clearAnimation()
         view.search_loadingLayout.visibility = View.GONE
     }
