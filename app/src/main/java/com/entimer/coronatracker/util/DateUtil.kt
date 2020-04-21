@@ -1,6 +1,5 @@
 package com.entimer.coronatracker.util
 
-import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -11,13 +10,6 @@ class DateUtil {
         return formatter.format(todayCalendar)
     }
 
-    fun stringToCalendar(stringDate: String): Calendar {
-        val list = stringDate.split("-")
-        val calendar = Calendar.getInstance()
-        calendar.set(list[0].toInt(), list[1].toInt(), list[2].toInt())
-        return calendar
-    }
-
     fun stringToCalendarWithTime(stringDate: String): Calendar {
         val list = stringDate.split("-")
         val calendar = Calendar.getInstance()
@@ -25,27 +17,10 @@ class DateUtil {
         return calendar
     }
 
-    fun calendarToString(calendarDate: Calendar): String {
-        val formatter = SimpleDateFormat("yyyy-MM-dd")
-        return formatter.format(calendarDate.time)
-    }
-
-    fun calendarToStringWithTime(calendarDate: Calendar): String {
-        val formatter = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss")
-        return formatter.format(calendarDate.time)
-    }
-
     fun compare2Dates(date1: String, date2: String): Long {
         val time1 = stringToCalendarWithTime(date1).timeInMillis
         val time2 = stringToCalendarWithTime(date2).timeInMillis
         return time1 - time2
-    }
-
-
-
-
-    fun getYear(date: String): String {
-        return date.split("-")[0]
     }
 
     fun getMonth(date: String): String {
@@ -71,24 +46,5 @@ class DateUtil {
 
         val dateFormat = SimpleDateFormat("yyyy-MM-dd")
         return dateFormat.format(calendar.time)
-    }
-
-    fun dateToFloat(date: String): Float {
-        val splited = date.split("-")
-        val year = splited[0].toFloat()
-        val month = splited[1].toFloat()
-        val date = splited[2].toFloat()
-
-        return date + (month * 100) + (year * 10000)
-    }
-
-    fun floatToDate(float: Float): String {
-        var intDate = float.toInt()
-        val year = intDate / 10000
-        intDate -= year
-        val month = intDate / 100
-        intDate -= month
-        val date = intDate
-        return "$year-$month-$date"
     }
 }
