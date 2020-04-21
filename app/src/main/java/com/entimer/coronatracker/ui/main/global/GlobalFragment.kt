@@ -13,14 +13,13 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.LargeValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.entimer.coronatracker.R
-import com.entimer.coronatracker.ui.base.IMvp
 import com.entimer.coronatracker.util.DateValueFormatter
 import com.entimer.coronatracker.api.covid.CaseData
 import kotlinx.android.synthetic.main.fragment_global_inner.view.*
 import kotlinx.android.synthetic.main.fragment_global.view.*
 import java.text.DecimalFormat
 
-class GlobalFragment: Fragment(), IMvp.View.Global {
+class GlobalFragment: Fragment() {
     private lateinit var presenter: GlobalPresenter
 
     private var isCountFinished = false
@@ -43,7 +42,7 @@ class GlobalFragment: Fragment(), IMvp.View.Global {
         return view
     }
 
-    override fun initViews(view: View) {
+    private fun initViews(view: View) {
         startLoading(view)
         confirmedColor = view.context.resources.getColor(R.color.colorConfirmed)
         activeColor = view.context.resources.getColor(R.color.colorActive)
@@ -109,11 +108,11 @@ class GlobalFragment: Fragment(), IMvp.View.Global {
         axisRight.isEnabled = false
     }
 
-    override fun initListeners(view: View) {
+    private fun initListeners(view: View) {
 
     }
 
-    override fun updateCount(view: View, caseList: ArrayList<CaseData>) {
+    fun updateCount(view: View, caseList: ArrayList<CaseData>) {
         val numFormat = DecimalFormat("###,###")
         val floatFormat = DecimalFormat(".##")
 
@@ -154,7 +153,7 @@ class GlobalFragment: Fragment(), IMvp.View.Global {
         stopLoading(view)
     }
 
-    override fun updatePieChart(view: View, caseData: CaseData) {
+    fun updatePieChart(view: View, caseData: CaseData) {
         val confirmed = caseData.confirmed
         val recovered = caseData.recovered
         val death = caseData.death
@@ -187,7 +186,7 @@ class GlobalFragment: Fragment(), IMvp.View.Global {
         stopLoading(view)
     }
 
-    override fun updateLineChart(view: View, caseList: ArrayList<CaseData>) {
+    fun updateLineChart(view: View, caseList: ArrayList<CaseData>) {
         val confirmedEntries = ArrayList<Entry>()
         val activeEntries = ArrayList<Entry>()
         val recoveredEntries = ArrayList<Entry>()
@@ -236,7 +235,7 @@ class GlobalFragment: Fragment(), IMvp.View.Global {
         stopLoading(view)
     }
 
-    override fun startLoading(view: View) {
+    fun startLoading(view: View) {
         isCountFinished = false
         isPieFinished = false
         isLineFinished = false
@@ -245,7 +244,7 @@ class GlobalFragment: Fragment(), IMvp.View.Global {
         view.global_loadingLayout.visibility = View.VISIBLE
     }
 
-    override fun stopLoading(view: View) {
+    fun stopLoading(view: View) {
         if(isCountFinished && isPieFinished && isLineFinished) {
             view.global_loading.clearAnimation()
             view.global_loadingLayout.visibility = View.GONE
