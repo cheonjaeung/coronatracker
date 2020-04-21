@@ -9,19 +9,36 @@ class GlobalPresenter(view: GlobalFragment, fragmentView: View) {
     private val fragmentView = fragmentView
     private val model = GlobalModel(this)
 
+    private var isCountFinished = false
+    private var isPieFinished = false
+    private var isLineFinished = false
+
     fun getData(context: Context) {
-        model.getEverydayCount(context)
+        view.startLoading(fragmentView)
+        model.getData(context)
     }
 
     fun updateCount(caseList: ArrayList<CaseData>) {
         view.updateCount(fragmentView, caseList)
+        isCountFinished = true
+        checkAllUpdated()
     }
 
     fun updatePieChart(caseData: CaseData) {
         view.updatePieChart(fragmentView, caseData)
+        isPieFinished = true
+        checkAllUpdated()
     }
 
     fun updateLineChart(caseList: ArrayList<CaseData>) {
         view.updateLineChart(fragmentView, caseList)
+        isLineFinished = true
+        checkAllUpdated()
+    }
+
+    private fun checkAllUpdated() {
+        if(isCountFinished && isPieFinished && isLineFinished) {
+            view.stopLoading(fragmentView)
+        }
     }
 }

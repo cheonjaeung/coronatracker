@@ -34,17 +34,22 @@ Please make an issue. You can use existing issue templates (But Report, Feature 
 - [ ] **Search**: Shows each countries state in order confirmed number. Provides search feature.
 - [ ] **Each country view**: Shows recent data of selected country.
 - [ ] **Map fragment**: Shows recent global data with world map.
+- [x] **Caching**: Save data in internal storage and load data when requested too frequently.
 - [x] **Theme change**: Support light & dark theme.
 - [ ] **Localization**: Support Korean and English.
 
 ## Open Source Libraries
-- [Gson](https://github.com/google/gson) by Google, Apache 2.0 License.
-- [Material Components](https://github.com/material-components/material-components-android) by Google, Apache 2.0 License.
-- [MP Android Chart](https://github.com/PhilJay/MPAndroidChart) by PhilJay, Apache 2.0 License.
-- [Retrofit](https://github.com/square/retrofit) by Square, Apache 2.0 License.
+- [Gson](https://github.com/google/gson) for JSON data parsing by Google, Apache 2.0 License.
+- [Kotlinx.Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for background task by JetBrains, Apache 2.0 License.
+- [Material Components](https://github.com/material-components/material-components-android) for material layout by Google, Apache 2.0 License.
+- [MP Android Chart](https://github.com/PhilJay/MPAndroidChart) for displaying charts by PhilJay, Apache 2.0 License.
+- [Retrofit](https://github.com/square/retrofit) for API request by Square, Apache 2.0 License.
 
 ## Icons
-- Global icon on bottom navigation made by Vitaly Gorbachev from [www.flaticon.com](https://www.flaticon.com/free-icon/globe_2301129?term=globe&page=1&position=2)
+- Global icon for bottom navigation made by Vitaly Gorbachev from [www.flaticon.com](https://www.flaticon.com/free-icon/globe_2301129?term=globe&page=1&position=2)
+
+## Data Source
+All COVID-19 data is based on [backtrackbaba's covid-api](https://github.com/backtrackbaba/covid-api).
 
 ## License
 © 2020 Jaewoong Cheon licensed under the MIT License.

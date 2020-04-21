@@ -22,10 +22,6 @@ import java.text.DecimalFormat
 class GlobalFragment: Fragment() {
     private lateinit var presenter: GlobalPresenter
 
-    private var isCountFinished = false
-    private var isPieFinished = false
-    private var isLineFinished = false
-
     private var confirmedColor = 0
     private var activeColor = 0
     private var recoveredColor = 0
@@ -34,23 +30,21 @@ class GlobalFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_global, container, false)
 
-        presenter =
-            GlobalPresenter(this, view)
+        presenter = GlobalPresenter(this, view)
 
         initViews(view)
+        presenter.getData(view.context)
 
         return view
     }
 
     private fun initViews(view: View) {
-        startLoading(view)
         confirmedColor = view.context.resources.getColor(R.color.colorConfirmed)
         activeColor = view.context.resources.getColor(R.color.colorActive)
         recoveredColor = view.context.resources.getColor(R.color.colorRecovered)
         deathColor = view.context.resources.getColor(R.color.colorDeath)
         initPieChart(view)
         initLineChart(view)
-        presenter.getData(view.context)
     }
 
     private fun initPieChart(view: View) {
@@ -96,8 +90,7 @@ class GlobalFragment: Fragment() {
         val axisX = chart.xAxis
         axisX.position = XAxis.XAxisPosition.BOTTOM
         axisX.textColor = view.context.resources.getColor(R.color.colorText)
-        axisX.valueFormatter =
-            DateValueFormatter(view.context)
+        axisX.valueFormatter = DateValueFormatter(view.context)
 
         val axisLeft = chart.axisLeft
         axisLeft.axisMinimum = 0f
@@ -106,10 +99,6 @@ class GlobalFragment: Fragment() {
 
         val axisRight = chart.axisRight
         axisRight.isEnabled = false
-    }
-
-    private fun initListeners(view: View) {
-
     }
 
     fun updateCount(view: View, caseList: ArrayList<CaseData>) {
@@ -148,9 +137,6 @@ class GlobalFragment: Fragment() {
         view.global_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
         view.global_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
         view.global_deathIncreaseRate.text = "+${floatFormat.format(deathRate)}%"
-
-        isCountFinished = true
-        stopLoading(view)
     }
 
     fun updatePieChart(view: View, caseData: CaseData) {
@@ -181,9 +167,6 @@ class GlobalFragment: Fragment() {
 
         view.global_pieChart.invalidate()
         view.global_pieChart.animateY(1000)
-
-        isPieFinished = true
-        stopLoading(view)
     }
 
     fun updateLineChart(view: View, caseList: ArrayList<CaseData>) {
@@ -230,24 +213,15 @@ class GlobalFragment: Fragment() {
         view.global_lineChart.invalidate()
         view.global_lineChart.zoom(3f, 1f, Float.MAX_VALUE, Float.MAX_VALUE)
         view.global_lineChart.animateY(1000)
-
-        isLineFinished = true
-        stopLoading(view)
     }
 
     fun startLoading(view: View) {
-        isCountFinished = false
-        isPieFinished = false
-        isLineFinished = false
-
         view.global_loading.startAnimation(AnimationUtils.loadAnimation(view.context, R.anim.anim_updating))
         view.global_loadingLayout.visibility = View.VISIBLE
     }
 
     fun stopLoading(view: View) {
-        if(isCountFinished && isPieFinished && isLineFinished) {
-            view.global_loading.clearAnimation()
-            view.global_loadingLayout.visibility = View.GONE
-        }
+        view.global_loading.clearAnimation()
+        view.global_loadingLayout.visibility = View.GONE
     }
 }
