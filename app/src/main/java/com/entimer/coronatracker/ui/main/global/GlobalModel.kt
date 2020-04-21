@@ -35,14 +35,7 @@ class GlobalModel(presenter: GlobalPresenter) {
                         val confirmed = eachData["confirmed"].asInt
                         val death = eachData["deaths"].asInt
                         val recovered = eachData["recovered"].asInt
-                        caseList.add(
-                            CaseData(
-                                indexDate,
-                                confirmed,
-                                recovered,
-                                death
-                            )
-                        )
+                        caseList.add(CaseData(indexDate, confirmed, recovered, death))
                         indexDate = dateUtil.getChangedDate(indexDate, 1)
                     }
 
