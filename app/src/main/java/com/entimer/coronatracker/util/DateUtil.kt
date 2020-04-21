@@ -35,14 +35,10 @@ class DateUtil {
         return formatter.format(calendarDate.time)
     }
 
-    fun compare2Dates(date1: String, date2: String): String {
-        Log.d("Test", "$date1 / $date2")
+    fun compare2Dates(date1: String, date2: String): Long {
         val time1 = stringToCalendarWithTime(date1).timeInMillis
         val time2 = stringToCalendarWithTime(date2).timeInMillis
-        val calendar = Calendar.getInstance()
-        calendar.timeInMillis = time1 - time2
-        val formatter = SimpleDateFormat("MM-dd-HH-mm-ss")
-        return formatter.format(calendar.time)
+        return time1 - time2
     }
 
 
