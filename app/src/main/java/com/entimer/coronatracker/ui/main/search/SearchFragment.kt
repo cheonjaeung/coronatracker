@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.view.inputmethod.EditorInfo
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.entimer.coronatracker.R
 import com.entimer.coronatracker.api.iso3166.Iso3166Data
@@ -15,13 +16,14 @@ import kotlinx.android.synthetic.main.fragment_search.view.*
 class SearchFragment: Fragment() {
     private lateinit var presenter: SearchPresenter
 
+    private val adapter = SearchListAdapter()
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view =  inflater!!.inflate(R.layout.fragment_search, container, false)
 
         presenter = SearchPresenter(this, view)
 
         initViews(view)
-        presenter.getData(view.context)
 
         return view
     }
@@ -34,20 +36,22 @@ class SearchFragment: Fragment() {
 
     private fun initSearchList(view: View) {
         val list = view.search_list
-        val adapter = SearchListAdapter()
-
         list.layoutManager = LinearLayoutManager(view.context)
         list.adapter = adapter
-
-        adapter.updateList(arrayListOf(Iso3166Data("Name", "NA", "NAM", "001"),
-            Iso3166Data("Name2", "NM", "NME", "002")))
     }
 
     fun initListeners(view: View) {
+        view.search_searchBar.setOnEditorActionListener { view, actionId, event ->
+            if(actionId == EditorInfo.IME_ACTION_SEARCH) {
+                presenter.getData(view.context, view.text.toString())
+                true
+            }
+            false
+        }
     }
 
     fun updateSearchList(view: View, list: ArrayList<Iso3166Data>) {
-
+        adapter.updateList(list)
     }
 
     fun startLoading(view: View) {

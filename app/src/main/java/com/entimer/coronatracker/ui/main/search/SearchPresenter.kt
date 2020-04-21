@@ -9,8 +9,8 @@ class SearchPresenter(view: SearchFragment, fragmentView: View) {
     private val fragmentView = fragmentView
     private val model = SearchModel(this)
 
-    fun getData(context: Context) {
-        model.getCountries(context)
+    fun getData(context: Context, keyword: String) {
+        model.getCountries(context, keyword)
     }
 
     fun updateSearchList(list: ArrayList<Iso3166Data>) {

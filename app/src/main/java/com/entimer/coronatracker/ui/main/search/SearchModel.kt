@@ -10,12 +10,12 @@ import java.lang.Exception
 class SearchModel(presenter: SearchPresenter) {
     private val presenter = presenter
 
-    fun getCountries(context: Context) {
-        val task = SearchModelAsyncTask(context, presenter)
+    fun getCountries(context: Context, keyword: String) {
+        val task = SearchModelAsyncTask(context, presenter, keyword)
         task.execute()
     }
 
-    class SearchModelAsyncTask(context: Context, presenter: SearchPresenter): AsyncTask<String, String, String>() {
+    class SearchModelAsyncTask(context: Context, presenter: SearchPresenter, keyword: String): AsyncTask<String, String, String>() {
         companion object {
             private const val SUCCESS = "success"
             private const val FAILURE = "failure"
@@ -24,13 +24,18 @@ class SearchModel(presenter: SearchPresenter) {
         private val logTag = "SearchModelAsyncTask"
         private val context = context
         private val presenter = presenter
+        private val keyword = keyword
         private val list = ArrayList<Iso3166Data>()
 
         override fun doInBackground(vararg params: String?): String {
             val db = AppDatabase.getDatabase(context)
 
             try {
+                val data = db.iso3166Dao().selectByKeyword(keyword)
 
+                for(entity in data) {
+                    list.add(Iso3166Data(entity.name, entity.alpha2, entity.alpha3, entity.numeric))
+                }
             }
             catch(e: Exception) {
                 Log.e(logTag, "Room database select failure:")
