@@ -15,7 +15,7 @@ class GlobalPresenter(view: GlobalFragment, fragmentView: View) {
 
     fun getData(context: Context) {
         view.startLoading(fragmentView)
-        model.getEverydayCount(context)
+        model.getData(context)
     }
 
     fun updateCount(caseList: ArrayList<CaseData>) {

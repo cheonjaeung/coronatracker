@@ -7,6 +7,7 @@ import com.entimer.coronatracker.R
 import com.entimer.coronatracker.api.covid.CovidApiService
 import com.entimer.coronatracker.util.DateUtil
 import com.entimer.coronatracker.api.covid.CaseData
+import com.entimer.coronatracker.util.SharedPreferenceUtil
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,8 +16,37 @@ import kotlin.collections.ArrayList
 
 class GlobalModel(presenter: GlobalPresenter) {
     private val presenter = presenter
-    private val logTag: String = "DashboardModel"
+    private val logTag: String = "GlobalModel"
     val parser = JsonParser()
+
+    fun getData(context: Context) {
+        if(checkUpdatedDate(context)) {
+            getDataFromApi()
+        }
+        else {
+            getDataFromCache()
+        }
+    }
+
+    private fun checkUpdatedDate(context: Context): Boolean {
+        val today = DateUtil().getToday()
+        val updated = SharedPreferenceUtil(context).getGlobalUpdated()
+
+        val dateUtil = DateUtil()
+        val difference = dateUtil.stringToCalendarWithTime(dateUtil.compare2Dates(today, updated)).timeInMillis
+        if(difference > 3_600_000) {
+            return true
+        }
+        return false
+    }
+
+    private fun getDataFromApi() {
+        
+    }
+
+    private fun getDataFromCache() {
+
+    }
 
     fun getEverydayCount(context: Context) {
         CovidApiService.getService().getGlobalEveryDay().enqueue(object: Callback<ResponseBody> {
