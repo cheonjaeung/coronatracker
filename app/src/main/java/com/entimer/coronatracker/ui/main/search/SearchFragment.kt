@@ -24,34 +24,42 @@ class SearchFragment: Fragment() {
         presenter = SearchPresenter(this, view)
 
         initViews(view)
+        initListeners(view)
+
+        presenter.initData(view.context)
 
         return view
     }
 
     private fun initViews(view: View) {
-        startLoading(view)
-        initSearchList(view)
-        stopLoading(view)
-    }
-
-    private fun initSearchList(view: View) {
         val list = view.search_list
         list.layoutManager = LinearLayoutManager(view.context)
         list.adapter = adapter
     }
 
-    fun initListeners(view: View) {
-        view.search_searchBar.setOnEditorActionListener { view, actionId, event ->
+    private fun initListeners(view: View) {
+        view.search_searchBar.setOnEditorActionListener { v, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_SEARCH) {
-                presenter.getData(view.context, view.text.toString())
+                val keyword = view.search_searchBar.text.toString()
+                presenter.getData(view.context, keyword)
                 true
             }
             false
         }
     }
 
-    fun updateSearchList(view: View, list: ArrayList<Iso3166Data>) {
+    fun updateSearchList(list: ArrayList<Iso3166Data>) {
         adapter.updateList(list)
+    }
+
+    fun startInitLoading(view: View) {
+        view.search_searchBar.visibility = View.GONE
+        startLoading(view)
+    }
+
+    fun stopInitLoading(view: View) {
+        view.search_searchBar.visibility = View.VISIBLE
+        stopLoading(view)
     }
 
     fun startLoading(view: View) {
