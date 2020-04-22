@@ -46,7 +46,6 @@ class GlobalModel(presenter: GlobalPresenter) {
                 if (response.isSuccessful) {
                     val parser = JsonParser()
                     val body = response.body()!!.string()
-                    Log.d(logTag, body)
 
                     val jsonBody = parser.parse(body).asJsonObject
                     val result = jsonBody["result"].asJsonObject
@@ -92,7 +91,6 @@ class GlobalModel(presenter: GlobalPresenter) {
         GlobalScope.launch(Dispatchers.Main) {
             val read = async(Dispatchers.IO) {
                 body = fileUtil.read(FileUtil.GLOBAL)
-                Log.d(logTag, body)
             }
 
             read.await()

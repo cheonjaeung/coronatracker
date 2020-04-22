@@ -24,6 +24,7 @@ class SearchFragment: Fragment() {
         presenter = SearchPresenter(this, view)
 
         initViews(view)
+        initListeners(view)
 
         return view
     }
@@ -40,7 +41,7 @@ class SearchFragment: Fragment() {
         list.adapter = adapter
     }
 
-    fun initListeners(view: View) {
+    private fun initListeners(view: View) {
         view.search_searchBar.setOnEditorActionListener { view, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_SEARCH) {
                 presenter.getData(view.context, view.text.toString())
