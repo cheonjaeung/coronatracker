@@ -103,7 +103,7 @@ class GlobalFragment: Fragment() {
 
     fun updateCount(view: View, caseList: ArrayList<CaseData>) {
         val numFormat = DecimalFormat("###,###")
-        val floatFormat = DecimalFormat(".##")
+        val floatFormat = DecimalFormat("#.##")
 
         val confirmed = caseList[1].confirmed
         val recovered = caseList[1].recovered
@@ -129,13 +129,33 @@ class GlobalFragment: Fragment() {
         view.global_deathNumber.text = numFormat.format(death)
 
         view.global_confirmedIncrease.text = "+${numFormat.format(confirmedIncrease)}"
-        view.global_activeIncrease.text = "+${numFormat.format(activeIncrease)}"
-        view.global_recoveredIncrease.text = "+${numFormat.format(recoveredIncrease)}"
+        if(activeIncrease < 0) {
+            view.global_activeIncrease.text = "${numFormat.format(activeIncrease)}"
+        }
+        else {
+            view.global_activeIncrease.text = "+${numFormat.format(activeIncrease)}"
+        }
+        if(recoveredIncrease < 0) {
+            view.global_recoveredIncrease.text = "${numFormat.format(recoveredIncrease)}"
+        }
+        else {
+            view.global_recoveredIncrease.text = "+${numFormat.format(recoveredIncrease)}"
+        }
         view.global_deathIncrease.text = "+${numFormat.format(deathIncrease)}"
 
         view.global_confirmedIncreaseRate.text = "+${floatFormat.format(confirmedRate)}%"
-        view.global_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
-        view.global_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
+        if(activeIncrease < 0) {
+            view.global_activeIncreaseRate.text = "${floatFormat.format(activeRate)}%"
+        }
+        else {
+            view.global_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
+        }
+        if(recoveredIncrease < 0) {
+            view.global_recoveredIncreaseRate.text = "${floatFormat.format(recoveredRate)}%"
+        }
+        else {
+            view.global_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
+        }
         view.global_deathIncreaseRate.text = "+${floatFormat.format(deathRate)}%"
     }
 
@@ -192,26 +212,21 @@ class GlobalFragment: Fragment() {
         val deathDataSet = LineDataSet(deathEntries, view.context.getString(R.string.death))
         confirmedDataSet.lineWidth = 1f
         confirmedDataSet.color = confirmedColor
-        confirmedDataSet.circleRadius = 3f
-        confirmedDataSet.setCircleColor(confirmedColor)
+        confirmedDataSet.setDrawCircles(false)
         activeDataSet.lineWidth = 1f
         activeDataSet.color = activeColor
-        activeDataSet.circleRadius = 3f
-        activeDataSet.setCircleColor(activeColor)
+        activeDataSet.setDrawCircles(false)
         recoveredDataSet.lineWidth = 1f
         recoveredDataSet.color = recoveredColor
-        recoveredDataSet.circleRadius = 3f
-        recoveredDataSet.setCircleColor(recoveredColor)
+        recoveredDataSet.setDrawCircles(false)
         deathDataSet.lineWidth = 1f
         deathDataSet.color = deathColor
-        deathDataSet.circleRadius = 3f
-        deathDataSet.setCircleColor(deathColor)
+        deathDataSet.setDrawCircles(false)
 
         val data = LineData(confirmedDataSet, activeDataSet, recoveredDataSet, deathDataSet)
         view.global_lineChart.data = data
 
         view.global_lineChart.invalidate()
-        view.global_lineChart.zoom(3f, 1f, Float.MAX_VALUE, Float.MAX_VALUE)
         view.global_lineChart.animateY(1000)
     }
 
