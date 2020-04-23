@@ -3,7 +3,6 @@ package com.entimer.coronatracker.util
 import android.content.Context
 import java.io.*
 import java.lang.Exception
-import java.lang.StringBuilder
 
 class FileUtil(context: Context) {
     companion object {

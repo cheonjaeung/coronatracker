@@ -14,15 +14,6 @@ interface Iso3166Dao {
     @Delete
     fun delete(iso3166Entity: Iso3166Entity)
 
-    @Query("SELECT * FROM iso3166")
-    fun selectAll(): List<Iso3166Entity>
-
-    @Query("SELECT * FROM iso3166 WHERE name = (:name)")
-    fun selectByName(name: String): Iso3166Entity
-
-    @Query("SELECT * FROM iso3166 WHERE alpha3 = (:alpha3)")
-    fun selectByAlpha3(alpha3: String): Iso3166Entity
-
-    @Query("SELECT * FROM iso3166 WHERE name IN (:keyword) OR alpha3 IN (:keyword)")
+    @Query("SELECT * FROM iso3166 WHERE name LIKE (:keyword) OR alpha3 LIKE (:keyword)")
     fun selectByKeyword(keyword: String): List<Iso3166Entity>
 }

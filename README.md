@@ -11,6 +11,7 @@
 
 ## Features
 - **Live data**: Shows recent data based on API.
+- **Search country**: You can search your country and check data.
 - **Chart**:
     - **Global state chart**: Shows active, recovered and death rate.
     - **Timeline chart**: Shows confirmed, active, recovered and death counts by timeline.
@@ -31,8 +32,8 @@ Please make an issue. You can use existing issue templates (But Report, Feature 
 
 ## Todos
 - [x] **Global dashboard**: Shows recent global data with pie chart and line chart. Pie chart shows active, recoverd and death rate. Line chart shows data by timeline.
-- [ ] **Search**: Shows each countries state in order confirmed number. Provides search feature.
-- [ ] **Each country view**: Shows recent data of selected country.
+- [x] **Search**: Shows each countries state in order confirmed number. Provides search feature.
+- [x] **Each country view**: Shows recent data of selected country.
 - [ ] **Map fragment**: Shows recent global data with world map.
 - [x] **Caching**: Save data in internal storage and load data when requested too frequently.
 - [x] **Theme change**: Support light & dark theme.

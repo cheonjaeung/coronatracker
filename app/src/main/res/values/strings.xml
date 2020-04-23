@@ -33,6 +33,9 @@
     <!-- Map fragment -->
     <string name="map">지도</string>
 
+    <!-- Country activity -->
+    <string name="country">국가별</string>
+
     <!-- Setting activity -->
     <string name="setting">설정</string>
 </resources>

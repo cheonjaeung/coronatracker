@@ -1,37 +1,39 @@
-package com.entimer.coronatracker.ui.main.global
+package com.entimer.coronatracker.ui.country
 
 import android.content.Context
 import android.util.Log
-import com.google.gson.JsonParser
+import com.entimer.coronatracker.api.covid.CaseData
 import com.entimer.coronatracker.api.covid.CovidApiService
 import com.entimer.coronatracker.util.DateUtil
-import com.entimer.coronatracker.api.covid.CaseData
 import com.entimer.coronatracker.util.FileUtil
 import com.entimer.coronatracker.util.SharedPreferenceUtil
 import com.google.gson.JsonElement
-import kotlinx.coroutines.*
+import com.google.gson.JsonParser
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.collections.ArrayList
 
-class GlobalModel(presenter: GlobalPresenter) {
+class CountryModel(presenter: CountryPresenter) {
     private val presenter = presenter
-    private val logTag: String = "GlobalModel"
+    private val logTag = "CountryModel"
 
-    fun getData(context: Context) {
-        if(checkUpdatedDate(context)) {
-            getDataFromApi(context)
+    fun getData(context: Context, countryCode: String) {
+        if(checkUpdatedDate(context, countryCode)) {
+            getDataFromApi(context, countryCode)
         }
         else {
-            getDataFromCache(context)
+            getDataFromCache(context, countryCode)
         }
     }
 
-    private fun checkUpdatedDate(context: Context): Boolean {
+    private fun checkUpdatedDate(context: Context, countryCode: String): Boolean {
         val today = DateUtil().getToday()
-        val updated = SharedPreferenceUtil(context).getGlobalUpdated()
+        val updated = SharedPreferenceUtil(context).getCountryUpdated(countryCode)
 
         val difference = DateUtil().compare2Dates(today, updated)
         if(difference > 3_600_000) {
@@ -40,8 +42,8 @@ class GlobalModel(presenter: GlobalPresenter) {
         return false
     }
 
-    private fun getDataFromApi(context: Context) {
-        CovidApiService.getService().getGlobal().enqueue(object: Callback<ResponseBody> {
+    private fun getDataFromApi(context: Context, countryCode: String) {
+        CovidApiService.getService().getCountry(countryCode).enqueue(object: Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     val parser = JsonParser()
@@ -62,15 +64,13 @@ class GlobalModel(presenter: GlobalPresenter) {
                         dataList.add(CaseData(date, confirmed, recovered, deaths))
                     }
 
-                    presenter.updateCount(arrayListOf(dataList[dataList.size - 2], dataList[dataList.size - 1]))
-                    presenter.updatePieChart(dataList[dataList.size - 1])
-                    presenter.updateLineChart(dataList)
+                    presenter.updateData(dataList)
 
                     val sf = SharedPreferenceUtil(context)
-                    sf.setGlobalUpdated(DateUtil().getToday())
+                    sf.setCountryUpdated(DateUtil().getToday(), countryCode)
 
                     val fileUtil = FileUtil(context)
-                    fileUtil.write(FileUtil.GLOBAL, body)
+                    fileUtil.write("$countryCode.json", body)
                 } else {
                     Log.e(logTag, "API response is not successful: ${response.errorBody()}")
                 }
@@ -83,14 +83,14 @@ class GlobalModel(presenter: GlobalPresenter) {
         })
     }
 
-    private fun getDataFromCache(context: Context) {
+    private fun getDataFromCache(context: Context, countryCode: String) {
         val fileUtil = FileUtil(context)
         var body = ""
         val dataList = ArrayList<CaseData>()
 
         GlobalScope.launch(Dispatchers.Main) {
             val read = async(Dispatchers.IO) {
-                body = fileUtil.read(FileUtil.GLOBAL)
+                body = fileUtil.read("$countryCode.json")
             }
 
             read.await()
@@ -109,9 +109,7 @@ class GlobalModel(presenter: GlobalPresenter) {
                 dataList.add(CaseData(date, confirmed, recovered, deaths))
             }
 
-            presenter.updateCount(arrayListOf(dataList[dataList.size - 2], dataList[dataList.size - 1]))
-            presenter.updatePieChart(dataList[dataList.size - 1])
-            presenter.updateLineChart(dataList)
+            presenter.updateData(dataList)
         }
     }
 }
