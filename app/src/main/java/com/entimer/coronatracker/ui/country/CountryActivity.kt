@@ -86,7 +86,7 @@ class CountryActivity: AppCompatActivity() {
         chart.setTouchEnabled(true)
         chart.isDragEnabled = true
         chart.isScaleXEnabled = false
-        chart.isScaleYEnabled = true
+        chart.isScaleYEnabled = false
         chart.isDoubleTapToZoomEnabled = false
 
         val legend = chart.legend
@@ -227,26 +227,21 @@ class CountryActivity: AppCompatActivity() {
         val deathDataSet = LineDataSet(deathEntries, getString(R.string.death))
         confirmedDataSet.lineWidth = 1f
         confirmedDataSet.color = confirmedColor
-        confirmedDataSet.circleRadius = 3f
-        confirmedDataSet.setCircleColor(confirmedColor)
+        confirmedDataSet.setDrawCircles(false)
         activeDataSet.lineWidth = 1f
         activeDataSet.color = activeColor
-        activeDataSet.circleRadius = 3f
-        activeDataSet.setCircleColor(activeColor)
+        activeDataSet.setDrawCircles(false)
         recoveredDataSet.lineWidth = 1f
         recoveredDataSet.color = recoveredColor
-        recoveredDataSet.circleRadius = 3f
-        recoveredDataSet.setCircleColor(recoveredColor)
+        recoveredDataSet.setDrawCircles(false)
         deathDataSet.lineWidth = 1f
         deathDataSet.color = deathColor
-        deathDataSet.circleRadius = 3f
-        deathDataSet.setCircleColor(deathColor)
+        deathDataSet.setDrawCircles(false)
 
         val data = LineData(confirmedDataSet, activeDataSet, recoveredDataSet, deathDataSet)
         country_lineChart.data = data
 
         country_lineChart.invalidate()
-        country_lineChart.zoom(3f, 1f, Float.MAX_VALUE, Float.MAX_VALUE)
         country_lineChart.animateY(1000)
     }
 
