@@ -103,7 +103,7 @@ class GlobalFragment: Fragment() {
 
     fun updateCount(view: View, caseList: ArrayList<CaseData>) {
         val numFormat = DecimalFormat("###,###")
-        val floatFormat = DecimalFormat(".##")
+        val floatFormat = DecimalFormat("#.##")
 
         val confirmed = caseList[1].confirmed
         val recovered = caseList[1].recovered
@@ -129,13 +129,33 @@ class GlobalFragment: Fragment() {
         view.global_deathNumber.text = numFormat.format(death)
 
         view.global_confirmedIncrease.text = "+${numFormat.format(confirmedIncrease)}"
-        view.global_activeIncrease.text = "+${numFormat.format(activeIncrease)}"
-        view.global_recoveredIncrease.text = "+${numFormat.format(recoveredIncrease)}"
+        if(activeIncrease < 0) {
+            view.global_activeIncrease.text = "${numFormat.format(activeIncrease)}"
+        }
+        else {
+            view.global_activeIncrease.text = "+${numFormat.format(activeIncrease)}"
+        }
+        if(recoveredIncrease < 0) {
+            view.global_recoveredIncrease.text = "${numFormat.format(recoveredIncrease)}"
+        }
+        else {
+            view.global_recoveredIncrease.text = "+${numFormat.format(recoveredIncrease)}"
+        }
         view.global_deathIncrease.text = "+${numFormat.format(deathIncrease)}"
 
         view.global_confirmedIncreaseRate.text = "+${floatFormat.format(confirmedRate)}%"
-        view.global_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
-        view.global_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
+        if(activeIncrease < 0) {
+            view.global_activeIncreaseRate.text = "${floatFormat.format(activeRate)}%"
+        }
+        else {
+            view.global_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
+        }
+        if(recoveredIncrease < 0) {
+            view.global_recoveredIncreaseRate.text = "${floatFormat.format(recoveredRate)}%"
+        }
+        else {
+            view.global_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
+        }
         view.global_deathIncreaseRate.text = "+${floatFormat.format(deathRate)}%"
     }
 

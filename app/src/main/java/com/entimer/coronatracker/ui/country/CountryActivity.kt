@@ -118,7 +118,7 @@ class CountryActivity: AppCompatActivity() {
 
     fun updateCount(caseList: ArrayList<CaseData>) {
         val numFormat = DecimalFormat("###,###")
-        val floatFormat = DecimalFormat(".##")
+        val floatFormat = DecimalFormat("#.##")
 
         val confirmed = caseList[1].confirmed
         val recovered = caseList[1].recovered
@@ -144,13 +144,33 @@ class CountryActivity: AppCompatActivity() {
         country_deathNumber.text = numFormat.format(death)
 
         country_confirmedIncrease.text = "+${numFormat.format(confirmedIncrease)}"
-        country_activeIncrease.text = "+${numFormat.format(activeIncrease)}"
-        country_recoveredIncrease.text = "+${numFormat.format(recoveredIncrease)}"
+        if(activeIncrease < 0) {
+            country_activeIncrease.text = "${numFormat.format(activeIncrease)}"
+        }
+        else {
+            country_activeIncrease.text = "+${numFormat.format(activeIncrease)}"
+        }
+        if(recoveredIncrease < 0) {
+            country_recoveredIncrease.text = "${numFormat.format(recoveredIncrease)}"
+        }
+        else {
+            country_recoveredIncrease.text = "+${numFormat.format(recoveredIncrease)}"
+        }
         country_deathIncrease.text = "+${numFormat.format(deathIncrease)}"
 
         country_confirmedIncreaseRate.text = "+${floatFormat.format(confirmedRate)}%"
-        country_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
-        country_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
+        if(activeIncrease < 0) {
+            country_activeIncreaseRate.text = "${floatFormat.format(activeRate)}%"
+        }
+        else {
+            country_activeIncreaseRate.text = "+${floatFormat.format(activeRate)}%"
+        }
+        if(recoveredIncrease < 0) {
+            country_recoveredIncreaseRate.text = "${floatFormat.format(recoveredRate)}%"
+        }
+        else {
+            country_recoveredIncreaseRate.text = "+${floatFormat.format(recoveredRate)}%"
+        }
         country_deathIncreaseRate.text = "+${floatFormat.format(deathRate)}%"
     }
 
