@@ -1,3 +1,4 @@
+<p align="center"><img alt="Preview" src="https://github.com/entimer/CoronaTracker/blob/master/images/logo_with_text.png"></img></p>
 <h1 align="center">CoronaTracker</h1>
 <p align="center">:microbe: Coronavirus (COVID-19) tracker application for Android.</p>
 <p align="center">
@@ -6,7 +7,7 @@
     <a href="https://www.android.com/"><img alt="Android" src="https://img.shields.io/badge/Android-21%2B-green?logo=android"></img></a>
 </p>
 <br>
-<p align="center"><img alt="Preview" src="https://github.com/entimer/CoronaTracker/blob/master/screenshots/preview.jpg"></img></p>
+<p align="center"><img alt="Preview" src="https://github.com/entimer/CoronaTracker/blob/master/images/preview.jpg"></img></p>
 <br>
 
 ## Features
