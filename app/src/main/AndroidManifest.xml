@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.main.MainActivity"/>
-        <activity android:name=".ui.setting.SettingActivity"/>
     </application>
 
 </manifest>

@@ -1,20 +1,18 @@
 package com.entimer.coronatracker.view.main
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
 import com.entimer.coronatracker.data.dataclass.CovidData
-import com.entimer.coronatracker.ui.setting.SettingActivity
 import com.entimer.coronatracker.view.main.adapter.MainCardListAdapter
 import com.entimer.coronatracker.view.main.adapter.MainCardListType
 import com.entimer.coronatracker.view.main.adapter.item.AddCardItem
 import com.entimer.coronatracker.view.main.adapter.item.MainCardListItem
 import com.entimer.coronatracker.view.main.adapter.item.MostInfectedCardItem
 import com.entimer.coronatracker.view.main.adapter.item.SummaryCardItem
-import kotlinx.android.synthetic.main.activity_main_new.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: AppCompatActivity(), MainContract.View {
     private lateinit var presenter: MainPresenter
@@ -23,7 +21,7 @@ class MainActivity: AppCompatActivity(), MainContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_new)
+        setContentView(R.layout.activity_main)
 
         presenter = MainPresenter(applicationContext, this)
         presenter.getRecentData()
@@ -39,8 +37,7 @@ class MainActivity: AppCompatActivity(), MainContract.View {
 
         mainToolbar.setOnMenuItemClickListener { item ->
             if(item.itemId == R.id.setting) {
-                val intent = Intent(applicationContext, SettingActivity::class.java)
-                startActivity(intent)
+
                 true
             }
             false
