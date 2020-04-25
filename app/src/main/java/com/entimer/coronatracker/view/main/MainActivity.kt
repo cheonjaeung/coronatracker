@@ -80,4 +80,8 @@ class MainActivity: AppCompatActivity() {
 
         return list
     }
+
+    override fun onBackPressed() {
+        finishAffinity()
+    }
 }

@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.data
+package com.entimer.coronatracker.data.dataclass
 
 data class CovidCaseData(
     val date: String,
