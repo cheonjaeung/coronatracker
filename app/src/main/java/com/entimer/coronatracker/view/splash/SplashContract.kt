@@ -4,9 +4,8 @@ import com.entimer.coronatracker.data.dataclass.ApiRecentData
 
 interface SplashContract {
     interface View {
-        fun getData()
-        fun onGetDataFinished()
-        fun onGetDataFailed()
+        fun onSuccess()
+        fun onFailure()
     }
 
     interface Presenter {

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
+import com.entimer.coronatracker.data.dataclass.CovidData
 import com.entimer.coronatracker.ui.setting.SettingActivity
 import com.entimer.coronatracker.view.main.adapter.MainCardListAdapter
 import com.entimer.coronatracker.view.main.adapter.MainCardListType
@@ -15,16 +16,23 @@ import com.entimer.coronatracker.view.main.adapter.item.MostInfectedCardItem
 import com.entimer.coronatracker.view.main.adapter.item.SummaryCardItem
 import kotlinx.android.synthetic.main.activity_main_new.*
 
-class MainActivity: AppCompatActivity() {
+class MainActivity: AppCompatActivity(), MainContract.View {
+    private lateinit var presenter: MainPresenter
+
+    private lateinit var adapter: MainCardListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_new)
+
+        presenter = MainPresenter(applicationContext, this)
+        presenter.getRecentData()
 
         initViews()
     }
 
     private fun initViews() {
-        val adapter = MainCardListAdapter(initMainCardListItems())
+        adapter = MainCardListAdapter(makeMainCardListItems(null))
         val list = findViewById<RecyclerView>(R.id.mainCardList)
         list.adapter = adapter
         list.layoutManager = LinearLayoutManager(applicationContext)
@@ -39,7 +47,7 @@ class MainActivity: AppCompatActivity() {
         }
     }
 
-    private fun initMainCardListItems(): ArrayList<MainCardListItem> {
+    private fun makeMainCardListItems(recentData: CovidData?): ArrayList<MainCardListItem> {
         val list = ArrayList<MainCardListItem>()
 
         list.add(
@@ -47,7 +55,7 @@ class MainActivity: AppCompatActivity() {
                 MainCardListType.SUMMARY,
                 SummaryCardItem(
                     getString(R.string.mainCardListGlobalSummary),
-                    arrayListOf()
+                    recentData
                 ),
                 null,
                 null
@@ -83,5 +91,9 @@ class MainActivity: AppCompatActivity() {
 
     override fun onBackPressed() {
         finishAffinity()
+    }
+
+    override fun setRecentData(data: CovidData?) {
+        adapter.updateList(makeMainCardListItems(data))
     }
 }

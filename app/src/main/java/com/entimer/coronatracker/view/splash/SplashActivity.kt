@@ -15,20 +15,15 @@ class SplashActivity: AppCompatActivity(), SplashContract.View {
         setContentView(R.layout.activity_splash)
 
         presenter = SplashPresenter(applicationContext, this)
-
-        getData()
-    }
-
-    override fun getData() {
         presenter.getRecentData()
     }
 
-    override fun onGetDataFinished() {
+    override fun onSuccess() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
     }
 
-    override fun onGetDataFailed() {
+    override fun onFailure() {
         Toast.makeText(applicationContext, "실패!", Toast.LENGTH_LONG).show()
         finish()
     }

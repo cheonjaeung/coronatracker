@@ -13,6 +13,6 @@ interface RecentDao {
     @Delete
     fun delete(data: RecentEntity)
 
-    @Query("SELECT * FROM recent")
+    @Query("SELECT * FROM recent WHERE id = 0")
     fun select(): RecentEntity
 }

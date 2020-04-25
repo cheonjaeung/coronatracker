@@ -23,12 +23,12 @@ class SplashPresenter(context: Context, view: SplashContract.View): SplashContra
                     setRecentData(apiData)
                 }
                 else {
-                    view.onGetDataFailed()
+                    view.onFailure()
                 }
             }
 
             override fun onFailure(call: Call<ApiRecentData>, t: Throwable) {
-                view.onGetDataFailed()
+                view.onFailure()
             }
         })
     }
@@ -48,10 +48,10 @@ class SplashPresenter(context: Context, view: SplashContract.View): SplashContra
             }
 
             if(save.await()) {
-                view.onGetDataFinished()
+                view.onSuccess()
             }
             else {
-                view.onGetDataFailed()
+                view.onFailure()
             }
         }
     }

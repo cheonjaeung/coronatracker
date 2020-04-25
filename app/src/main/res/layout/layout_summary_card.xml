@@ -54,7 +54,7 @@
                 android:drawableStart="@drawable/icon_confirmed"
                 android:drawableTint="@color/colorConfirmed"
                 android:drawablePadding="16dp"
-                android:text="200,200,200"
+                android:text="0"
                 android:textColor="@color/colorConfirmed"
                 android:fontFamily="@font/quicksand_medium"/>
 
@@ -66,7 +66,7 @@
                 android:drawableStart="@drawable/icon_active"
                 android:drawableTint="@color/colorActive"
                 android:drawablePadding="16dp"
-                android:text="200,200,200"
+                android:text="0"
                 android:textColor="@color/colorActive"
                 android:fontFamily="@font/quicksand_medium"/>
 
@@ -78,7 +78,7 @@
                 android:drawableStart="@drawable/icon_recovered"
                 android:drawableTint="@color/colorRecovered"
                 android:drawablePadding="16dp"
-                android:text="200,200,200"
+                android:text="0"
                 android:textColor="@color/colorRecovered"
                 android:fontFamily="@font/quicksand_medium"/>
 
@@ -89,7 +89,7 @@
                 android:drawableStart="@drawable/icon_death"
                 android:drawableTint="@color/colorDeath"
                 android:drawablePadding="16dp"
-                android:text="200,200,200"
+                android:text="0"
                 android:textColor="@color/colorDeath"
                 android:fontFamily="@font/quicksand_medium"/>
 
@@ -124,7 +124,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="updated at"
+            android:drawableStart="@drawable/icon_time"
+            android:text="Update time placeholder"
+            android:drawablePadding="16dp"
             android:textSize="14sp"
             android:fontFamily="@font/quicksand_medium"/>
 

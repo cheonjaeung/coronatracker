@@ -14,8 +14,8 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.charts.PieChart
 import java.lang.RuntimeException
 
-class MainCardListAdapter(list: ArrayList<MainCardListItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var items = list
+class MainCardListAdapter(initData: ArrayList<MainCardListItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private var items = initData
 
     override fun getItemViewType(position: Int): Int {
         return items[position].type
@@ -54,6 +54,21 @@ class MainCardListAdapter(list: ArrayList<MainCardListItem>): RecyclerView.Adapt
                 holder as SummaryCardViewHolder
                 val cardItem = items[position].summaryItem!!
                 holder.title.text = cardItem.title
+
+                if(cardItem.recentData == null) {
+                    holder.confirmed.text = "?"
+                    holder.actives.text = "?"
+                    holder.recovered.text = "?"
+                    holder.deaths.text = "?"
+                    holder.updatedTime.text = "Updating..."
+                }
+                else {
+                    holder.confirmed.text = cardItem.recentData.confirmed.toString()
+                    holder.actives.text = cardItem.recentData.actives.toString()
+                    holder.recovered.text = cardItem.recentData.recovered.toString()
+                    holder.deaths.text = cardItem.recentData.deaths.toString()
+                    holder.updatedTime.text = cardItem.recentData.time
+                }
             }
             MainCardListType.MOST_INFECTED -> {
                 holder as MostInfectedCardViewHolder
@@ -67,6 +82,11 @@ class MainCardListAdapter(list: ArrayList<MainCardListItem>): RecyclerView.Adapt
                 holder.text.text = cardItem.text
             }
         }
+    }
+
+    fun updateList(data: ArrayList<MainCardListItem>) {
+        items = data
+        notifyDataSetChanged()
     }
 
     inner class SummaryCardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
