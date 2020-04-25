@@ -1,8 +1,8 @@
-package com.entimer.coronatracker.ui.adapter.item
+package com.entimer.coronatracker.view.main.adapter.item
 
 import com.entimer.coronatracker.data.CovidCaseData
 
-data class MostInfectedCardItem(
+data class SummaryCardItem(
     val title: String,
     val dataList: ArrayList<CovidCaseData>
 )

@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.ui.adapter.item
+package com.entimer.coronatracker.view.main.adapter
 
 class MainCardListType {
     companion object {

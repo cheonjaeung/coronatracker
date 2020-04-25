@@ -11,7 +11,7 @@ import com.entimer.coronatracker.ui.main.global.GlobalFragment
 import com.entimer.coronatracker.ui.main.search.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity: AppCompatActivity() {
+class MainActivityOld: AppCompatActivity() {
 
     private val global = GlobalFragment()
     private val search = SearchFragment()

@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.ui.adapter
+package com.entimer.coronatracker.view.main.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,8 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
-import com.entimer.coronatracker.ui.adapter.item.MainCardListItem
-import com.entimer.coronatracker.ui.adapter.item.MainCardListType
+import com.entimer.coronatracker.view.main.adapter.item.MainCardListItem
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.charts.PieChart
 import java.lang.RuntimeException

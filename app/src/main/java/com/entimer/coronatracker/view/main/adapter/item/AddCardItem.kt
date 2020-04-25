@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.ui.adapter.item
+package com.entimer.coronatracker.view.main.adapter.item
 
 data class AddCardItem(
     val icon: Int,
