@@ -46,4 +46,7 @@
     <string name="mainGlobalConfirmed">Confirmed</string>
     <string name="mainGlobalRecovered">Recovered</string>
     <string name="mainGlobalDeaths">Deaths</string>
+    <string name="mainCardListGlobalSummary">Global State</string>
+    <string name="mainCardListMostInfected">Most Infected Countries</string>
+    <string name="mainCardAdd">Add new card.</string>
 </resources>
