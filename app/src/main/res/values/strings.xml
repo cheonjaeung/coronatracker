@@ -38,4 +38,12 @@
 
     <!-- Setting activity -->
     <string name="setting">설정</string>
+
+
+    <!-- Main View -->
+    <string name="mainToolbarTitle">CoronaTracker</string>
+    <string name="mainToolbarMenuSetting">Setting</string>
+    <string name="mainGlobalConfirmed">Confirmed</string>
+    <string name="mainGlobalRecovered">Recovered</string>
+    <string name="mainGlobalDeaths">Deaths</string>
 </resources>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="8dp"
+    android:layout_marginHorizontal="16dp"
+    android:padding="12dp"
+    android:background="@drawable/background_card"
+    android:elevation="8dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/summaryCardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Card Title"
+            android:textSize="20sp"
+            android:fontFamily="@font/quicksand_medium"/>
+
+        <ImageButton
+            android:id="@+id/summaryCardDetailButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon_detail"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/summaryCardConfirmed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/icon_confirmed"
+                android:drawableTint="@color/colorConfirmed"
+                android:drawablePadding="16dp"
+                android:text="200,200,200"
+                android:textColor="@color/colorConfirmed"
+                android:fontFamily="@font/quicksand_medium"/>
+
+            <TextView
+                android:id="@+id/summaryCardActive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/icon_active"
+                android:drawableTint="@color/colorActive"
+                android:drawablePadding="16dp"
+                android:text="200,200,200"
+                android:textColor="@color/colorActive"
+                android:fontFamily="@font/quicksand_medium"/>
+
+            <TextView
+                android:id="@+id/summaryCardRecovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/icon_recovered"
+                android:drawableTint="@color/colorRecovered"
+                android:drawablePadding="16dp"
+                android:text="200,200,200"
+                android:textColor="@color/colorRecovered"
+                android:fontFamily="@font/quicksand_medium"/>
+
+            <TextView
+                android:id="@+id/summaryCardDeaths"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icon_death"
+                android:drawableTint="@color/colorDeath"
+                android:drawablePadding="16dp"
+                android:text="200,200,200"
+                android:textColor="@color/colorDeath"
+                android:fontFamily="@font/quicksand_medium"/>
+
+        </LinearLayout>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/summaryCardPieChart"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:visibility="visible"/>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/summaryCardLineChart"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/summaryCardUpdatedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="updated at"
+            android:textSize="14sp"
+            android:fontFamily="@font/quicksand_medium"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <ImageButton
+                android:id="@+id/summaryCardChartButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/icon_line_chart"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/summaryCardMapButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/icon_map"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
