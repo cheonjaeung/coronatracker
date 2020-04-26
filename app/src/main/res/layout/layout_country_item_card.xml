@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="16dp"
+    android:layout_marginHorizontal="8dp"
+    android:padding="12dp"
+    android:background="@drawable/background_card"
+    android:elevation="8dp">
+
+    <TextView
+        android:id="@+id/countryItemCardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Placeholder"
+        android:textSize="16sp"
+        android:fontFamily="@font/dongurami"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <TextView
+            android:id="@+id/countryItemCardConfirmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@drawable/icon_confirmed"
+            android:drawableTint="@color/colorConfirmed"
+            android:drawablePadding="16dp"
+            android:text="0"
+            android:textColor="@color/colorConfirmed"
+            android:fontFamily="@font/dongurami"/>
+
+        <TextView
+            android:id="@+id/countryItemCardActives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@drawable/icon_active"
+            android:drawableTint="@color/colorActive"
+            android:drawablePadding="16dp"
+            android:text="0"
+            android:textColor="@color/colorActive"
+            android:fontFamily="@font/dongurami"/>
+
+        <TextView
+            android:id="@+id/countryItemCardRecovered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="4dp"
+            android:drawableStart="@drawable/icon_recovered"
+            android:drawableTint="@color/colorRecovered"
+            android:drawablePadding="16dp"
+            android:text="0"
+            android:textColor="@color/colorRecovered"
+            android:fontFamily="@font/dongurami"/>
+
+        <TextView
+            android:id="@+id/countryItemCardDeaths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:drawableStart="@drawable/icon_death"
+            android:drawableTint="@color/colorDeath"
+            android:drawablePadding="16dp"
+            android:text="0"
+            android:textColor="@color/colorDeath"
+            android:fontFamily="@font/dongurami"/>
+
+    </GridLayout>
+
+</LinearLayout>

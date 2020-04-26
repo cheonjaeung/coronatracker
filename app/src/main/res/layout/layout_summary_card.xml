@@ -21,16 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Card Title"
+            android:text="Placeholder"
             android:textSize="20sp"
-            android:fontFamily="@font/quicksand_medium"/>
-
-        <ImageButton
-            android:id="@+id/summaryCardDetailButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/icon_detail"
-            android:background="@android:color/transparent"/>
+            android:fontFamily="@font/dongurami"/>
 
     </LinearLayout>
 
@@ -56,7 +49,7 @@
                 android:drawablePadding="16dp"
                 android:text="0"
                 android:textColor="@color/colorConfirmed"
-                android:fontFamily="@font/quicksand_medium"/>
+                android:fontFamily="@font/dongurami"/>
 
             <TextView
                 android:id="@+id/summaryCardActive"
@@ -68,7 +61,7 @@
                 android:drawablePadding="16dp"
                 android:text="0"
                 android:textColor="@color/colorActive"
-                android:fontFamily="@font/quicksand_medium"/>
+                android:fontFamily="@font/dongurami"/>
 
             <TextView
                 android:id="@+id/summaryCardRecovered"
@@ -80,7 +73,7 @@
                 android:drawablePadding="16dp"
                 android:text="0"
                 android:textColor="@color/colorRecovered"
-                android:fontFamily="@font/quicksand_medium"/>
+                android:fontFamily="@font/dongurami"/>
 
             <TextView
                 android:id="@+id/summaryCardDeaths"
@@ -91,7 +84,7 @@
                 android:drawablePadding="16dp"
                 android:text="0"
                 android:textColor="@color/colorDeath"
-                android:fontFamily="@font/quicksand_medium"/>
+                android:fontFamily="@font/dongurami"/>
 
         </LinearLayout>
 
@@ -102,14 +95,6 @@
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:visibility="visible"/>
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/summaryCardLineChart"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:visibility="gone"/>
 
     </LinearLayout>
 
@@ -125,33 +110,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableStart="@drawable/icon_time"
-            android:text="Update time placeholder"
+            android:text="Placeholder"
             android:drawablePadding="16dp"
-            android:textSize="14sp"
-            android:fontFamily="@font/quicksand_medium"/>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right">
-
-            <ImageButton
-                android:id="@+id/summaryCardChartButton"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/icon_line_chart"
-                android:background="@android:color/transparent"/>
-
-            <ImageButton
-                android:id="@+id/summaryCardMapButton"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="16dp"
-                android:src="@drawable/icon_map"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
+            android:textSize="16sp"
+            android:fontFamily="@font/dongurami"/>
 
     </LinearLayout>
 

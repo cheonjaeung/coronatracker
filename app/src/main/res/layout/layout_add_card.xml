@@ -25,6 +25,6 @@
         android:layout_height="wrap_content"
         android:text="Placeholder"
         android:textSize="20sp"
-        android:fontFamily="@font/quicksand_medium"/>
+        android:fontFamily="@font/dongurami"/>
 
 </LinearLayout>

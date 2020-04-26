@@ -17,25 +17,18 @@
     android:gravity="center_vertical">
 
         <TextView
-            android:id="@+id/mostInfectedCardTitle"
+            android:id="@+id/countryListCardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Card Title"
+            android:text="Placeholder"
             android:textSize="20sp"
-            android:fontFamily="@font/quicksand_medium"/>
-
-        <ImageButton
-            android:id="@+id/mostInfectedCardFilterButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/icon_filter"
-            android:background="@android:color/transparent"/>
+            android:fontFamily="@font/dongurami"/>
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mostInfectedCardList"
+        android:id="@+id/countryListCardList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

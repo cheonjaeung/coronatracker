@@ -1,4 +1,4 @@
-<p align="center"><img alt="Preview" src="https://github.com/entimer/CoronaTracker/blob/master/images/logo_with_text.png"></img></p>
+<p align="center"><img alt="Preview" src="https://github.com/entimer/CoronaTracker/blob/master/images/logo.png"></img></p>
 <p align="center">:microbe: Coronavirus (COVID-19) tracker application for Android.</p>
 <p align="center">
     <a href="https://github.com/entimer"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-entimer-blueviolet?logo=github"></img></a>
@@ -8,6 +8,7 @@
 
 ## Features
 - **Recent Data**: Shows recent data based on API.
+- **Chart**: Show data with pie chart.
 - **Theme**: Support light & dark theme. It will changed automatically by system theme.
 
 ## Download
@@ -24,8 +25,7 @@ Please make an issue. You can use existing issue templates (But Report, Feature 
 - Written in Kotlin 100%
 - MVP architecture (Model-View-Presenter)
 - mathdroid's [covid 19 API](https://github.com/mathdroid/covid-19-api)
-- Custom logo
-- [Quicksand](https://fonts.google.com/specimen/Quicksand) font.
+- [동그라미재단](http://www.thecircle.or.kr/%EB%8F%99%EA%B7%B8%EB%9D%BC%EB%AF%B8%EC%9E%AC%EB%8B%A8-%EC%84%9C%EC%B2%B4/) font.
 - Confirmed, actives, recovered and deaths icon made by Freepik from [www.flaticon.com](https://www.flaticon.com)
 - Libraries
     - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)

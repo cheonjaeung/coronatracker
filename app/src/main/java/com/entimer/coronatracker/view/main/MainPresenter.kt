@@ -14,13 +14,14 @@ class MainPresenter(context: Context, view: MainContract.View): MainContract.Pre
     private val context = context
     private val view = view
 
+    private val db = CoronaTrackerRoom.getDatabase(context)
+
     override fun getRecentData() {
         GlobalScope.launch(Dispatchers.Main) {
             var data: CovidData? = null
 
             val read = async(Dispatchers.IO) {
                 try {
-                    val db = CoronaTrackerRoom.getDatabase(context)
                     data = recentEntry2CovidData(db.recentDao().select())
                     true
                 }

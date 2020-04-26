@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorSplashBackground"
     android:gravity="center"
     tools:context=".view.splash.SplashActivity">
     
@@ -13,6 +13,7 @@
         android:id="@+id/splashImage"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:src="@drawable/icon_logo"/>
+        android:src="@drawable/icon_logo"
+        android:tint="@color/colorSplashImage"/>
 
 </LinearLayout>
