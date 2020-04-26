@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
@@ -141,7 +140,6 @@ class MainCardListAdapter(initData: ArrayList<MainCardListItem>): RecyclerView.A
 
     inner class CountryListCardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val title = itemView.findViewById<TextView>(R.id.countryListCardTitle)!!
-        val filterButton = itemView.findViewById<ImageButton>(R.id.countryListCardFilterButton)!!
         val list = itemView.findViewById<RecyclerView>(R.id.countryListCardList)!!
     }
 
