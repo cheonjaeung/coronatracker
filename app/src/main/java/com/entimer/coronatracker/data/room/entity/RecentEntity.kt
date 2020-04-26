@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.data.room
+package com.entimer.coronatracker.data.room.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
