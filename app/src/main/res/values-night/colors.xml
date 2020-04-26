@@ -9,4 +9,7 @@
     <color name="colorActive">#f44336</color>
     <color name="colorRecovered">#4caf50</color>
     <color name="colorDeath">#77577f</color>
+
+    <color name="colorSplashBackground">@color/colorPrimaryDark</color>
+    <color name="colorSplashImage">@color/colorPrimary</color>
 </resources>
