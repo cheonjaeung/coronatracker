@@ -1,6 +1,7 @@
-package com.entimer.coronatracker.data.room
+package com.entimer.coronatracker.data.room.dao
 
 import androidx.room.*
+import com.entimer.coronatracker.data.room.entity.RecentEntity
 
 @Dao
 interface RecentDao {
