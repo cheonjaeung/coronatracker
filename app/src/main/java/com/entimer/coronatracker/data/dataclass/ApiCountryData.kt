@@ -1,7 +1,7 @@
 package com.entimer.coronatracker.data.dataclass
 
 data class ApiCountryData(
-    val countries: List<ApiCountryDataCountry>
+    val countries: ArrayList<ApiCountryDataCountry>
 )
 
 data class ApiCountryDataCountry(

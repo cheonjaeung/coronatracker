@@ -1,7 +1,9 @@
 package com.entimer.coronatracker.util
 
+import com.entimer.coronatracker.data.dataclass.ApiCountryData
 import com.entimer.coronatracker.data.dataclass.ApiRecentData
 import com.entimer.coronatracker.data.dataclass.CovidData
+import com.entimer.coronatracker.data.room.entity.CountryEntity
 import com.entimer.coronatracker.data.room.entity.RecentEntity
 
 fun apiRecentData2RecentEntry(data: ApiRecentData): RecentEntity {
@@ -23,4 +25,12 @@ fun apiRecentData2RecentEntry(data: ApiRecentData): RecentEntity {
 
 fun recentEntry2CovidData(data: RecentEntity): CovidData {
     return CovidData(data.time, data.country, data.confirmed, data.actives, data.recovered, data.deaths)
+}
+
+fun apiCountryData2CountryEntity(data: ApiCountryData): ArrayList<CountryEntity> {
+    val entity = ArrayList<CountryEntity>()
+    for(item in data.countries) {
+        entity.add(CountryEntity(item.name, item.iso3))
+    }
+    return entity
 }

@@ -10,17 +10,23 @@ import com.entimer.coronatracker.view.main.MainActivity
 class SplashActivity: AppCompatActivity(), SplashContract.View {
     private lateinit var presenter: SplashPresenter
 
+    override var isRecentDataFinished = false
+    override var isCountryDataFinished = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
         presenter = SplashPresenter(applicationContext, this)
         presenter.getRecentData()
+        presenter.getCountryData()
     }
 
     override fun onSuccess() {
-        val intent = Intent(applicationContext, MainActivity::class.java)
-        startActivity(intent)
+        if(isRecentDataFinished && isCountryDataFinished) {
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onFailure() {
