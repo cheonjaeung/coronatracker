@@ -18,6 +18,7 @@ class SplashPresenter(context: Context, view: SplashContract.View): SplashContra
     private val view = view
 
     private val apiService = CovidApiService.getService()
+    private val db = CoronaTrackerRoom.getDatabase(context)
 
     override fun getRecentData() {
         apiService.getRecentData().enqueue(object: Callback<ApiRecentData> {
@@ -41,7 +42,6 @@ class SplashPresenter(context: Context, view: SplashContract.View): SplashContra
         GlobalScope.launch(Dispatchers.Main) {
             val save = async(Dispatchers.IO) {
                 try {
-                    val db = CoronaTrackerRoom.getDatabase(context)
                     db.recentDao().insert(apiRecentData2RecentEntry(data))
                     true
                 }
@@ -83,7 +83,6 @@ class SplashPresenter(context: Context, view: SplashContract.View): SplashContra
         GlobalScope.launch(Dispatchers.Main) {
             val save = async(Dispatchers.IO) {
                 try {
-                    val db = CoronaTrackerRoom.getDatabase(context)
                     val dataList = apiCountryData2CountryEntity(data)
                     for(item in dataList) {
                         db.countryDao().insert(item)
