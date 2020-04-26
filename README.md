@@ -12,10 +12,15 @@
 - **Theme**: Support light & dark theme. It will changed automatically by system theme.
 
 ## Download
-This application is not released yet.
+1. Go to [release](https://github.com/entimer/CoronaTracker/releases)
+2. Download apk file on your phone.
+3. Run apk.
+4. Wait until install finished.
 
 ## Usage
-This application is not released yet.
+1. Make sure your phone is connected to network.
+2. Run app.
+3. Check current COVID state.
 
 ## Question & Issue
 Please make an issue. You can use existing issue templates (But Report, Feature Request, Question).
