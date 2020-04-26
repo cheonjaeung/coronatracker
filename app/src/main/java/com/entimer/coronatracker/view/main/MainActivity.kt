@@ -8,7 +8,6 @@ import com.entimer.coronatracker.R
 import com.entimer.coronatracker.data.dataclass.CovidData
 import com.entimer.coronatracker.view.main.adapter.MainCardListAdapter
 import com.entimer.coronatracker.view.main.adapter.MainCardListType
-import com.entimer.coronatracker.view.main.adapter.item.CountryListCardItem
 import com.entimer.coronatracker.view.main.adapter.item.MainCardListItem
 import com.entimer.coronatracker.view.main.adapter.item.SummaryCardItem
 import kotlinx.android.synthetic.main.activity_main.*
@@ -35,10 +34,12 @@ class MainActivity: AppCompatActivity(), MainContract.View {
         list.layoutManager = LinearLayoutManager(applicationContext)
 
         mainToolbar.setOnMenuItemClickListener { item ->
+            /*
             if(item.itemId == R.id.setting) {
 
                 true
             }
+            */
             false
         }
     }
@@ -57,7 +58,7 @@ class MainActivity: AppCompatActivity(), MainContract.View {
                 null
             )
         )
-
+        /*
         list.add(
             MainCardListItem(
                 MainCardListType.COUNTRY_LIST,
@@ -69,7 +70,7 @@ class MainActivity: AppCompatActivity(), MainContract.View {
                 null
             )
         )
-        /*
+
         list.add(
             MainCardListItem(
                 MainCardListType.ADD,

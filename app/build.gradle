@@ -11,8 +11,8 @@ android {
         applicationId "com.entimer.coronatracker"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 32
-        versionName "0.3.2"
+        versionCode 100
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
