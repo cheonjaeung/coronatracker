@@ -11,7 +11,6 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
 import com.entimer.coronatracker.view.main.adapter.item.MainCardListItem
-import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -37,9 +36,9 @@ class MainCardListAdapter(initData: ArrayList<MainCardListItem>): RecyclerView.A
                 view = inflater.inflate(R.layout.layout_summary_card, parent, false)
                 SummaryCardViewHolder(view)
             }
-            MainCardListType.MOST_INFECTED -> {
-                view = inflater.inflate(R.layout.layout_most_infected_card, parent, false)
-                MostInfectedCardViewHolder(view)
+            MainCardListType.COUNTRY_LIST -> {
+                view = inflater.inflate(R.layout.layout_country_list_card, parent, false)
+                CountryListCardViewHolder(view)
             }
             MainCardListType.ADD -> {
                 view = inflater.inflate(R.layout.layout_add_card, parent, false)
@@ -101,9 +100,9 @@ class MainCardListAdapter(initData: ArrayList<MainCardListItem>): RecyclerView.A
                     holder.pieChart.animateY(1000)
                 }
             }
-            MainCardListType.MOST_INFECTED -> {
-                holder as MostInfectedCardViewHolder
-                val cardItem = items[position].mostInfectedItem!!
+            MainCardListType.COUNTRY_LIST -> {
+                holder as CountryListCardViewHolder
+                val cardItem = items[position].countryListItem!!
                 holder.title.text = cardItem.title
             }
             MainCardListType.ADD -> {
@@ -140,10 +139,10 @@ class MainCardListAdapter(initData: ArrayList<MainCardListItem>): RecyclerView.A
         }
     }
 
-    inner class MostInfectedCardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val title = itemView.findViewById<TextView>(R.id.mostInfectedCardTitle)!!
-        val filterButton = itemView.findViewById<ImageButton>(R.id.mostInfectedCardFilterButton)!!
-        val list = itemView.findViewById<RecyclerView>(R.id.mostInfectedCardList)!!
+    inner class CountryListCardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        val title = itemView.findViewById<TextView>(R.id.countryListCardTitle)!!
+        val filterButton = itemView.findViewById<ImageButton>(R.id.countryListCardFilterButton)!!
+        val list = itemView.findViewById<RecyclerView>(R.id.countryListCardList)!!
     }
 
     inner class AddCardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

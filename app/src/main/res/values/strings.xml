@@ -12,6 +12,6 @@
     <string name="mainToolbarTitle">CoronaTracker</string>
     <string name="mainToolbarMenuSetting">설정</string>
     <string name="mainCardListGlobalSummary">전세계 현황</string>
-    <string name="mainCardListMostInfected">국가별</string>
+    <string name="mainCardListCountryList">국가별 현황</string>
     <string name="mainCardAdd">새 카드를 추가하세요.</string>
 </resources>

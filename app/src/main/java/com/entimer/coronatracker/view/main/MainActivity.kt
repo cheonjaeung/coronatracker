@@ -8,6 +8,7 @@ import com.entimer.coronatracker.R
 import com.entimer.coronatracker.data.dataclass.CovidData
 import com.entimer.coronatracker.view.main.adapter.MainCardListAdapter
 import com.entimer.coronatracker.view.main.adapter.MainCardListType
+import com.entimer.coronatracker.view.main.adapter.item.CountryListCardItem
 import com.entimer.coronatracker.view.main.adapter.item.MainCardListItem
 import com.entimer.coronatracker.view.main.adapter.item.SummaryCardItem
 import kotlinx.android.synthetic.main.activity_main.*
@@ -56,19 +57,19 @@ class MainActivity: AppCompatActivity(), MainContract.View {
                 null
             )
         )
-        /*
+
         list.add(
             MainCardListItem(
-                MainCardListType.MOST_INFECTED,
+                MainCardListType.COUNTRY_LIST,
                 null,
-                MostInfectedCardItem(
-                    getString(R.string.mainCardListMostInfected),
+                CountryListCardItem(
+                    getString(R.string.mainCardListCountryList),
                     arrayListOf()
                 ),
                 null
             )
         )
-
+        /*
         list.add(
             MainCardListItem(
                 MainCardListType.ADD,
