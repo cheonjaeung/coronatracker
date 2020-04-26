@@ -1,7 +1,6 @@
 package com.entimer.coronatracker.view.main.adapter
 
 import android.content.Context
-import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -92,9 +91,9 @@ class MainCardListAdapter(initData: ArrayList<MainCardListItem>): RecyclerView.A
 
                     val data = PieData(dataSet)
                     data.setValueFormatter(PercentFormatter(holder.pieChart))
-                    data.setValueTextSize(14f)
+                    data.setValueTextSize(16f)
                     data.setValueTextColor(context.resources.getColor(R.color.colorText))
-                    val quicksand = ResourcesCompat.getFont(context, R.font.quicksand_medium)
+                    val quicksand = ResourcesCompat.getFont(context, R.font.dongurami)
                     data.setValueTypeface(quicksand)
 
                     holder.pieChart.data = data
@@ -123,16 +122,12 @@ class MainCardListAdapter(initData: ArrayList<MainCardListItem>): RecyclerView.A
 
     inner class SummaryCardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val title = itemView.findViewById<TextView>(R.id.summaryCardTitle)!!
-        val detailButton = itemView.findViewById<ImageButton>(R.id.summaryCardDetailButton)!!
         val confirmed = itemView.findViewById<TextView>(R.id.summaryCardConfirmed)!!
         val actives = itemView.findViewById<TextView>(R.id.summaryCardActive)!!
         val recovered = itemView.findViewById<TextView>(R.id.summaryCardRecovered)!!
         val deaths = itemView.findViewById<TextView>(R.id.summaryCardDeaths)!!
         val pieChart = itemView.findViewById<PieChart>(R.id.summaryCardPieChart)!!
-        val lineChart = itemView.findViewById<LineChart>(R.id.summaryCardLineChart)!!
         val updatedTime = itemView.findViewById<TextView>(R.id.summaryCardUpdatedTime)!!
-        val chartButton = itemView.findViewById<ImageButton>(R.id.summaryCardChartButton)!!
-        val mapButton = itemView.findViewById<ImageButton>(R.id.summaryCardMapButton)!!
 
         init {
             pieChart.description.isEnabled = false
