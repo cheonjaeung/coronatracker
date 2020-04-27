@@ -29,10 +29,6 @@ class MainActivity: AppCompatActivity(), MainContract.View {
         list.layoutManager = LinearLayoutManager(applicationContext)
     }
 
-    override fun onBackPressed() {
-        finishAffinity()
-    }
-
     override fun setList(list: ArrayList<Int>) {
         adapter.updateList(list)
     }

@@ -8,8 +8,7 @@ class MainPresenter(context: Context, view: MainContract.View): MainContract.Pre
 
     override fun getList() {
         view.setList(arrayListOf(
-            MainCardListAdapter.GLOBAL_SUMMARY,
-            MainCardListAdapter.COUNTRY_SUMMARY
+            MainCardListAdapter.GLOBAL_SUMMARY
         ))
     }
 }
