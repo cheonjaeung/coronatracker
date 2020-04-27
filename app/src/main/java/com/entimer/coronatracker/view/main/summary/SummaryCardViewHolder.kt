@@ -2,6 +2,8 @@ package com.entimer.coronatracker.view.main.summary
 
 import android.content.Context
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +25,7 @@ class SummaryCardViewHolder(context: Context, country: String, itemView: View): 
     private val presenter = SummaryCardPresenter(this)
 
     val title = itemView.findViewById<TextView>(R.id.summaryCardTitle)!!
+    val refresh = itemView.findViewById<ImageButton>(R.id.summaryCardRefreshButton)!!
     val confirmed = itemView.findViewById<TextView>(R.id.summaryCardConfirmed)!!
     val actives = itemView.findViewById<TextView>(R.id.summaryCardActive)!!
     val recovered = itemView.findViewById<TextView>(R.id.summaryCardRecovered)!!
@@ -31,6 +34,12 @@ class SummaryCardViewHolder(context: Context, country: String, itemView: View): 
     val updatedTime = itemView.findViewById<TextView>(R.id.summaryCardUpdatedTime)!!
 
     init {
+        refresh.setOnClickListener {
+            startUpdateView()
+            val animation = AnimationUtils.loadAnimation(context, R.anim.animation_refresh)
+            refresh.startAnimation(animation)
+        }
+
         pieChart.description.isEnabled = false
         pieChart.setExtraOffsets(5f, 5f, 5f, 5f)
         pieChart.setUsePercentValues(true)

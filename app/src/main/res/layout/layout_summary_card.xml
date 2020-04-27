@@ -25,6 +25,13 @@
             android:textSize="20sp"
             android:fontFamily="@font/dongurami"/>
 
+        <ImageButton
+            android:id="@+id/summaryCardRefreshButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon_refresh"
+            android:background="@android:color/transparent"/>
+
     </LinearLayout>
 
     <LinearLayout
