@@ -12,15 +12,16 @@ fun apiRecentData2RecentEntry(data: ApiRecentData): RecentEntity {
     val recovered = data.recovered.value
     val deaths = data.deaths.value
     val actives = confirmed - recovered - deaths
-    return RecentEntity(
-        0,
-        time,
-        "recent",
-        confirmed,
-        actives,
-        recovered,
-        deaths
-    )
+    return RecentEntity(0, time, "recent", confirmed, actives, recovered, deaths)
+}
+
+fun apiRecentData2CovidData(data: ApiRecentData): CovidData {
+    val time = data.lastUpdate
+    val confirmed = data.confirmed.value
+    val recovered = data.recovered.value
+    val deaths = data.deaths.value
+    val actives = confirmed - recovered - deaths
+    return CovidData(time, "Global", confirmed, actives, recovered, deaths)
 }
 
 fun recentEntry2CovidData(data: RecentEntity): CovidData {
