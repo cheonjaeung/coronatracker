@@ -9,9 +9,12 @@
     <string name="deaths">사망</string>
 
     <!-- Main View -->
-    <string name="mainToolbarTitle">CoronaTracker</string>
+    <string name="mainToolbarTitle">코로나트래커</string>
     <string name="mainToolbarMenuSetting">설정</string>
     <string name="mainCardListGlobalSummary">전세계</string>
     <string name="mainCardListCountryList">국가 목록</string>
     <string name="mainCardAdd">새 카드를 추가하세요.</string>
+
+    <!-- Add Card View -->
+    <string name="addCardToolbarTitle">카드 추가</string>
 </resources>

@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
+import com.entimer.coronatracker.view.main.add.AddCardViewHolder
 import com.entimer.coronatracker.view.main.summary.SummaryCardViewHolder
 import java.lang.RuntimeException
 
 class MainCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
-        const val SUMMARY = 0
+        const val ADD = 0
+        const val SUMMARY = 1
     }
 
     private var items = ArrayList<MainCardListItem>()
@@ -25,6 +27,10 @@ class MainCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         val view: View?
 
         return when(viewType) {
+            ADD -> {
+                view = inflater.inflate(R.layout.layout_add_card, parent, false)
+                AddCardViewHolder(context, view)
+            }
             SUMMARY -> {
                 view = inflater.inflate(R.layout.layout_summary_card, parent, false)
                 SummaryCardViewHolder(context, view)

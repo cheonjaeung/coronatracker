@@ -24,14 +24,14 @@ class SummaryCardViewHolder(context: Context, itemView: View): RecyclerView.View
     private lateinit var option: String
     private val presenter = SummaryCardPresenter(this)
 
-    val title = itemView.findViewById<TextView>(R.id.summaryCardTitle)!!
-    val refresh = itemView.findViewById<ImageButton>(R.id.summaryCardRefreshButton)!!
-    val confirmed = itemView.findViewById<TextView>(R.id.summaryCardConfirmed)!!
-    val actives = itemView.findViewById<TextView>(R.id.summaryCardActive)!!
-    val recovered = itemView.findViewById<TextView>(R.id.summaryCardRecovered)!!
-    val deaths = itemView.findViewById<TextView>(R.id.summaryCardDeaths)!!
-    val pieChart = itemView.findViewById<PieChart>(R.id.summaryCardPieChart)!!
-    val updatedTime = itemView.findViewById<TextView>(R.id.summaryCardUpdatedTime)!!
+    private val title = itemView.findViewById<TextView>(R.id.summaryCardTitle)
+    private val refresh = itemView.findViewById<ImageButton>(R.id.summaryCardRefreshButton)
+    private val confirmed = itemView.findViewById<TextView>(R.id.summaryCardConfirmed)
+    private val actives = itemView.findViewById<TextView>(R.id.summaryCardActive)
+    private val recovered = itemView.findViewById<TextView>(R.id.summaryCardRecovered)
+    private val deaths = itemView.findViewById<TextView>(R.id.summaryCardDeaths)
+    private val pieChart = itemView.findViewById<PieChart>(R.id.summaryCardPieChart)
+    private val updatedTime = itemView.findViewById<TextView>(R.id.summaryCardUpdatedTime)
 
     init {
         refresh.setOnClickListener {

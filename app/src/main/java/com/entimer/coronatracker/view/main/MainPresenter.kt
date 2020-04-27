@@ -8,10 +8,14 @@ class MainPresenter(context: Context, view: MainContract.View): MainContract.Pre
     private val view = view
 
     override fun getList() {
-        view.setList(arrayListOf(
-            MainCardListItem(MainCardListAdapter.SUMMARY, SummaryCardViewHolder.GLOBAL),
-            MainCardListItem(MainCardListAdapter.SUMMARY, "South Korea"),
-            MainCardListItem(MainCardListAdapter.SUMMARY, "USA")
-        ))
+        val list = arrayListOf(
+            MainCardListItem(MainCardListAdapter.SUMMARY, SummaryCardViewHolder.GLOBAL)
+        )
+
+        list.add(getAddCard())
+
+        view.setList(list)
     }
+
+    private fun getAddCard(): MainCardListItem = MainCardListItem(MainCardListAdapter.ADD, "")
 }
