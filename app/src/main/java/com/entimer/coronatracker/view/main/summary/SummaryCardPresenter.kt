@@ -1,7 +1,7 @@
 package com.entimer.coronatracker.view.main.summary
 
-import com.entimer.coronatracker.data.dataclass.ApiCountryData
-import com.entimer.coronatracker.data.dataclass.ApiRecentData
+import com.entimer.coronatracker.util.api.ApiCountryData
+import com.entimer.coronatracker.util.api.ApiRecentData
 import com.entimer.coronatracker.util.api.CovidApiService
 import com.entimer.coronatracker.util.apiCountryData2CovidData
 import com.entimer.coronatracker.util.apiRecentData2CovidData

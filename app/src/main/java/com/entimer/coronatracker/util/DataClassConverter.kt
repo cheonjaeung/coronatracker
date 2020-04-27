@@ -1,7 +1,7 @@
 package com.entimer.coronatracker.util
 
-import com.entimer.coronatracker.data.dataclass.ApiCountryData
-import com.entimer.coronatracker.data.dataclass.ApiRecentData
+import com.entimer.coronatracker.util.api.ApiCountryData
+import com.entimer.coronatracker.util.api.ApiRecentData
 import com.entimer.coronatracker.data.dataclass.CovidData
 
 fun apiRecentData2CovidData(data: ApiRecentData): CovidData {

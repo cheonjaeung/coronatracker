@@ -29,7 +29,7 @@ class MainActivity: AppCompatActivity(), MainContract.View {
         list.layoutManager = LinearLayoutManager(applicationContext)
     }
 
-    override fun setList(list: ArrayList<Int>) {
+    override fun setList(list: ArrayList<MainCardListItem>) {
         adapter.updateList(list)
     }
 }

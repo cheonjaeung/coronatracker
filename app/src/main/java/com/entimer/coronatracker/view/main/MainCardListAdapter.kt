@@ -11,16 +11,13 @@ import java.lang.RuntimeException
 
 class MainCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
-        const val GLOBAL_SUMMARY = 0
-        const val COUNTRY_SUMMARY = 1
+        const val SUMMARY = 0
     }
 
-    private var items = ArrayList<Int>()
+    private var items = ArrayList<MainCardListItem>()
     private lateinit var context: Context
 
-    override fun getItemViewType(position: Int): Int {
-        return items[position]
-    }
+    override fun getItemViewType(position: Int): Int = items[position].viewType
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         context = parent.context
@@ -28,13 +25,9 @@ class MainCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         val view: View?
 
         return when(viewType) {
-            GLOBAL_SUMMARY -> {
+            SUMMARY -> {
                 view = inflater.inflate(R.layout.layout_summary_card, parent, false)
-                SummaryCardViewHolder(context, SummaryCardViewHolder.GLOBAL, view)
-            }
-            COUNTRY_SUMMARY -> {
-                view = inflater.inflate(R.layout.layout_summary_card, parent, false)
-                SummaryCardViewHolder(context, "South Korea", view)
+                SummaryCardViewHolder(context, view)
             }
             else -> {
                 throw RuntimeException("Incorrect view type!")
@@ -45,15 +38,15 @@ class MainCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(items[position]) {
-            GLOBAL_SUMMARY, COUNTRY_SUMMARY -> {
+        when(items[position].viewType) {
+            SUMMARY -> {
                 holder as SummaryCardViewHolder
-                holder.startUpdateView()
+                holder.startUpdateView(items[position].option)
             }
         }
     }
 
-    fun updateList(data: ArrayList<Int>) {
+    fun updateList(data: ArrayList<MainCardListItem>) {
         items = data
         notifyDataSetChanged()
     }

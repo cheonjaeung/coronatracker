@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.data.dataclass
+package com.entimer.coronatracker.util.api
 
 data class ApiCountryData(
     val confirmed: ApiCountryDataValue,

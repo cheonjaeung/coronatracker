@@ -4,7 +4,7 @@ import com.entimer.coronatracker.data.dataclass.CovidData
 
 interface SummaryCardContract {
     interface View {
-        fun startUpdateView()
+        fun startUpdateView(option: String)
         fun updateView(data: CovidData)
     }
 

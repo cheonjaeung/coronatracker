@@ -15,13 +15,13 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 
-class SummaryCardViewHolder(context: Context, country: String, itemView: View): RecyclerView.ViewHolder(itemView), SummaryCardContract.View {
+class SummaryCardViewHolder(context: Context, itemView: View): RecyclerView.ViewHolder(itemView), SummaryCardContract.View {
     companion object {
         const val GLOBAL = "Global"
     }
 
     private val context = context
-    private val country = country
+    private lateinit var option: String
     private val presenter = SummaryCardPresenter(this)
 
     val title = itemView.findViewById<TextView>(R.id.summaryCardTitle)!!
@@ -35,7 +35,7 @@ class SummaryCardViewHolder(context: Context, country: String, itemView: View): 
 
     init {
         refresh.setOnClickListener {
-            startUpdateView()
+            startUpdateView(option)
             val animation = AnimationUtils.loadAnimation(context, R.anim.animation_refresh)
             refresh.startAnimation(animation)
         }
@@ -49,14 +49,16 @@ class SummaryCardViewHolder(context: Context, country: String, itemView: View): 
         pieChart.legend.isEnabled = false
     }
 
-    override fun startUpdateView() {
-        if(country == GLOBAL) {
+    override fun startUpdateView(option: String) {
+        this.option = option
+
+        if(option == GLOBAL) {
             presenter.getGlobalData()
             title.text = context.getString(R.string.mainCardListGlobalSummary)
         }
         else {
-            presenter.getCountryData(country)
-            title.text = country
+            presenter.getCountryData(option)
+            title.text = option
         }
     }
 

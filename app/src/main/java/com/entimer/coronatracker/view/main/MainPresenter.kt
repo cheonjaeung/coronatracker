@@ -1,6 +1,7 @@
 package com.entimer.coronatracker.view.main
 
 import android.content.Context
+import com.entimer.coronatracker.view.main.summary.SummaryCardViewHolder
 
 class MainPresenter(context: Context, view: MainContract.View): MainContract.Presenter {
     private val context = context
@@ -8,8 +9,9 @@ class MainPresenter(context: Context, view: MainContract.View): MainContract.Pre
 
     override fun getList() {
         view.setList(arrayListOf(
-            MainCardListAdapter.GLOBAL_SUMMARY,
-            MainCardListAdapter.COUNTRY_SUMMARY
+            MainCardListItem(MainCardListAdapter.SUMMARY, SummaryCardViewHolder.GLOBAL),
+            MainCardListItem(MainCardListAdapter.SUMMARY, "South Korea"),
+            MainCardListItem(MainCardListAdapter.SUMMARY, "USA")
         ))
     }
 }
