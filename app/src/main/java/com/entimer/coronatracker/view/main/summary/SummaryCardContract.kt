@@ -10,6 +10,6 @@ interface SummaryCardContract {
 
     interface Presenter {
         fun getGlobalData()
-        fun getCountryData()
+        fun getCountryData(country: String)
     }
 }

@@ -55,7 +55,7 @@ class SummaryCardViewHolder(context: Context, country: String, itemView: View): 
             title.text = context.getString(R.string.mainCardListGlobalSummary)
         }
         else {
-            presenter.getCountryData()
+            presenter.getCountryData(country)
             title.text = country
         }
     }

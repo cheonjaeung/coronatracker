@@ -1,11 +1,13 @@
 package com.entimer.coronatracker.data.dataclass
 
 data class ApiCountryData(
-    val countries: ArrayList<ApiCountryDataCountry>
+    val confirmed: ApiCountryDataValue,
+    val recovered: ApiCountryDataValue,
+    val deaths: ApiCountryDataValue,
+    val lastUpdate: String
 )
 
-data class ApiCountryDataCountry(
-    val name: String,
-    val iso2: String?,
-    val iso3: String?
+data class ApiCountryDataValue(
+    val value: Int,
+    val detail: String
 )

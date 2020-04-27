@@ -34,7 +34,7 @@ class MainCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             COUNTRY_SUMMARY -> {
                 view = inflater.inflate(R.layout.layout_summary_card, parent, false)
-                SummaryCardViewHolder(context, "Test", view)
+                SummaryCardViewHolder(context, "South Korea", view)
             }
             else -> {
                 throw RuntimeException("Incorrect view type!")
