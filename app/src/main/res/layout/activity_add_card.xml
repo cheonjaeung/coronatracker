@@ -13,15 +13,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:navigationIcon="@drawable/icon_back"
-        app:menu="@menu/menu_main_toolbar">
+        app:menu="@menu/menu_add_card_toolbar">
 
         <TextView
+            android:id="@+id/addCardToolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/addCardToolbarTitle"
             android:textSize="24sp"
             android:fontFamily="@font/dongurami"/>
 
+        <EditText
+            android:id="@+id/addCardSearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/addCardSearchBarHint"
+            android:textSize="24sp"
+            android:fontFamily="@font/dongurami"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:visibility="gone"/>
+
     </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/addCardCountryList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="8dp"/>
 
 </LinearLayout>

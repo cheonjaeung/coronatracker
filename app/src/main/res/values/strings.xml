@@ -17,4 +17,6 @@
 
     <!-- Add Card View -->
     <string name="addCardToolbarTitle">카드 추가</string>
+    <string name="addCardSearchBarHint">국가를 찾아보세요</string>
+    <string name="addCardSearchButton">검색</string>
 </resources>

@@ -10,4 +10,7 @@ interface CovidApi {
 
     @GET("api/countries/{country}")
     fun getCountriesData(@Path("country")country: String): Call<ApiCountryData>
+
+    @GET("api/countries")
+    fun getCountriesList(): Call<ApiCountryListData>
 }
