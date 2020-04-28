@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.view.main.add.addcard
+package com.entimer.coronatracker.view.main.add.newcard
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
 import com.entimer.coronatracker.data.dataclass.CountryData
 
-class AddCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NewCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items = ArrayList<CountryData>()
     private lateinit var context: Context
 

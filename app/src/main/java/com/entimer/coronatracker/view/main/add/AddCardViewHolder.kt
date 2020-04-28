@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
-import com.entimer.coronatracker.view.main.add.addcard.AddCardActivity
+import com.entimer.coronatracker.view.main.add.newcard.NewCardActivity
 
 class AddCardViewHolder(context: Context, itemView: View): RecyclerView.ViewHolder(itemView) {
     private val context = context
@@ -15,7 +15,7 @@ class AddCardViewHolder(context: Context, itemView: View): RecyclerView.ViewHold
 
     init {
         cardLayout.setOnClickListener {
-            val intent = Intent(context, AddCardActivity::class.java)
+            val intent = Intent(context, NewCardActivity::class.java)
             context.startActivity(intent)
         }
     }

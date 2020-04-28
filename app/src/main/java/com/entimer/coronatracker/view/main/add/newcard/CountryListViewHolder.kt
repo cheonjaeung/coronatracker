@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.view.main.add.addcard
+package com.entimer.coronatracker.view.main.add.newcard
 
 import android.view.View
 import android.widget.TextView

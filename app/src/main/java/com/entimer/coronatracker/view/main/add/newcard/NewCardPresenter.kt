@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.view.main.add.addcard
+package com.entimer.coronatracker.view.main.add.newcard
 
 import com.entimer.coronatracker.data.dataclass.CountryData
 import com.entimer.coronatracker.util.api.ApiCountryListData
@@ -8,7 +8,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AddCardPresenter(view: AddCardContract.View): AddCardContract.Presenter {
+class NewCardPresenter(view: NewCardContract.View): NewCardContract.Presenter {
     private val view = view
 
     override fun getCountryList() {
@@ -23,6 +23,7 @@ class AddCardPresenter(view: AddCardContract.View): AddCardContract.Presenter {
                     }
 
                     view.allCountries = data
+                    view.setList(data)
                 }
 
                 else {

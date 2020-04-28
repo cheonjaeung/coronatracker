@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.main.MainActivity"/>
-        <activity android:name=".view.main.add.addcard.AddCardActivity"/>
+        <activity android:name=".view.main.add.newcard.NewCardActivity"/>
     </application>
 
 </manifest>
