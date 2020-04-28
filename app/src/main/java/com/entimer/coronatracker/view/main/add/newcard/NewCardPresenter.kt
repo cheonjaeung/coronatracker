@@ -1,39 +1,40 @@
 package com.entimer.coronatracker.view.main.add.newcard
 
+import android.content.Context
 import com.entimer.coronatracker.data.dataclass.CountryData
-import com.entimer.coronatracker.util.api.ApiCountryListData
-import com.entimer.coronatracker.util.api.CovidApiService
-import com.entimer.coronatracker.util.apiCountryListDataCountry2CountryData
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.entimer.coronatracker.data.room.CoronaTrackerRoom
+import com.entimer.coronatracker.util.countryEntity2CountryData
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class NewCardPresenter(view: NewCardContract.View): NewCardContract.Presenter {
     private val view = view
 
-    override fun getCountryList() {
-        CovidApiService.getService().getCountriesList().enqueue(object: Callback<ApiCountryListData> {
-            override fun onResponse(call: Call<ApiCountryListData>, response: Response<ApiCountryListData>) {
-                if(response.isSuccessful) {
-                    val apiData = response.body()!!
-                    val data = ArrayList<CountryData>()
+    override fun getCountryList(context: Context, keyword: String) {
+        GlobalScope.launch(Dispatchers.Main) {
+            val data = ArrayList<CountryData>()
 
-                    for(item in apiData.countries) {
-                        data.add(apiCountryListDataCountry2CountryData(item))
+            val getData = async(Dispatchers.IO) {
+                try {
+                    val db = CoronaTrackerRoom.getDatabase(context)
+                    val entities = db.countryDao().select("%$keyword%")
+                    for(entity in entities) {
+                        data.add(countryEntity2CountryData(entity))
                     }
-
-                    view.allCountries = data
-                    view.setList(data)
+                    true
                 }
-
-                else {
-
+                catch(e: Exception) {
+                    e.printStackTrace()
+                    false
                 }
             }
 
-            override fun onFailure(call: Call<ApiCountryListData>, t: Throwable) {
-
+            if(getData.await()) {
+                view.setList(data)
             }
-        })
+        }
     }
 }

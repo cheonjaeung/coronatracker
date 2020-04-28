@@ -12,8 +12,6 @@ import kotlinx.android.synthetic.main.activity_new_card.*
 class NewCardActivity : AppCompatActivity(), NewCardContract.View {
     private lateinit var presenter: NewCardPresenter
 
-    override var allCountries =  ArrayList<CountryData>()
-
     private var isSearching = false
     private lateinit var adapter: NewCardListAdapter
 
@@ -25,7 +23,7 @@ class NewCardActivity : AppCompatActivity(), NewCardContract.View {
 
         initViews()
 
-        presenter.getCountryList()
+        presenter.getCountryList(applicationContext, "")
     }
 
     private fun initViews() {
@@ -75,16 +73,7 @@ class NewCardActivity : AppCompatActivity(), NewCardContract.View {
 
     private fun search() {
         val keyword = newCardSearchBar.text.toString()
-        val newList = ArrayList<CountryData>()
-
-        for(country in allCountries) {
-            val countryName = country.name.toLowerCase()
-            val lowerKeyword = keyword.toLowerCase()
-            if(countryName.contains(lowerKeyword))
-                newList.add(country)
-        }
-
-        setList(newList)
+        presenter.getCountryList(applicationContext, keyword)
     }
 
     override fun setList(data: ArrayList<CountryData>) {
