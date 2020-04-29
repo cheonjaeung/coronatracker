@@ -1,6 +1,8 @@
 package com.entimer.coronatracker.view.splash
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,8 +15,25 @@ class SplashActivity: AppCompatActivity(), SplashContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        presenter = SplashPresenter(this)
-        presenter.initCountryList(applicationContext)
+        if(!checkNetwork()) {
+            Toast.makeText(applicationContext, getString(R.string.splashNetwordFailed), Toast.LENGTH_LONG).show()
+            finishAffinity()
+        }
+        else {
+            presenter = SplashPresenter(this)
+            presenter.initCountryList(applicationContext)
+        }
+    }
+
+    private fun checkNetwork(): Boolean {
+        val manager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networdInfo = manager.activeNetworkInfo
+        if(networdInfo != null) {
+            val type = networdInfo.type
+            if(type == ConnectivityManager.TYPE_MOBILE || type == ConnectivityManager.TYPE_WIFI)
+                return true
+        }
+        return false
     }
 
     override fun onInitFinished() {

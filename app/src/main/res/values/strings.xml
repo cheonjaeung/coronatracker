@@ -9,6 +9,7 @@
     <string name="deaths">사망</string>
 
     <!-- Splash View -->
+    <string name="splashNetwordFailed">네트워크에 연결되어 있지 않습니다.</string>
     <string name="splashInitFailed">앱 초기화에 실패했습니다!</string>
 
     <!-- Main View -->
