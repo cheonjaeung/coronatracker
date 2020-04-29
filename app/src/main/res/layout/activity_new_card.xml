@@ -6,26 +6,39 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.main.MainActivity">
+    tools:context=".view.main.add.newcard.NewCardActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/mainToolbar"
+        android:id="@+id/newCardToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:navigationIcon="@drawable/icon_logo"
-        app:menu="@menu/menu_main_toolbar">
+        app:navigationIcon="@drawable/icon_back"
+        app:menu="@menu/menu_add_card_toolbar">
 
         <TextView
+            android:id="@+id/newCardToolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/mainToolbarTitle"
+            android:text="@string/newCardToolbarTitle"
             android:textSize="24sp"
             android:fontFamily="@font/dongurami"/>
+
+        <EditText
+            android:id="@+id/newCardSearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/newCardSearchBarHint"
+            android:textSize="24sp"
+            android:fontFamily="@font/dongurami"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:visibility="gone"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mainCardList"
+        android:id="@+id/newCardCountryList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

@@ -13,4 +13,7 @@ interface CountryDao {
 
     @Delete
     fun delete(data: CountryEntity)
+
+    @Query("SELECT * FROM country WHERE name LIKE (:keyword)")
+    fun select(keyword: String): List<CountryEntity>
 }

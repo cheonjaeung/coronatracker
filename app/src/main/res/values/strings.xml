@@ -8,10 +8,21 @@
     <string name="recovered">회복</string>
     <string name="deaths">사망</string>
 
+    <!-- Splash View -->
+    <string name="splashNetwordFailed">네트워크에 연결되어 있지 않습니다.</string>
+    <string name="splashInitFailed">앱 초기화에 실패했습니다!</string>
+
     <!-- Main View -->
-    <string name="mainToolbarTitle">CoronaTracker</string>
+    <string name="mainToolbarTitle">코로나트래커</string>
     <string name="mainToolbarMenuSetting">설정</string>
     <string name="mainCardListGlobalSummary">전세계</string>
     <string name="mainCardListCountryList">국가 목록</string>
     <string name="mainCardAdd">새 카드를 추가하세요.</string>
+    <string name="mainCardRemovedMessage">카드가 제거되었습니다.</string>
+
+    <!-- New Card View -->
+    <string name="newCardToolbarTitle">새 카드</string>
+    <string name="newCardSearchBarHint">국가를 찾아보세요</string>
+    <string name="newCardSearchButton">검색</string>
+    <string name="newCardAddedMessage">카드가 추가되었습니다.</string>
 </resources>

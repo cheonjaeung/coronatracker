@@ -6,6 +6,9 @@
     <a href="https://www.android.com/"><img alt="Android" src="https://img.shields.io/badge/Android-21%2B-green?logo=android"></img></a>
 </p>
 
+## Preview
+![](https://github.com/entimer/CoronaTracker/blob/master/images/preview.jpg)
+
 ## Features
 - **Recent Data**: Shows recent data based on API.
 - **Chart**: Show data with pie chart.

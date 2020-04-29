@@ -1,92 +1,60 @@
 package com.entimer.coronatracker.view.splash
 
 import android.content.Context
-import com.entimer.coronatracker.data.dataclass.ApiCountryData
-import com.entimer.coronatracker.data.dataclass.ApiRecentData
+import android.util.Log
 import com.entimer.coronatracker.data.room.CoronaTrackerRoom
+import com.entimer.coronatracker.util.SharedPreferencesUtil
+import com.entimer.coronatracker.util.api.ApiCountryListData
+import com.entimer.coronatracker.util.api.ApiCountryListDataCountry
 import com.entimer.coronatracker.util.api.CovidApiService
-import com.entimer.coronatracker.util.apiCountryData2CountryEntity
-import com.entimer.coronatracker.util.apiRecentData2RecentEntry
-import kotlinx.coroutines.*
+import com.entimer.coronatracker.util.apiCountryListDataCountry2CountryEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.Exception
 
-class SplashPresenter(context: Context, view: SplashContract.View): SplashContract.Presenter {
-    private val context = context
+class SplashPresenter(view: SplashContract.View): SplashContract.Presenter {
     private val view = view
 
-    private val apiService = CovidApiService.getService()
-    private val db = CoronaTrackerRoom.getDatabase(context)
-
-    override fun getRecentData() {
-        apiService.getRecentData().enqueue(object: Callback<ApiRecentData> {
-            override fun onResponse(call: Call<ApiRecentData>, response: Response<ApiRecentData>) {
-                if(response.isSuccessful) {
-                    val apiData = response.body()!!
-                    setRecentData(apiData)
+    override fun initCountryList(context: Context) {
+        val sf = SharedPreferencesUtil(context)
+        if(sf.getBoolean(SharedPreferencesUtil.KEY_COUNTRY_LIST_INITIALIZED, SharedPreferencesUtil.DEFAULT_COUNTRY_LIST_INITIALIZED)) {
+            view.onInitFinished()
+        }
+        else {
+            CovidApiService.getService().getCountriesList().enqueue(object: Callback<ApiCountryListData> {
+                override fun onResponse(call: Call<ApiCountryListData>, response: Response<ApiCountryListData>) {
+                    if(response.isSuccessful) {
+                        val apiData = response.body()!!
+                        saveCountryList(context, apiData.countries)
+                    }
+                    else {
+                        view.onInitFailed()
+                    }
                 }
-                else {
-                    view.onFailure()
-                }
-            }
 
-            override fun onFailure(call: Call<ApiRecentData>, t: Throwable) {
-                view.onFailure()
-            }
-        })
-    }
-
-    override fun setRecentData(data: ApiRecentData) {
-        GlobalScope.launch(Dispatchers.Main) {
-            val save = async(Dispatchers.IO) {
-                try {
-                    db.recentDao().insert(apiRecentData2RecentEntry(data))
-                    true
+                override fun onFailure(call: Call<ApiCountryListData>, t: Throwable) {
+                    t.printStackTrace()
+                    view.onInitFailed()
                 }
-                catch(e: Exception) {
-                    e.printStackTrace()
-                    false
-                }
-            }
-
-            if(save.await()) {
-                view.isRecentDataFinished = true
-                view.onSuccess()
-            }
-            else {
-                view.onFailure()
-            }
+            })
         }
     }
 
-    override fun getCountryData() {
-        apiService.getCountriesData().enqueue(object: Callback<ApiCountryData> {
-            override fun onResponse(call: Call<ApiCountryData>, response: Response<ApiCountryData>) {
-                if(response.isSuccessful) {
-                    val apiData = response.body()!!
-                    setCountryData(apiData)
-                }
-                else {
-                    view.onFailure()
-                }
-            }
-
-            override fun onFailure(call: Call<ApiCountryData>, t: Throwable) {
-                view.onFailure()
-            }
-        })
-    }
-
-    override fun setCountryData(data: ApiCountryData) {
+    private fun saveCountryList(context: Context, data: ArrayList<ApiCountryListDataCountry>) {
+        Log.d("test", "$data")
         GlobalScope.launch(Dispatchers.Main) {
             val save = async(Dispatchers.IO) {
                 try {
-                    val dataList = apiCountryData2CountryEntity(data)
-                    for(item in dataList) {
-                        db.countryDao().insert(item)
-                    }
+                    val db = CoronaTrackerRoom.getDatabase(context)
+
+                    for(item in data)
+                        db.countryDao().insert(apiCountryListDataCountry2CountryEntity(item))
+
                     true
                 }
                 catch(e: Exception) {
@@ -96,11 +64,12 @@ class SplashPresenter(context: Context, view: SplashContract.View): SplashContra
             }
 
             if(save.await()) {
-                view.isCountryDataFinished = true
-                view.onSuccess()
+                val sf = SharedPreferencesUtil(context)
+                sf.setBoolean(SharedPreferencesUtil.KEY_COUNTRY_LIST_INITIALIZED, true)
+                view.onInitFinished()
             }
             else {
-                view.onFailure()
+                view.onInitFailed()
             }
         }
     }
