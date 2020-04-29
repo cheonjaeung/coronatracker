@@ -17,9 +17,11 @@
     <string name="mainCardListGlobalSummary">전세계</string>
     <string name="mainCardListCountryList">국가 목록</string>
     <string name="mainCardAdd">새 카드를 추가하세요.</string>
+    <string name="mainCardRemovedMessage">카드가 제거되었습니다.</string>
 
     <!-- New Card View -->
     <string name="newCardToolbarTitle">새 카드</string>
     <string name="newCardSearchBarHint">국가를 찾아보세요</string>
     <string name="newCardSearchButton">검색</string>
+    <string name="newCardAddedMessage">카드가 추가되었습니다.</string>
 </resources>

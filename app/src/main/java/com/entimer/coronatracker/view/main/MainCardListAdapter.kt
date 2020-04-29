@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
 import com.entimer.coronatracker.view.main.add.AddCardViewHolder
@@ -48,6 +50,24 @@ class MainCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             SUMMARY -> {
                 holder as SummaryCardViewHolder
                 holder.startUpdateView(items[position].option)
+
+                holder.refresh.setOnClickListener {
+                    holder.startUpdateView(items[position].option)
+                    val animation = AnimationUtils.loadAnimation(context, R.anim.animation_refresh)
+                    holder.refresh.startAnimation(animation)
+                }
+
+                holder.remove.setOnClickListener {
+                    holder.presenter.removeCard(context, items[position].option)
+                    items.remove(MainCardListItem(items[position].viewType, items[position].option))
+                    notifyDataSetChanged()
+                    Toast.makeText(context, context.getString(R.string.mainCardRemovedMessage), Toast.LENGTH_LONG).show()
+                }
+
+                if(items[position].option == SummaryCardViewHolder.GLOBAL)
+                    holder.remove.visibility = View.GONE
+                else
+                    holder.remove.visibility = View.VISIBLE
             }
         }
     }

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
@@ -22,10 +23,11 @@ class SummaryCardViewHolder(context: Context, itemView: View): RecyclerView.View
 
     private val context = context
     private lateinit var option: String
-    private val presenter = SummaryCardPresenter(this)
+    val presenter = SummaryCardPresenter(this)
 
     private val title = itemView.findViewById<TextView>(R.id.summaryCardTitle)
-    private val refresh = itemView.findViewById<ImageButton>(R.id.summaryCardRefreshButton)
+    val refresh = itemView.findViewById<ImageButton>(R.id.summaryCardRefreshButton)
+    val remove = itemView.findViewById<ImageButton>(R.id.summaryCardRemoveButton)
     private val confirmed = itemView.findViewById<TextView>(R.id.summaryCardConfirmed)
     private val actives = itemView.findViewById<TextView>(R.id.summaryCardActive)
     private val recovered = itemView.findViewById<TextView>(R.id.summaryCardRecovered)
@@ -34,12 +36,6 @@ class SummaryCardViewHolder(context: Context, itemView: View): RecyclerView.View
     private val updatedTime = itemView.findViewById<TextView>(R.id.summaryCardUpdatedTime)
 
     init {
-        refresh.setOnClickListener {
-            startUpdateView(option)
-            val animation = AnimationUtils.loadAnimation(context, R.anim.animation_refresh)
-            refresh.startAnimation(animation)
-        }
-
         pieChart.description.isEnabled = false
         pieChart.setExtraOffsets(5f, 5f, 5f, 5f)
         pieChart.setUsePercentValues(true)
@@ -50,8 +46,6 @@ class SummaryCardViewHolder(context: Context, itemView: View): RecyclerView.View
     }
 
     override fun startUpdateView(option: String) {
-        this.option = option
-
         if(option == GLOBAL) {
             presenter.getGlobalData()
             title.text = context.getString(R.string.mainCardListGlobalSummary)

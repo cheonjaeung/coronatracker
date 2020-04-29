@@ -1,10 +1,14 @@
 package com.entimer.coronatracker.view.main.summary
 
+import android.content.Context
+import com.entimer.coronatracker.util.SharedPreferencesUtil
 import com.entimer.coronatracker.util.api.ApiCountryData
 import com.entimer.coronatracker.util.api.ApiRecentData
 import com.entimer.coronatracker.util.api.CovidApiService
 import com.entimer.coronatracker.util.apiCountryData2CovidData
 import com.entimer.coronatracker.util.apiRecentData2CovidData
+import com.entimer.coronatracker.view.main.MainCardListAdapter
+import com.entimer.coronatracker.view.main.MainCardListItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -48,5 +52,12 @@ class SummaryCardPresenter(view: SummaryCardContract.View): SummaryCardContract.
 
             }
         })
+    }
+
+    override fun removeCard(context: Context, option: String) {
+        val sf = SharedPreferencesUtil(context)
+        val cards = sf.getCard()
+        cards.remove(MainCardListItem(MainCardListAdapter.SUMMARY, option))
+        sf.setCard(cards)
     }
 }

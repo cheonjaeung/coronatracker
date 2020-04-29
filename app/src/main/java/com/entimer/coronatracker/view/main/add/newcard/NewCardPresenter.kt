@@ -21,18 +21,17 @@ class NewCardPresenter(view: NewCardContract.View): NewCardContract.Presenter {
                 try {
                     val db = CoronaTrackerRoom.getDatabase(context)
                     val entities = db.countryDao().select("%$keyword%")
-                    for(entity in entities) {
+                    for (entity in entities) {
                         data.add(countryEntity2CountryData(entity))
                     }
                     true
-                }
-                catch(e: Exception) {
+                } catch (e: Exception) {
                     e.printStackTrace()
                     false
                 }
             }
 
-            if(getData.await()) {
+            if (getData.await()) {
                 view.setList(data)
             }
         }

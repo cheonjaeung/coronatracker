@@ -32,6 +32,14 @@
             android:src="@drawable/icon_refresh"
             android:background="@android:color/transparent"/>
 
+        <ImageButton
+            android:id="@+id/summaryCardRemoveButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/icon_remove"
+            android:background="@android:color/transparent"/>
+
     </LinearLayout>
 
     <LinearLayout

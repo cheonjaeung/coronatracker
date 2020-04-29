@@ -22,6 +22,11 @@ class MainActivity: AppCompatActivity(), MainContract.View {
         presenter.getList()
     }
 
+    override fun onResume() {
+        super.onResume()
+        presenter.getList()
+    }
+
     private fun initViews() {
         adapter = MainCardListAdapter()
         val list = findViewById<RecyclerView>(R.id.mainCardList)

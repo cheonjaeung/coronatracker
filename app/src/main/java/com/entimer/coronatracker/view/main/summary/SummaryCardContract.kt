@@ -1,5 +1,6 @@
 package com.entimer.coronatracker.view.main.summary
 
+import android.content.Context
 import com.entimer.coronatracker.data.dataclass.CovidData
 
 interface SummaryCardContract {
@@ -11,5 +12,6 @@ interface SummaryCardContract {
     interface Presenter {
         fun getGlobalData()
         fun getCountryData(country: String)
+        fun removeCard(context: Context, option: String)
     }
 }
