@@ -15,6 +15,7 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
+import java.text.DecimalFormat
 
 class SummaryCardViewHolder(context: Context, itemView: View): RecyclerView.ViewHolder(itemView), SummaryCardContract.View {
     companion object {
@@ -57,10 +58,12 @@ class SummaryCardViewHolder(context: Context, itemView: View): RecyclerView.View
     }
 
     override fun updateView(data: CovidData) {
-        confirmed.text = data.confirmed.toString()
-        actives.text = data.actives.toString()
-        recovered.text = data.recovered.toString()
-        deaths.text = data.deaths.toString()
+        val formatter = DecimalFormat("###,###")
+
+        confirmed.text = formatter.format(data.confirmed)
+        actives.text = formatter.format(data.actives)
+        recovered.text = formatter.format(data.recovered)
+        deaths.text = formatter.format(data.deaths)
 
         updatedTime.text = data.time
 
