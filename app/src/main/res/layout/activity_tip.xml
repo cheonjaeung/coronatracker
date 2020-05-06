@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    tools:context=".view.tip.TipActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/icon_confirmed"
+            android:drawableTint="@color/colorConfirmed"
+            android:drawablePadding="16dp"
+            android:text="@string/tipConfirmed"
+            android:fontFamily="@font/dongurami"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/icon_active"
+            android:drawableTint="@color/colorActive"
+            android:drawablePadding="16dp"
+            android:text="@string/tipActives"
+            android:fontFamily="@font/dongurami"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/icon_recovered"
+            android:drawableTint="@color/colorRecovered"
+            android:drawablePadding="16dp"
+            android:text="@string/tipRecovered"
+            android:fontFamily="@font/dongurami"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/icon_death"
+            android:drawableTint="@color/colorDeath"
+            android:drawablePadding="16dp"
+            android:text="@string/tipDeaths"
+            android:fontFamily="@font/dongurami"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_help"
+            android:drawablePadding="16dp"
+            android:text="@string/tipMessage"
+            android:fontFamily="@font/dongurami"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/tipOkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="@string/tipOkButton"
+        android:fontFamily="@font/dongurami"
+        android:background="@color/colorPrimary"/>
+
+</LinearLayout>

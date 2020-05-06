@@ -1,10 +1,13 @@
 package com.entimer.coronatracker.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
+import com.entimer.coronatracker.view.tip.TipActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: AppCompatActivity(), MainContract.View {
     private lateinit var presenter: MainPresenter
@@ -32,6 +35,15 @@ class MainActivity: AppCompatActivity(), MainContract.View {
         val list = findViewById<RecyclerView>(R.id.mainCardList)
         list.adapter = adapter
         list.layoutManager = LinearLayoutManager(applicationContext)
+
+        mainToolbar.setOnMenuItemClickListener {item ->
+            if(item.itemId == R.id.help) {
+                val intent = Intent(applicationContext, TipActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            false
+        }
     }
 
     override fun setList(list: ArrayList<MainCardListItem>) {

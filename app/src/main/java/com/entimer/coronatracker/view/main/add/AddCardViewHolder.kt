@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.entimer.coronatracker.R
-import com.entimer.coronatracker.view.main.add.newcard.NewCardActivity
+import com.entimer.coronatracker.view.newcard.NewCardActivity
 
 class AddCardViewHolder(context: Context, itemView: View): RecyclerView.ViewHolder(itemView) {
     private val context = context
