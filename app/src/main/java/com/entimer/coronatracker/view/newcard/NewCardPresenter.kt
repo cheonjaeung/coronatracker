@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.view.main.add.newcard
+package com.entimer.coronatracker.view.newcard
 
 import android.content.Context
 import com.entimer.coronatracker.data.dataclass.CountryData
