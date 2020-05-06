@@ -1,6 +1,6 @@
 ## 1.1.0
 - **Added**
-    - **Netword check**: App will check netword when starting.
+    - **Netword check**: App will check network when starting.
     - **Refresh**: Refresh data and show it when refresh button is clicked.
     - **Add card**: Can add country card.
     - **Country card**: Shows specific country data. Can added by 'add card' feature. It also can removed by remove button.
