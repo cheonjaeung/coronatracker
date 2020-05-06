@@ -49,25 +49,28 @@ class MainCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         when(items[position].viewType) {
             SUMMARY -> {
                 holder as SummaryCardViewHolder
-                holder.startUpdateView(items[position].option)
 
-                holder.refresh.setOnClickListener {
-                    holder.startUpdateView(items[position].option)
-                    val animation = AnimationUtils.loadAnimation(context, R.anim.animation_refresh)
-                    holder.refresh.startAnimation(animation)
+                holder.run {
+                    startUpdateView(items[position].option)
+
+                    refresh.setOnClickListener {
+                        holder.startUpdateView(items[position].option)
+                        val animation = AnimationUtils.loadAnimation(context, R.anim.animation_refresh)
+                        holder.refresh.startAnimation(animation)
+                    }
+
+                    remove.setOnClickListener {
+                        holder.presenter.removeCard(context, items[position].option)
+                        items.remove(MainCardListItem(items[position].viewType, items[position].option))
+                        notifyDataSetChanged()
+                        Toast.makeText(context, context.getString(R.string.mainCardRemovedMessage), Toast.LENGTH_LONG).show()
+                    }
+
+                    if(items[position].option == SummaryCardViewHolder.GLOBAL)
+                        remove.visibility = View.GONE
+                    else
+                        remove.visibility = View.VISIBLE
                 }
-
-                holder.remove.setOnClickListener {
-                    holder.presenter.removeCard(context, items[position].option)
-                    items.remove(MainCardListItem(items[position].viewType, items[position].option))
-                    notifyDataSetChanged()
-                    Toast.makeText(context, context.getString(R.string.mainCardRemovedMessage), Toast.LENGTH_LONG).show()
-                }
-
-                if(items[position].option == SummaryCardViewHolder.GLOBAL)
-                    holder.remove.visibility = View.GONE
-                else
-                    holder.remove.visibility = View.VISIBLE
             }
         }
     }

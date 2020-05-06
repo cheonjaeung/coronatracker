@@ -25,4 +25,12 @@
     <string name="newCardSearchBarHint">국가를 찾아보세요</string>
     <string name="newCardSearchButton">검색</string>
     <string name="newCardAddedMessage">카드가 추가되었습니다.</string>
+
+    <!-- Tip View -->
+    <string name="tipConfirmed">총 확진자를 뜻하는 아이콘입니다.</string>
+    <string name="tipActives">현재 양성 판정을 받은 사람을 뜻하는 아이콘입니다.</string>
+    <string name="tipRecovered">회복한 사람을 뜻하는 아이콘입니다.</string>
+    <string name="tipDeaths">사망자를 뜻하는 아이콘입니다.</string>
+    <string name="tipMessage">이 아이콘을 누르면 팁을 볼 수 있습니다.</string>
+    <string name="tipOkButton">확인</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.entimer.coronatracker.view.main.add.newcard
+package com.entimer.coronatracker.view.newcard
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -30,15 +30,18 @@ class NewCardListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder as NewCardListViewHolder
-        holder.title.text = items[position].name
 
-        holder.button.setOnClickListener {
-            val sf = SharedPreferencesUtil(context)
-            val cards = sf.getCard()
-            cards.add(MainCardListItem(MainCardListAdapter.SUMMARY, items[position].name))
-            sf.setCard(cards)
+        holder.run {
+            title.text = items[position].name
 
-            Toast.makeText(context, context.getString(R.string.newCardAddedMessage), Toast.LENGTH_LONG).show()
+            button.setOnClickListener {
+                val sf = SharedPreferencesUtil(context)
+                val cards = sf.getCard()
+                cards.add(MainCardListItem(MainCardListAdapter.SUMMARY, items[position].name))
+                sf.setCard(cards)
+
+                Toast.makeText(context, context.getString(R.string.newCardAddedMessage), Toast.LENGTH_LONG).show()
+            }
         }
     }
 

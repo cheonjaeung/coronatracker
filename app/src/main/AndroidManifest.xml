@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.main.MainActivity"/>
-        <activity android:name=".view.main.add.newcard.NewCardActivity"/>
+        <activity android:name=".view.newcard.NewCardActivity"/>
+        <activity android:name=".view.tip.TipActivity" android:theme="@android:style/Theme.Dialog"/>
     </application>
 
 </manifest>
