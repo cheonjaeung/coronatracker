@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">코로나 트래커</string>
+    <string name="app_name">Corona Tracker</string>
 
     <!-- General -->
-    <string name="confirmed">확진</string>
-    <string name="actives">양성</string>
-    <string name="recovered">회복</string>
-    <string name="deaths">사망</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="actives">Actives</string>
+    <string name="recovered">Recovered</string>
+    <string name="deaths">Deaths</string>
 
     <!-- Splash View -->
-    <string name="splashNetwordFailed">네트워크에 연결되어 있지 않습니다.</string>
-    <string name="splashInitFailed">앱 초기화에 실패했습니다!</string>
+    <string name="splashNetworkFailed">Network is not connected.</string>
+    <string name="splashInitFailed">Application initializing failed.</string>
 
     <!-- Main View -->
-    <string name="mainToolbarTitle">코로나트래커</string>
-    <string name="mainToolbarMenuSetting">설정</string>
-    <string name="mainCardListGlobalSummary">전세계</string>
-    <string name="mainCardListCountryList">국가 목록</string>
-    <string name="mainCardAdd">새 카드를 추가하세요.</string>
-    <string name="mainCardRemovedMessage">카드가 제거되었습니다.</string>
+    <string name="mainToolbarTitle">CoronaTracker</string>
+    <string name="mainToolbarMenuSetting">Setting</string>
+    <string name="mainCardListGlobalSummary">Global</string>
+    <string name="mainCardListCountryList">Country List</string>
+    <string name="mainCardAdd">Add new card.</string>
+    <string name="mainCardRemovedMessage">Card deleted.</string>
 
     <!-- New Card View -->
-    <string name="newCardToolbarTitle">새 카드</string>
-    <string name="newCardSearchBarHint">국가를 찾아보세요</string>
-    <string name="newCardSearchButton">검색</string>
-    <string name="newCardAddedMessage">카드가 추가되었습니다.</string>
+    <string name="newCardToolbarTitle">New Card</string>
+    <string name="newCardSearchBarHint">Search countries.</string>
+    <string name="newCardSearchButton">Search</string>
+    <string name="newCardAddedMessage">New card added.</string>
 
     <!-- Tip View -->
-    <string name="tipConfirmed">총 확진자를 뜻하는 아이콘입니다.</string>
-    <string name="tipActives">현재 양성 판정을 받은 사람을 뜻하는 아이콘입니다.</string>
-    <string name="tipRecovered">회복한 사람을 뜻하는 아이콘입니다.</string>
-    <string name="tipDeaths">사망자를 뜻하는 아이콘입니다.</string>
-    <string name="tipMessage">이 아이콘을 누르면 팁을 볼 수 있습니다.</string>
-    <string name="tipOkButton">확인</string>
+    <string name="tipConfirmed">The icon means total confirmed.</string>
+    <string name="tipActives">The icon means current actives.</string>
+    <string name="tipRecovered">The icon means recovered.</string>
+    <string name="tipDeaths">The icon means deaths.</string>
+    <string name="tipMessage">You can see this tip when you press this icon.</string>
+    <string name="tipOkButton">OK</string>
 </resources>

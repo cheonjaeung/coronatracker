@@ -16,7 +16,7 @@ class SplashActivity: AppCompatActivity(), SplashContract.View {
         super.onCreate(savedInstanceState)
 
         if(!checkNetwork()) {
-            Toast.makeText(applicationContext, getString(R.string.splashNetwordFailed), Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, getString(R.string.splashNetworkFailed), Toast.LENGTH_LONG).show()
             finishAffinity()
         }
         else {
