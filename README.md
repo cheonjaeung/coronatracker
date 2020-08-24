@@ -1,3 +1,5 @@
+<h3 align="center">🏗️ This project is under the HUGE refactoring. Everything can changed. 🏗️</h3>
+
 <p align="center"><img alt="Preview" src="https://github.com/entimer/CoronaTracker/blob/master/images/logo.png"></img></p>
 <p align="center">:microbe: Coronavirus (COVID-19) tracker application for Android.</p>
 <p align="center">
